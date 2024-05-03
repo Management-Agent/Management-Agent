@@ -17,5 +17,6 @@ namespace QuanLyDaiLy
                 return $"{TenThamSo} {GiaTri}";
             }
         }
+        public int MyProperty { get; set; }
     }
 }
