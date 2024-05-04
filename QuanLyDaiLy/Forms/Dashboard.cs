@@ -29,7 +29,7 @@ namespace QuanLyDaiLy
 
         private void newDaiLyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            DataAccess.Instance.hamTest();
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

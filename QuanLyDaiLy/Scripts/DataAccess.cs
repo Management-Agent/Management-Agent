@@ -11,7 +11,28 @@ namespace QuanLyDaiLy
 {
     public class DataAccess
     {
-        IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("DAILY"));
+        public static DataAccess Instance {  get; private set; }
+        public static bool IsInstantiated => Instance != null;
+        public DataAccess() 
+        {
+            if(IsInstantiated && Instance != (DataAccess)this)
+            {
+                Instance = (DataAccess)this;
+                MessageBox.Show("DataAccess thanh cong!");
+                return;
+            }
+            Instance = (DataAccess)this;
+        }
+
+        ~DataAccess() 
+        {
+            if(Instance == (DataAccess)this)
+            {
+                Instance = null;
+            }
+        }
+
+        IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("DAILYDUCDAT"));
         public void themThamSo()
         {
             using (connection)
@@ -26,6 +47,11 @@ namespace QuanLyDaiLy
                 var ouput = connection.Query<ThamSo>($"select * from THAMSO").ToList();
                 return ouput;
             }
+        }
+        public void hamTest()
+        {
+            MessageBox.Show("Test!");
+
         }
     }
 }
