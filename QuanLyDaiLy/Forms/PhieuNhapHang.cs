@@ -38,6 +38,11 @@ namespace QuanLyDaiLy.Forms
             textBoxPNH.Clear();
             textBoxNNH.Clear();
             textBoxTT.Clear();
+            MessageBox.Show("Test");
+        }
+
+        private void PhieuNhapHang_Load(object sender, EventArgs e)
+        {
 
         }
     }

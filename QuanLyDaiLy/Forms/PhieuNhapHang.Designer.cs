@@ -119,6 +119,7 @@
             this.Controls.Add(this.textBoxPNH);
             this.Name = "PhieuNhapHang";
             this.Text = "PhieuNhapHang";
+            this.Load += new System.EventHandler(this.PhieuNhapHang_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
