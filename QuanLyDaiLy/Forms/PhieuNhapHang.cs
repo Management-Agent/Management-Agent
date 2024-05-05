@@ -39,6 +39,7 @@ namespace QuanLyDaiLy.Forms
             textBoxNNH.Clear();
             textBoxTT.Clear();
             MessageBox.Show("Test");
+            MessageBox.Show("Test1");
         }
 
         private void PhieuNhapHang_Load(object sender, EventArgs e)
