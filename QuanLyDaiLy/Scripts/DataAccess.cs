@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,13 @@ namespace QuanLyDaiLy
 {
     public class DataAccess
     {
+        public SqlConnection con = new SqlConnection();
         public static DataAccess Instance {  get; private set; }
         public static bool IsInstantiated => Instance != null;
         public DataAccess() 
         {
-            if(IsInstantiated && Instance != (DataAccess)this)
-            {
-                Instance = (DataAccess)this;
-                MessageBox.Show("DataAccess thanh cong!");
-                return;
-            }
             Instance = (DataAccess)this;
+            con.ConnectionString = Helper.CnnVal("DAILYDUCDAT");
         }
 
         ~DataAccess() 
@@ -31,20 +28,19 @@ namespace QuanLyDaiLy
                 Instance = null;
             }
         }
-
-        IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("DAILYDUCDAT"));
+        
         public void themThamSo()
         {
-            using (connection)
+            using (con)
             {
-                connection.Execute("insert into THAMSO(TenThamSo, GiaTri)\r\nvalues\r\n('Test', 5)");
+                con.Execute("insert into THAMSO(TenThamSo, GiaTri)\r\nvalues\r\n('Test', 5)");
             }    
         }
         public List<ThamSo> getThamSo()
         {
-            using (connection)
+            using (con)
             {
-                var ouput = connection.Query<ThamSo>($"select * from THAMSO").ToList();
+                var ouput = con.Query<ThamSo>($"select * from THAMSO").ToList();
                 return ouput;
             }
         }
