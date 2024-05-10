@@ -43,7 +43,7 @@
             this.ThemDaiLyButton = new System.Windows.Forms.Button();
             this.HoanTacThongTinButton = new System.Windows.Forms.Button();
             this.LoaiDaiLyBox = new System.Windows.Forms.ComboBox();
-            this.MaQuanBox = new System.Windows.Forms.ComboBox();
+            this.QuanBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // NgayTiepNhanBox
@@ -96,7 +96,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 105);
+            this.label1.Location = new System.Drawing.Point(66, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 25);
             this.label1.TabIndex = 9;
@@ -154,9 +154,9 @@
             this.label6.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(484, 255);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 25);
+            this.label6.Size = new System.Drawing.Size(59, 25);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Mã quận";
+            this.label6.Text = "Quận";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -173,9 +173,9 @@
             // ThemDaiLyButton
             // 
             this.ThemDaiLyButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThemDaiLyButton.Location = new System.Drawing.Point(261, 381);
+            this.ThemDaiLyButton.Location = new System.Drawing.Point(568, 360);
             this.ThemDaiLyButton.Name = "ThemDaiLyButton";
-            this.ThemDaiLyButton.Size = new System.Drawing.Size(131, 58);
+            this.ThemDaiLyButton.Size = new System.Drawing.Size(130, 50);
             this.ThemDaiLyButton.TabIndex = 16;
             this.ThemDaiLyButton.Text = "Thêm";
             this.ThemDaiLyButton.UseVisualStyleBackColor = true;
@@ -184,9 +184,9 @@
             // HoanTacThongTinButton
             // 
             this.HoanTacThongTinButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HoanTacThongTinButton.Location = new System.Drawing.Point(528, 381);
+            this.HoanTacThongTinButton.Location = new System.Drawing.Point(704, 360);
             this.HoanTacThongTinButton.Name = "HoanTacThongTinButton";
-            this.HoanTacThongTinButton.Size = new System.Drawing.Size(145, 58);
+            this.HoanTacThongTinButton.Size = new System.Drawing.Size(130, 50);
             this.HoanTacThongTinButton.TabIndex = 17;
             this.HoanTacThongTinButton.Text = "Hoàn tác";
             this.HoanTacThongTinButton.UseVisualStyleBackColor = true;
@@ -200,21 +200,21 @@
             this.LoaiDaiLyBox.Size = new System.Drawing.Size(204, 33);
             this.LoaiDaiLyBox.TabIndex = 18;
             // 
-            // MaQuanBox
+            // QuanBox
             // 
-            this.MaQuanBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaQuanBox.FormattingEnabled = true;
-            this.MaQuanBox.Location = new System.Drawing.Point(630, 257);
-            this.MaQuanBox.Name = "MaQuanBox";
-            this.MaQuanBox.Size = new System.Drawing.Size(204, 33);
-            this.MaQuanBox.TabIndex = 19;
+            this.QuanBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QuanBox.FormattingEnabled = true;
+            this.QuanBox.Location = new System.Drawing.Point(630, 257);
+            this.QuanBox.Name = "QuanBox";
+            this.QuanBox.Size = new System.Drawing.Size(204, 33);
+            this.QuanBox.TabIndex = 19;
             // 
             // NewDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 484);
-            this.Controls.Add(this.MaQuanBox);
+            this.ClientSize = new System.Drawing.Size(892, 474);
+            this.Controls.Add(this.QuanBox);
             this.Controls.Add(this.LoaiDaiLyBox);
             this.Controls.Add(this.HoanTacThongTinButton);
             this.Controls.Add(this.ThemDaiLyButton);
@@ -255,6 +255,6 @@
         private System.Windows.Forms.Button ThemDaiLyButton;
         private System.Windows.Forms.Button HoanTacThongTinButton;
         private System.Windows.Forms.ComboBox LoaiDaiLyBox;
-        private System.Windows.Forms.ComboBox MaQuanBox;
+        private System.Windows.Forms.ComboBox QuanBox;
     }
 }
