@@ -40,8 +40,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ThemDaiLyButton = new System.Windows.Forms.Button();
+            this.HoanTacThongTinButton = new System.Windows.Forms.Button();
             this.LoaiDaiLyBox = new System.Windows.Forms.ComboBox();
             this.MaQuanBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -170,26 +170,26 @@
             this.label7.Text = "Ngày tiếp nhận";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // ThemDaiLyButton
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(261, 381);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 58);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ThemDaiLyButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThemDaiLyButton.Location = new System.Drawing.Point(261, 381);
+            this.ThemDaiLyButton.Name = "ThemDaiLyButton";
+            this.ThemDaiLyButton.Size = new System.Drawing.Size(131, 58);
+            this.ThemDaiLyButton.TabIndex = 16;
+            this.ThemDaiLyButton.Text = "Thêm";
+            this.ThemDaiLyButton.UseVisualStyleBackColor = true;
+            this.ThemDaiLyButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // HoanTacThongTinButton
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(528, 381);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 58);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Hoàn tác";
-            this.button2.UseVisualStyleBackColor = true;
+            this.HoanTacThongTinButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HoanTacThongTinButton.Location = new System.Drawing.Point(528, 381);
+            this.HoanTacThongTinButton.Name = "HoanTacThongTinButton";
+            this.HoanTacThongTinButton.Size = new System.Drawing.Size(145, 58);
+            this.HoanTacThongTinButton.TabIndex = 17;
+            this.HoanTacThongTinButton.Text = "Hoàn tác";
+            this.HoanTacThongTinButton.UseVisualStyleBackColor = true;
             // 
             // LoaiDaiLyBox
             // 
@@ -216,8 +216,8 @@
             this.ClientSize = new System.Drawing.Size(892, 484);
             this.Controls.Add(this.MaQuanBox);
             this.Controls.Add(this.LoaiDaiLyBox);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.HoanTacThongTinButton);
+            this.Controls.Add(this.ThemDaiLyButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -252,8 +252,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ThemDaiLyButton;
+        private System.Windows.Forms.Button HoanTacThongTinButton;
         private System.Windows.Forms.ComboBox LoaiDaiLyBox;
         private System.Windows.Forms.ComboBox MaQuanBox;
     }
