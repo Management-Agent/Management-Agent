@@ -62,6 +62,12 @@
     <Compile Include="Forms\PhieuNhapHang.Designer.cs">
       <DependentUpon>PhieuNhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ThemDaiLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ThemDaiLy.Designer.cs">
+      <DependentUpon>ThemDaiLy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\DaiLy.cs" />
     <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PhieuNhapHang.resx">
       <DependentUpon>PhieuNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ThemDaiLy.resx">
+      <DependentUpon>ThemDaiLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
