@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.NgayTiepNhanBox = new System.Windows.Forms.DateTimePicker();
+            this.TenDaiLyBox = new System.Windows.Forms.TextBox();
+            this.DienThoaiBox = new System.Windows.Forms.TextBox();
+            this.DiaChiBox = new System.Windows.Forms.TextBox();
+            this.EmailBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,55 +42,55 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.LoaiDaiLyBox = new System.Windows.Forms.ComboBox();
+            this.MaQuanBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // NgayTiepNhanBox
             // 
-            this.dateTimePicker1.AllowDrop = true;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(223, 257);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(204, 33);
-            this.dateTimePicker1.TabIndex = 0;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.NgayTiepNhanBox.AllowDrop = true;
+            this.NgayTiepNhanBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NgayTiepNhanBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.NgayTiepNhanBox.Location = new System.Drawing.Point(223, 257);
+            this.NgayTiepNhanBox.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
+            this.NgayTiepNhanBox.Name = "NgayTiepNhanBox";
+            this.NgayTiepNhanBox.Size = new System.Drawing.Size(204, 33);
+            this.NgayTiepNhanBox.TabIndex = 0;
+            this.NgayTiepNhanBox.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // textBox1
+            // TenDaiLyBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(223, 105);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(611, 33);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.TenDaiLyBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenDaiLyBox.Location = new System.Drawing.Point(223, 105);
+            this.TenDaiLyBox.Name = "TenDaiLyBox";
+            this.TenDaiLyBox.Size = new System.Drawing.Size(611, 33);
+            this.TenDaiLyBox.TabIndex = 1;
+            this.TenDaiLyBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // DienThoaiBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(223, 156);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 33);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.DienThoaiBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DienThoaiBox.Location = new System.Drawing.Point(223, 156);
+            this.DienThoaiBox.Name = "DienThoaiBox";
+            this.DienThoaiBox.Size = new System.Drawing.Size(204, 33);
+            this.DienThoaiBox.TabIndex = 2;
+            this.DienThoaiBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // DiaChiBox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(223, 204);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(204, 33);
-            this.textBox3.TabIndex = 3;
+            this.DiaChiBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiaChiBox.Location = new System.Drawing.Point(223, 204);
+            this.DiaChiBox.Name = "DiaChiBox";
+            this.DiaChiBox.Size = new System.Drawing.Size(204, 33);
+            this.DiaChiBox.TabIndex = 3;
             // 
-            // textBox5
+            // EmailBox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(630, 209);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(204, 33);
-            this.textBox5.TabIndex = 5;
+            this.EmailBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailBox.Location = new System.Drawing.Point(630, 209);
+            this.EmailBox.Name = "EmailBox";
+            this.EmailBox.Size = new System.Drawing.Size(204, 33);
+            this.EmailBox.TabIndex = 5;
             // 
             // label1
             // 
@@ -191,31 +191,31 @@
             this.button2.Text = "Hoàn tác";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // LoaiDaiLyBox
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(630, 156);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(204, 33);
-            this.comboBox1.TabIndex = 18;
+            this.LoaiDaiLyBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoaiDaiLyBox.FormattingEnabled = true;
+            this.LoaiDaiLyBox.Location = new System.Drawing.Point(630, 156);
+            this.LoaiDaiLyBox.Name = "LoaiDaiLyBox";
+            this.LoaiDaiLyBox.Size = new System.Drawing.Size(204, 33);
+            this.LoaiDaiLyBox.TabIndex = 18;
             // 
-            // comboBox2
+            // MaQuanBox
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(630, 257);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(204, 33);
-            this.comboBox2.TabIndex = 19;
+            this.MaQuanBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaQuanBox.FormattingEnabled = true;
+            this.MaQuanBox.Location = new System.Drawing.Point(630, 257);
+            this.MaQuanBox.Name = "MaQuanBox";
+            this.MaQuanBox.Size = new System.Drawing.Size(204, 33);
+            this.MaQuanBox.TabIndex = 19;
             // 
             // NewDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 484);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.MaQuanBox);
+            this.Controls.Add(this.LoaiDaiLyBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
@@ -225,11 +225,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.EmailBox);
+            this.Controls.Add(this.DiaChiBox);
+            this.Controls.Add(this.DienThoaiBox);
+            this.Controls.Add(this.TenDaiLyBox);
+            this.Controls.Add(this.NgayTiepNhanBox);
             this.Name = "NewDaiLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewDaiLy";
@@ -240,11 +240,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.DateTimePicker NgayTiepNhanBox;
+        private System.Windows.Forms.TextBox TenDaiLyBox;
+        private System.Windows.Forms.TextBox DienThoaiBox;
+        private System.Windows.Forms.TextBox DiaChiBox;
+        private System.Windows.Forms.TextBox EmailBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -254,7 +254,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox LoaiDaiLyBox;
+        private System.Windows.Forms.ComboBox MaQuanBox;
     }
 }
