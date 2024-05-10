@@ -46,13 +46,13 @@
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
             this.themDaiLyToolStripMenuItem,
             this.phieuXuatHangToolStripMenuItem,
             this.phieuNhapHangToolStripMenuItem,
             this.danhSachDaiLyToolStripMenuItem,
             this.baoCaoThangToolStripMenuItem,
             this.dieuChinhToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.thoatToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -107,18 +107,17 @@
             // 
             // thoatToolStripMenuItem
             // 
-            this.thoatToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.thoatToolStripMenuItem.BackColor = System.Drawing.Color.LightGray;
             this.thoatToolStripMenuItem.Name = "thoatToolStripMenuItem";
             this.thoatToolStripMenuItem.Size = new System.Drawing.Size(61, 24);
             this.thoatToolStripMenuItem.Text = "Thoat";
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.BackColor = System.Drawing.Color.LightGray;
+            this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(33, 24);
-            this.toolStripMenuItem1.Text = ">";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
+            this.toolStripMenuItem1.Text = "Cai dat";
             // 
             // Dashboard
             // 
