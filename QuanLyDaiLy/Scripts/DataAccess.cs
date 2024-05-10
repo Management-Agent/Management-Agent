@@ -47,7 +47,11 @@ namespace QuanLyDaiLy
         public void hamTest()
         {
             MessageBox.Show("Test!");
+        }
 
+        public void AddDaiLy(string TenDaiLy, string MaLoaiDaiLy, string DienThoai, string DiaChi, string Email,string MaQuan, DateTime NgayTiepNhan)
+        {
+            DaiLy newDaiLy = new DaiLy(TenDaiLy, MaLoaiDaiLy, DienThoai, DiaChi, Email, MaQuan, NgayTiepNhan);
         }
     }
 }
