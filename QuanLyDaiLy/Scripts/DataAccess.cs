@@ -12,13 +12,13 @@ namespace QuanLyDaiLy
 {
     public class DataAccess
     {
-        public SqlConnection con = new SqlConnection();
+        private SqlConnection _con = new SqlConnection();
         public static DataAccess Instance {  get; private set; }
         public static bool IsInstantiated => Instance != null;
         public DataAccess() 
         {
             Instance = (DataAccess)this;
-            con.ConnectionString = Helper.CnnVal("DAILYDUCDAT");
+            _con.ConnectionString = Helper.CnnVal("DAILYDUCDAT");
         }
 
         ~DataAccess() 
@@ -31,16 +31,16 @@ namespace QuanLyDaiLy
         
         public void themThamSo()
         {
-            using (con)
+            using (_con)
             {
-                con.Execute("insert into THAMSO(TenThamSo, GiaTri)\r\nvalues\r\n('Test', 5)");
+                _con.Execute("insert into THAMSO(TenThamSo, GiaTri)\r\nvalues\r\n('Test', 5)");
             }    
         }
         public List<ThamSo> getThamSo()
         {
-            using (con)
+            using (_con)
             {
-                var ouput = con.Query<ThamSo>($"select * from THAMSO").ToList();
+                var ouput = _con.Query<ThamSo>($"select * from THAMSO").ToList();
                 return ouput;
             }
         }
@@ -52,6 +52,7 @@ namespace QuanLyDaiLy
         public void AddDaiLy(string TenDaiLy, string MaLoaiDaiLy, string DienThoai, string DiaChi, string Email,string MaQuan, DateTime NgayTiepNhan)
         {
             DaiLy newDaiLy = new DaiLy(TenDaiLy, MaLoaiDaiLy, DienThoai, DiaChi, Email, MaQuan, NgayTiepNhan);
+
         }
     }
 }
