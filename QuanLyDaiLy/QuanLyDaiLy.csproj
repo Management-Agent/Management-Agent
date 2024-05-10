@@ -64,6 +64,7 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Scripts\DataAccess.cs" />
+    <Compile Include="Scripts\DataProvider.cs" />
     <Compile Include="Scripts\Helper.cs" />
     <Compile Include="Forms\NewDaiLy.cs">
       <SubType>Form</SubType>
