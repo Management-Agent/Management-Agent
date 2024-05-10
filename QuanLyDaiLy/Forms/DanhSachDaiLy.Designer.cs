@@ -1,4 +1,4 @@
-﻿namespace QuanLyDaiLy.Forms
+﻿namespace QuanLyDaiLy
 {
     partial class DanhSachDaiLy
     {
@@ -90,9 +90,10 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(583, 500);
+            this.addButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addButton.Location = new System.Drawing.Point(484, 491);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(125, 30);
+            this.addButton.Size = new System.Drawing.Size(182, 50);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Thêm đại lý";
             this.addButton.UseVisualStyleBackColor = true;
@@ -100,18 +101,20 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(714, 500);
+            this.deleteButton.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.deleteButton.Location = new System.Drawing.Point(672, 491);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(125, 30);
+            this.deleteButton.Size = new System.Drawing.Size(130, 50);
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "Xoá đại lý";
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // modìyButton
             // 
-            this.modìyButton.Location = new System.Drawing.Point(845, 500);
+            this.modìyButton.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.modìyButton.Location = new System.Drawing.Point(808, 491);
             this.modìyButton.Name = "modìyButton";
-            this.modìyButton.Size = new System.Drawing.Size(125, 30);
+            this.modìyButton.Size = new System.Drawing.Size(162, 50);
             this.modìyButton.TabIndex = 3;
             this.modìyButton.Text = "Sửa thông tin";
             this.modìyButton.UseVisualStyleBackColor = true;

@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyDaiLy.Forms
+
+namespace QuanLyDaiLy
 {
     public partial class DanhSachDaiLy : Form
     {
@@ -19,7 +20,10 @@ namespace QuanLyDaiLy.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            using(NewDaiLy newDaiLy = new NewDaiLy())
+            {
+                newDaiLy.ShowDialog();
+            }
         }
     }
 }
