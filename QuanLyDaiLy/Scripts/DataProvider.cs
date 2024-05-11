@@ -8,17 +8,22 @@ using System.Threading.Tasks;
 
 namespace QuanLyDaiLy.Scripts
 {
-    internal class DataProvider
+    public class DataProvider
     {
-        public static string connectionSTR;
-
-        private DataProvider(string connectionString) 
-        { 
-            connectionSTR = connectionString; 
+        private static DataProvider instance;
+        public static DataProvider Instance
+        {
+            get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
+            private set { DataProvider.instance = value; }
         }
 
+        private DataProvider() {
+            connectionSTR = Helper.CnnVal("PHAMDATDB");
+        }
 
-        public  static DataTable ExecuteQuery(string query, object[] parameter = null)
+        public string connectionSTR = @"Server=LAPTOPLANE;Database=QuanLyChiTieu;User Id=user1;Password=12345678;";
+
+        public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
 
@@ -52,7 +57,7 @@ namespace QuanLyDaiLy.Scripts
             return data;
         }
 
-        public static int ExecuteNonQuery(string query, object[] parameter = null)
+        public int ExecuteNonQuery(string query, object[] parameter = null)
         {
             int data = 0;
 
@@ -84,7 +89,7 @@ namespace QuanLyDaiLy.Scripts
             return data;
         }
 
-        public static object ExecuteScalar(string query, object[] parameter = null)
+        public object ExecuteScalar(string query, object[] parameter = null)
         {
             object data = 0;
 

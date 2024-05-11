@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDaiLy.Scripts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,13 @@ namespace QuanLyDaiLy
             {
                 newDaiLy.ShowDialog();
             }
+        }
+
+        private void DanhSachDaiLy_Load(object sender, EventArgs e)
+        {
+            //load data
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
+            dataGridViewDaiLy.DataSource = data;
         }
     }
 }
