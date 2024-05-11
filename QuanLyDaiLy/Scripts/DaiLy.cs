@@ -17,7 +17,7 @@ namespace QuanLyDaiLy
         public string MaQuan { get; set; }
         public DateTime NgayTiepNhan { get; set; }
         public SqlMoney TongNo { get; set; }
-        public DaiLy(string TenDaiLy, string MaLoaiDaiLy, string DienThoai, string DiaChi, string Email, string MaQuan, DateTime NgayTiepNhan)
+        public DaiLy(string TenDaiLy, string MaLoaiDaiLy, string DienThoai, string DiaChi, string Email, string MaQuan, DateTime NgayTiepNhan, SqlMoney TongNo)
         {
             this.TenDaiLy = TenDaiLy;
             this.MaLoaiDaiLy = MaLoaiDaiLy;
@@ -26,7 +26,7 @@ namespace QuanLyDaiLy
             this.Email = Email;
             this.DiaChi = DiaChi;
             this.NgayTiepNhan = NgayTiepNhan;
-            this.TongNo = 0;
+            this.TongNo = TongNo;
         }
     }
 }

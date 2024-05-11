@@ -13,12 +13,15 @@ namespace QuanLyDaiLy
     public class DataAccess
     {
         private SqlConnection _con = new SqlConnection();
+        private string _queryString;
+        private SqlCommand _command = new SqlCommand();
         public static DataAccess Instance {  get; private set; }
         public static bool IsInstantiated => Instance != null;
         public DataAccess() 
         {
             Instance = (DataAccess)this;
             _con.ConnectionString = Helper.CnnVal("DAILYDUCDAT");
+            _command.Connection = _con;
         }
 
         ~DataAccess() 
@@ -28,31 +31,30 @@ namespace QuanLyDaiLy
                 Instance = null;
             }
         }
-        
-        public void themThamSo()
+
+        private void Execute(string lineOfCode = "")
         {
-            using (_con)
+            if (lineOfCode == "")
             {
-                _con.Execute("insert into THAMSO(TenThamSo, GiaTri)\r\nvalues\r\n('Test', 5)");
-            }    
-        }
-        public List<ThamSo> getThamSo()
-        {
-            using (_con)
-            {
-                var ouput = _con.Query<ThamSo>($"select * from THAMSO").ToList();
-                return ouput;
+                MessageBox.Show("Something wrong! Source: DataAccess/Execute");
+                return;
             }
+            _con.Open();
+
+
         }
         public void hamTest()
         {
             MessageBox.Show("Test!");
         }
 
-        public void AddDaiLy(string TenDaiLy, string MaLoaiDaiLy, string DienThoai, string DiaChi, string Email,string MaQuan, DateTime NgayTiepNhan)
+        public void AddDaiLy(string TenDaiLy, string MaLoaiDaiLy, string DienThoai, string DiaChi, string Email,string MaQuan, string NgayTiepNhan)
         {
-            DaiLy newDaiLy = new DaiLy(TenDaiLy, MaLoaiDaiLy, DienThoai, DiaChi, Email, MaQuan, NgayTiepNhan);
-
+            _con.Open();
+            _queryString = "exec Insert_DaiLy '"+TenDaiLy+"', '"+MaLoaiDaiLy+"', '"+ DienThoai + "', '"+ DiaChi + "', '"+ Email + "', '"+ MaQuan + "', '"+ NgayTiepNhan + "', 0 ";
+            _command.CommandText = _queryString;
+            _command.ExecuteNonQuery();
+            _con.Close();
         }
     }
 }

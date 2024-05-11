@@ -38,6 +38,8 @@ namespace QuanLyDaiLy
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string theDate = NgayTiepNhanBox.Value.ToString("yyyy-MM-dd");
+            DataAccess.Instance.AddDaiLy(TenDaiLyBox.Text, LoaiDaiLyBox.Text, DienThoaiBox.Text, DiaChiBox.Text, EmailBox.Text, QuanBox.Text, theDate);
         }
     }
 }
