@@ -11,6 +11,7 @@ namespace QuanLyDaiLy.Scripts
     public class DataProvider
     {
         private static DataProvider instance;
+        public string connectionSTR;
         public static DataProvider Instance
         {
             get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
@@ -20,8 +21,6 @@ namespace QuanLyDaiLy.Scripts
         private DataProvider() {
             connectionSTR = Helper.CnnVal("PHAMDATDB");
         }
-
-        public string connectionSTR = @"Server=LAPTOPLANE;Database=QuanLyChiTieu;User Id=user1;Password=12345678;";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
