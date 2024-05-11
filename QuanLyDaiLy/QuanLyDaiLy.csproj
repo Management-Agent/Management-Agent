@@ -50,11 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\BaoCaoCongNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaoCaoCongNo.Designer.cs">
+      <DependentUpon>BaoCaoCongNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DanhSachDaiLy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\DanhSachDaiLy.Designer.cs">
       <DependentUpon>DanhSachDaiLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PhieuGhiNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PhieuGhiNo.Designer.cs">
+      <DependentUpon>PhieuGhiNo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PhieuNhapHang.cs">
       <SubType>Form</SubType>
@@ -82,6 +94,9 @@
     <Compile Include="Scripts\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\ThamSo.cs" />
+    <EmbeddedResource Include="Forms\BaoCaoCongNo.resx">
+      <DependentUpon>BaoCaoCongNo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DanhSachDaiLy.resx">
       <DependentUpon>DanhSachDaiLy.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewDaiLy.resx">
       <DependentUpon>NewDaiLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PhieuGhiNo.resx">
+      <DependentUpon>PhieuGhiNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PhieuNhapHang.resx">
       <DependentUpon>PhieuNhapHang.cs</DependentUpon>
