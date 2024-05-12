@@ -25,7 +25,14 @@ namespace QuanLyDaiLy.Forms
             int year = dateTimePicker1.Value.Year;
             //load data
             DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetCongNoInfo @Thang , @Nam ",new object[] {month,year});
+            DataColumn columnSTT = new DataColumn();
             dataGridView1.DataSource = data;
+            for (int i=0;i< dataGridView1.Rows.Count - 1 ;i++) 
+            {
+                dataGridView1.Rows[i].Cells["STT"].Value = i;
+            }
         }
+
+      
     }
 }
