@@ -27,13 +27,28 @@ CREATE PROCEDURE Insert_PNH
     @MaMatHang VARCHAR(50),
     @SoLuongNhap BIGINT,
     @DonGiaNhap MONEY,
-	@NgayNhapHang DATE
+	@NgayNhapHang DATE,
+    @MaDVT VARCHAR(10),
+    @TenDVT VARCHAR(10)
 AS
 BEGIN
-	INSERT INTO PHIEUNHAPHANG(SoPhieuNhap, NgayNhapHang)
-	VALUES (@SoPhieuNhap, @NgayNhapHang)
-    INSERT INTO CT_PNH (SoPhieuNhap, MaMatHang, SoLuongNhap, DonGiaNhap)
-	VALUES (@SoPhieuNhap, @MaMatHang, @SoLuongNhap, @DonGiaNhap)
+    IF NOT EXISTS (SELECT * FROM PHIEUNHAPHANG WHERE SoPhieuNhap = @SoPhieuNhap)
+    BEGIN
+        INSERT INTO PHIEUNHAPHANG (SoPhieuNhap, NgayNhapHang)
+        VALUES (@SoPhieuNhap, @NgayNhapHang)
+    END
+
+    IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
+    BEGIN
+        INSERT INTO DVT (MaDVT, TenDVT)
+        VALUES (@MaDVT, @TenDVT)
+    END
+
+    IF NOT EXISTS (SELECT * FROM CT_PNH WHERE SoPhieuNhap = @SoPhieuNhap AND MaMatHang = @MaMatHang)
+    BEGIN
+        INSERT INTO CT_PNH (SoPhieuNhap, MaMatHang, SoLuongNhap, DonGiaNhap)
+        VALUES (@SoPhieuNhap, @MaMatHang, @SoLuongNhap, @DonGiaNhap)
+    END
 END
 >>>>>>> Update PhieuNhapHang
 

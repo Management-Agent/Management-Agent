@@ -21,7 +21,7 @@ namespace QuanLyDaiLy
         private void ThemPNH_Click(object sender, EventArgs e)
         {
             string theDate = NNH.Value.ToString("yyyy-MM-dd");
-            DataAccess.Instance.AddPNH(SPN.Text, MMH.Text, SLN.Text, DGN.Text, theDate);
+            DataAccess.Instance.AddPNH(SPN.Text, MMH.Text, SLN.Text, DGN.Text, theDate, MDVT.Text, TDVT.Text);
         }
     }
 }

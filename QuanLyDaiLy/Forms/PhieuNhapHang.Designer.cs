@@ -39,6 +39,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.NNH = new System.Windows.Forms.DateTimePicker();
+            this.MDVT = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TDVT = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SPN
@@ -76,7 +80,7 @@
             // ThemPNH
             // 
             this.ThemPNH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThemPNH.Location = new System.Drawing.Point(537, 335);
+            this.ThemPNH.Location = new System.Drawing.Point(543, 340);
             this.ThemPNH.Name = "ThemPNH";
             this.ThemPNH.Size = new System.Drawing.Size(130, 50);
             this.ThemPNH.TabIndex = 17;
@@ -142,9 +146,47 @@
             this.NNH.Size = new System.Drawing.Size(204, 33);
             this.NNH.TabIndex = 24;
             // 
+            // MDVT
+            // 
+            this.MDVT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MDVT.Location = new System.Drawing.Point(676, 268);
+            this.MDVT.Name = "MDVT";
+            this.MDVT.Size = new System.Drawing.Size(204, 33);
+            this.MDVT.TabIndex = 25;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(532, 271);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(141, 25);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Mã đơn vị tính";
+            // 
+            // TDVT
+            // 
+            this.TDVT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDVT.Location = new System.Drawing.Point(271, 340);
+            this.TDVT.Name = "TDVT";
+            this.TDVT.Size = new System.Drawing.Size(204, 33);
+            this.TDVT.TabIndex = 27;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(115, 340);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(146, 25);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Tên đơn vị tính";
+            // 
             // PhieuNhapHang
             // 
             this.ClientSize = new System.Drawing.Size(993, 506);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.TDVT);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.MDVT);
             this.Controls.Add(this.NNH);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -185,5 +227,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker NNH;
+        private System.Windows.Forms.TextBox MDVT;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TDVT;
+        private System.Windows.Forms.Label label7;
     }
 }

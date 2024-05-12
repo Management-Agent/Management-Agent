@@ -13,13 +13,17 @@ namespace QuanLyDaiLy
         public string SoLuongNhap { get; set; }
         public string DonGiaNhap { get; set; }
         public DateTime NgayNhapHang { get; set; }
-        public PhieuNhap(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap, DateTime NgayNhapHang)
+        public string MaDonViTinh { get; set; }
+        public string TenDonViTinh { get; set; }
+        public PhieuNhap(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap, DateTime NgayNhapHang, string DonViTinh, string TenDonViTinh)
         {
             this.SoPhieuNhap = SoPhieuNhap;
             this.MaMatHang = MaMatHang;
             this.SoLuongNhap = SoLuongNhap;
             this.DonGiaNhap = DonGiaNhap;
             this.NgayNhapHang = NgayNhapHang;
+            this.MaDonViTinh = DonViTinh;
+            this.TenDonViTinh = DonViTinh;
         }
     }
 }

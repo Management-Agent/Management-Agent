@@ -69,10 +69,10 @@ namespace QuanLyDaiLy
             _command.ExecuteNonQuery();
             _con.Close();
         }
-        public void AddPNH(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap, string NgayNhapHang)
+        public void AddPNH(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap, string NgayNhapHang, string MaDonViTinh, string TenDonViTinh)
         {
             _con.Open();
-            _queryString = "exec Insert_PNH '" + SoPhieuNhap + "', '" + MaMatHang + "', '" + SoLuongNhap + "', '" + DonGiaNhap + "', '"+ NgayNhapHang + "'";
+            _queryString = "exec Insert_PNH '" + SoPhieuNhap + "', '" + MaMatHang + "', '" + SoLuongNhap + "', '" + DonGiaNhap + "', '"+ NgayNhapHang + "', '"+ MaDonViTinh + "', '"+ TenDonViTinh + "'";
             _command.CommandText = _queryString;
             _command.ExecuteNonQuery();
             _con.Close();
