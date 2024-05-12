@@ -56,13 +56,14 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(195, 33);
             this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.button1.Location = new System.Drawing.Point(527, 19);
+            this.button1.Location = new System.Drawing.Point(498, 19);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 50);
+            this.button1.Size = new System.Drawing.Size(199, 50);
             this.button1.TabIndex = 2;
             this.button1.Text = "Thêm khoản nợ";
             this.button1.UseVisualStyleBackColor = true;
@@ -142,11 +143,16 @@
             this.NoCuoi});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 111);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(982, 353);
             this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.ColumnDisplayIndexChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dataGridView1_ColumnDisplayIndexChanged);
+            this.dataGridView1.Sorted += new System.EventHandler(this.dataGridView1_Sorted);
             // 
             // STT
             // 
