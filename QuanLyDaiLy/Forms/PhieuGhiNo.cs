@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDaiLy.Scripts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,9 +20,12 @@ namespace QuanLyDaiLy.Forms
 
         private void PhieuGhiNo_Load(object sender, EventArgs e)
         {
-
+            string query = "Select TenDaiLy from DAILY";
+            DataTable dsDaiLy = DataProvider.Instance.ExecuteQuery(query);
+            List<string> list = dsDaiLy.Rows.OfType<DataRow>().Select(dr => (string)dr["TenDaiLy"]).ToList();
+            comboBox1.Items.AddRange(list.ToArray());
         }
-
+         
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

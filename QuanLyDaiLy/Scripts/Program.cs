@@ -18,7 +18,7 @@ namespace QuanLyDaiLy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PhieuNhapHang());
+            Application.Run(new PhieuGhiNo());
         }
     }
 }
