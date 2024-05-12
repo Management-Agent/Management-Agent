@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyDaiLy;
+using QuanLyDaiLy.Forms;
 
 namespace QuanLyDaiLy
 {
@@ -17,7 +18,7 @@ namespace QuanLyDaiLy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DanhSachDaiLy());
+            Application.Run(new PhieuNhapHang());
         }
     }
 }

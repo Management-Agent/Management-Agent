@@ -1,4 +1,4 @@
-﻿namespace QuanLyDaiLy.Forms
+﻿namespace QuanLyDaiLy
 {
     partial class PhieuNhapHang
     {
@@ -28,98 +28,134 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxPNH = new System.Windows.Forms.TextBox();
-            this.textBoxTT = new System.Windows.Forms.TextBox();
-            this.textBoxNNH = new System.Windows.Forms.TextBox();
-            this.SoPhieuNhap = new System.Windows.Forms.Label();
-            this.NgayNhapHang = new System.Windows.Forms.Label();
-            this.TongTien = new System.Windows.Forms.Label();
-            this.Save = new System.Windows.Forms.Button();
-            this.Reset = new System.Windows.Forms.Button();
+            this.SPN = new System.Windows.Forms.TextBox();
+            this.MMH = new System.Windows.Forms.TextBox();
+            this.SLN = new System.Windows.Forms.TextBox();
+            this.DGN = new System.Windows.Forms.TextBox();
+            this.TT = new System.Windows.Forms.TextBox();
+            this.ThemPNH = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBoxPNH
+            // SPN
             // 
-            this.textBoxPNH.Location = new System.Drawing.Point(220, 107);
-            this.textBoxPNH.Name = "textBoxPNH";
-            this.textBoxPNH.Size = new System.Drawing.Size(100, 22);
-            this.textBoxPNH.TabIndex = 0;
+            this.SPN.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SPN.Location = new System.Drawing.Point(269, 109);
+            this.SPN.Name = "SPN";
+            this.SPN.Size = new System.Drawing.Size(611, 33);
+            this.SPN.TabIndex = 2;
             // 
-            // textBoxTT
+            // MMH
             // 
-            this.textBoxTT.Location = new System.Drawing.Point(220, 271);
-            this.textBoxTT.Name = "textBoxTT";
-            this.textBoxTT.Size = new System.Drawing.Size(100, 22);
-            this.textBoxTT.TabIndex = 1;
+            this.MMH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MMH.Location = new System.Drawing.Point(269, 188);
+            this.MMH.Name = "MMH";
+            this.MMH.Size = new System.Drawing.Size(204, 33);
+            this.MMH.TabIndex = 3;
             // 
-            // textBoxNNH
+            // SLN
             // 
-            this.textBoxNNH.Location = new System.Drawing.Point(220, 183);
-            this.textBoxNNH.Name = "textBoxNNH";
-            this.textBoxNNH.Size = new System.Drawing.Size(100, 22);
-            this.textBoxNNH.TabIndex = 2;
+            this.SLN.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SLN.Location = new System.Drawing.Point(676, 188);
+            this.SLN.Name = "SLN";
+            this.SLN.Size = new System.Drawing.Size(204, 33);
+            this.SLN.TabIndex = 4;
             // 
-            // SoPhieuNhap
+            // DGN
             // 
-            this.SoPhieuNhap.AutoSize = true;
-            this.SoPhieuNhap.Location = new System.Drawing.Point(122, 107);
-            this.SoPhieuNhap.Name = "SoPhieuNhap";
-            this.SoPhieuNhap.Size = new System.Drawing.Size(44, 16);
-            this.SoPhieuNhap.TabIndex = 3;
-            this.SoPhieuNhap.Text = "label1";
+            this.DGN.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DGN.Location = new System.Drawing.Point(269, 272);
+            this.DGN.Name = "DGN";
+            this.DGN.Size = new System.Drawing.Size(204, 33);
+            this.DGN.TabIndex = 5;
             // 
-            // NgayNhapHang
+            // TT
             // 
-            this.NgayNhapHang.AutoSize = true;
-            this.NgayNhapHang.Location = new System.Drawing.Point(122, 183);
-            this.NgayNhapHang.Name = "NgayNhapHang";
-            this.NgayNhapHang.Size = new System.Drawing.Size(44, 16);
-            this.NgayNhapHang.TabIndex = 4;
-            this.NgayNhapHang.Text = "label2";
+            this.TT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TT.Location = new System.Drawing.Point(676, 272);
+            this.TT.Name = "TT";
+            this.TT.Size = new System.Drawing.Size(204, 33);
+            this.TT.TabIndex = 6;
             // 
-            // TongTien
+            // ThemPNH
             // 
-            this.TongTien.AutoSize = true;
-            this.TongTien.Location = new System.Drawing.Point(122, 271);
-            this.TongTien.Name = "TongTien";
-            this.TongTien.Size = new System.Drawing.Size(44, 16);
-            this.TongTien.TabIndex = 5;
-            this.TongTien.Text = "label3";
+            this.ThemPNH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThemPNH.Location = new System.Drawing.Point(574, 398);
+            this.ThemPNH.Name = "ThemPNH";
+            this.ThemPNH.Size = new System.Drawing.Size(130, 50);
+            this.ThemPNH.TabIndex = 17;
+            this.ThemPNH.Text = "Thêm";
+            this.ThemPNH.UseVisualStyleBackColor = true;
+            this.ThemPNH.Click += new System.EventHandler(this.ThemPNH_Click);
             // 
-            // Save
+            // label1
             // 
-            this.Save.Location = new System.Drawing.Point(262, 349);
-            this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(75, 23);
-            this.Save.TabIndex = 6;
-            this.Save.Text = "Luu";
-            this.Save.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.label1.Location = new System.Drawing.Point(127, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 25);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Số phiếu nhập";
             // 
-            // Reset
+            // label2
             // 
-            this.Reset.Location = new System.Drawing.Point(374, 349);
-            this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(75, 23);
-            this.Reset.TabIndex = 7;
-            this.Reset.Text = "Lam_moi";
-            this.Reset.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.label2.Location = new System.Drawing.Point(127, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 25);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Mã mặt hàng";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(532, 188);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 25);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Số lượng nhập";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(127, 272);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 25);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Đơn giá nhập";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(532, 272);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 25);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Thành tiền";
             // 
             // PhieuNhapHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Reset);
-            this.Controls.Add(this.Save);
-            this.Controls.Add(this.TongTien);
-            this.Controls.Add(this.NgayNhapHang);
-            this.Controls.Add(this.SoPhieuNhap);
-            this.Controls.Add(this.textBoxNNH);
-            this.Controls.Add(this.textBoxTT);
-            this.Controls.Add(this.textBoxPNH);
+            this.ClientSize = new System.Drawing.Size(993, 506);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ThemPNH);
+            this.Controls.Add(this.TT);
+            this.Controls.Add(this.DGN);
+            this.Controls.Add(this.SLN);
+            this.Controls.Add(this.MMH);
+            this.Controls.Add(this.SPN);
+            this.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.Name = "PhieuNhapHang";
             this.Text = "PhieuNhapHang";
-            this.Load += new System.EventHandler(this.PhieuNhapHang_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +171,16 @@
         private System.Windows.Forms.Label TongTien;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Reset;
+        private System.Windows.Forms.TextBox SPN;
+        private System.Windows.Forms.TextBox MMH;
+        private System.Windows.Forms.TextBox SLN;
+        private System.Windows.Forms.TextBox DGN;
+        private System.Windows.Forms.TextBox TT;
+        private System.Windows.Forms.Button ThemPNH;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

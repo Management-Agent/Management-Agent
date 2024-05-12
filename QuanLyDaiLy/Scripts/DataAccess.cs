@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dapper;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLyDaiLy
 {
@@ -20,7 +21,7 @@ namespace QuanLyDaiLy
         public DataAccess() 
         {
             Instance = (DataAccess)this;
-            _con.ConnectionString = Helper.CnnVal("DAILYDUCDAT");
+            _con.ConnectionString = Helper.CnnVal("PNHTHDAT");
             _command.Connection = _con;
         }
 
@@ -52,6 +53,14 @@ namespace QuanLyDaiLy
         {
             _con.Open();
             _queryString = "exec Insert_DaiLy '"+TenDaiLy+"', '"+MaLoaiDaiLy+"', '"+ DienThoai + "', '"+ DiaChi + "', '"+ Email + "', '"+ MaQuan + "', '"+ NgayTiepNhan + "', 0 ";
+            _command.CommandText = _queryString;
+            _command.ExecuteNonQuery();
+            _con.Close();
+        }
+        public void AddPNH(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap, string ThanhTien)
+        {
+            _con.Open();
+            _queryString = "exec Insert_PNH '" + SoPhieuNhap + "', '" + MaMatHang + "', '" + SoLuongNhap + "', '" + DonGiaNhap + "', '" + ThanhTien + "'";
             _command.CommandText = _queryString;
             _command.ExecuteNonQuery();
             _con.Close();
