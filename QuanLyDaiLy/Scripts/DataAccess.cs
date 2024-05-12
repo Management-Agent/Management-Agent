@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dapper;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLyDaiLy
@@ -41,13 +43,23 @@ namespace QuanLyDaiLy
                 return;
             }
             _con.Open();
-
-
         }
         public void hamTest()
         {
             MessageBox.Show("Test!");
         }
+        public bool LoginAccount(string Username, string Password)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT COUNT(*) FROM login WHERE username='" + Username + "' AND password='" + Password + "'", _con);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            if (dataTable.Rows[0][0].ToString() == "1")
+                return true;
+            else return false;
+        }
+
+
+
 
         public void AddDaiLy(string TenDaiLy, string MaLoaiDaiLy, string DienThoai, string DiaChi, string Email,string MaQuan, string NgayTiepNhan)
         {
