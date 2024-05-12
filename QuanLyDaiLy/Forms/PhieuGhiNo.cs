@@ -20,10 +20,10 @@ namespace QuanLyDaiLy.Forms
 
         private void PhieuGhiNo_Load(object sender, EventArgs e)
         {
-            string query = "Select TenDaiLy from DAILY";
-            DataTable dsDaiLy = DataProvider.Instance.ExecuteQuery(query);
-            List<string> list = dsDaiLy.Rows.OfType<DataRow>().Select(dr => (string)dr["TenDaiLy"]).ToList();
-            comboBox1.Items.AddRange(list.ToArray());
+            string querySelectTenDaiLy = "Select MaDaiLy from DAILY";
+            DataTable dsDaiLy = DataProvider.Instance.ExecuteQuery(querySelectTenDaiLy);
+            List<string> list = dsDaiLy.Rows.OfType<DataRow>().Select(dr => (string)dr["MaDaiLy"]).ToList();
+            comboBoxMaDaiLy.Items.AddRange(list.ToArray());
         }
          
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -61,6 +61,36 @@ namespace QuanLyDaiLy.Forms
             else
             {
                 textBoxNoCuoi.Text = "";
+            }
+        }
+
+        private void AddBaoCaoCongNo()
+        {
+            string maDaiLy = comboBoxMaDaiLy.Text;
+            int thang = dateTimePicker1.Value.Month;
+            int nam = dateTimePicker1.Value.Year;
+            System.Decimal noDau = decimal.Parse(textBoxNoDau.Text);
+            System.Decimal phatSinh = decimal.Parse(textBoxPhatSinh.Text);
+            string errorMessage = "";
+            string query = @"EXEC USP_AddCongNo @MaDaiLy , @Thang , @Nam , @NoDau , @PhatSinh , @ErrorMessage ";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { maDaiLy, thang, nam, noDau, phatSinh, errorMessage });
+        }
+
+        private void ThemDaiLyButton_Click(object sender, EventArgs e)
+        {
+            AddBaoCaoCongNo();
+        }
+
+        private void comboBoxMaDaiLy_TextChanged(object sender, EventArgs e)
+        {
+            Button maDaiLyBox = (Button)sender;
+            if (maDaiLyBox.Text.Length > 0)
+            {
+                string maDaiLy = maDaiLyBox.Text;
+            }
+            else
+            {
+
             }
         }
     }

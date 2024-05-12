@@ -40,7 +40,9 @@
             this.textBoxNoCuoi = new System.Windows.Forms.TextBox();
             this.textBoxNoDau = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxMaDaiLy = new System.Windows.Forms.ComboBox();
+            this.textBoxTenDaiLy = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // HoanTacThongTinButton
@@ -62,12 +64,13 @@
             this.ThemDaiLyButton.TabIndex = 32;
             this.ThemDaiLyButton.Text = "Thêm";
             this.ThemDaiLyButton.UseVisualStyleBackColor = true;
+            this.ThemDaiLyButton.Click += new System.EventHandler(this.ThemDaiLyButton_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 220);
+            this.label2.Location = new System.Drawing.Point(444, 220);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 25);
             this.label2.TabIndex = 26;
@@ -78,7 +81,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 139);
+            this.label1.Location = new System.Drawing.Point(444, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 25);
             this.label1.TabIndex = 25;
@@ -88,9 +91,9 @@
             // textBoxPhatSinh
             // 
             this.textBoxPhatSinh.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPhatSinh.Location = new System.Drawing.Point(554, 217);
+            this.textBoxPhatSinh.Location = new System.Drawing.Point(164, 301);
             this.textBoxPhatSinh.Name = "textBoxPhatSinh";
-            this.textBoxPhatSinh.Size = new System.Drawing.Size(269, 33);
+            this.textBoxPhatSinh.Size = new System.Drawing.Size(236, 33);
             this.textBoxPhatSinh.TabIndex = 22;
             this.textBoxPhatSinh.TextChanged += new System.EventHandler(this.textBoxPhatSinh_TextChanged);
             this.textBoxPhatSinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DienThoaiBox_KeyPress);
@@ -99,7 +102,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(438, 220);
+            this.label3.Location = new System.Drawing.Point(22, 309);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 25);
             this.label3.TabIndex = 34;
@@ -110,7 +113,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 304);
+            this.label4.Location = new System.Drawing.Point(444, 304);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 25);
             this.label4.TabIndex = 35;
@@ -121,7 +124,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(438, 139);
+            this.label5.Location = new System.Drawing.Point(22, 220);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 25);
             this.label5.TabIndex = 36;
@@ -133,15 +136,15 @@
             this.dateTimePicker1.CustomFormat = "MM/yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(554, 136);
+            this.dateTimePicker1.Location = new System.Drawing.Point(164, 214);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(269, 33);
+            this.dateTimePicker1.Size = new System.Drawing.Size(236, 33);
             this.dateTimePicker1.TabIndex = 37;
             // 
             // textBoxNoCuoi
             // 
             this.textBoxNoCuoi.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNoCuoi.Location = new System.Drawing.Point(164, 301);
+            this.textBoxNoCuoi.Location = new System.Drawing.Point(557, 296);
             this.textBoxNoCuoi.Name = "textBoxNoCuoi";
             this.textBoxNoCuoi.ReadOnly = true;
             this.textBoxNoCuoi.Size = new System.Drawing.Size(236, 33);
@@ -150,7 +153,7 @@
             // textBoxNoDau
             // 
             this.textBoxNoDau.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNoDau.Location = new System.Drawing.Point(164, 217);
+            this.textBoxNoDau.Location = new System.Drawing.Point(557, 214);
             this.textBoxNoDau.Name = "textBoxNoDau";
             this.textBoxNoDau.Size = new System.Drawing.Size(236, 33);
             this.textBoxNoDau.TabIndex = 39;
@@ -168,21 +171,44 @@
             this.label6.Text = "Phiếu Ghi Nợ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // comboBoxMaDaiLy
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(164, 136);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(236, 33);
-            this.comboBox1.TabIndex = 41;
+            this.comboBoxMaDaiLy.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.comboBoxMaDaiLy.FormattingEnabled = true;
+            this.comboBoxMaDaiLy.Location = new System.Drawing.Point(164, 141);
+            this.comboBoxMaDaiLy.Name = "comboBoxMaDaiLy";
+            this.comboBoxMaDaiLy.Size = new System.Drawing.Size(236, 33);
+            this.comboBoxMaDaiLy.TabIndex = 41;
+            this.comboBoxMaDaiLy.TextChanged += new System.EventHandler(this.comboBoxMaDaiLy_TextChanged);
+            // 
+            // textBoxTenDaiLy
+            // 
+            this.textBoxTenDaiLy.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTenDaiLy.Location = new System.Drawing.Point(557, 141);
+            this.textBoxTenDaiLy.Name = "textBoxTenDaiLy";
+            this.textBoxTenDaiLy.ReadOnly = true;
+            this.textBoxTenDaiLy.Size = new System.Drawing.Size(236, 33);
+            this.textBoxTenDaiLy.TabIndex = 42;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(22, 144);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 25);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Mã Đại Lý";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PhieuGhiNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 452);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBoxTenDaiLy);
+            this.Controls.Add(this.comboBoxMaDaiLy);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxNoDau);
             this.Controls.Add(this.textBoxNoCuoi);
@@ -216,6 +242,8 @@
         private System.Windows.Forms.TextBox textBoxNoCuoi;
         private System.Windows.Forms.TextBox textBoxNoDau;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxMaDaiLy;
+        private System.Windows.Forms.TextBox textBoxTenDaiLy;
+        private System.Windows.Forms.Label label7;
     }
 }
