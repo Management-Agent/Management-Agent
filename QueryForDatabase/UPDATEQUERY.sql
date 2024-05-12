@@ -78,7 +78,7 @@ BEGIN
             and Thang = @Thang
             and Nam = @Nam)
     BEGIN
-        SET @ErrorMessage = 'Đã tồn tại phiếu ghi nợ cùng tháng và năm của công ty này';
+        SET @ErrorMessage = 'Da ton tai phieu ghi no cung thang, nam cua cong ty nay';
         RETURN; -- Kết thúc procedure
     END
     
@@ -96,3 +96,5 @@ BEGIN
     SELECT TenDaiLy FROM DAILY
 	WHERE MaDaiLy = @MaDaiLy
 END;
+
+-------------------------

@@ -73,7 +73,7 @@ namespace QuanLyDaiLy.Scripts
                     foreach (string item in listPara)
                     {
                         if (item.Contains('@'))
-                        {
+                        {                         
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
@@ -147,6 +147,7 @@ namespace QuanLyDaiLy.Scripts
             }
             return data;
         }
+      
     }
 }
 
