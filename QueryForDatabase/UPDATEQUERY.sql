@@ -1,4 +1,4 @@
-USE QUANLYDAILY
+﻿USE QUANLYDAILY
 GO
 -----Lay thong tin danh sach dai ly
 CREATE PROCEDURE USP_GetDaiLyInfo
@@ -8,7 +8,6 @@ BEGIN
     FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
 	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
 END;
-<<<<<<< HEAD
 
 --Lay thong tin danh sach cong no
 CREATE PROCEDURE USP_GetCongNoInfo
@@ -21,7 +20,7 @@ BEGIN
 END;
 
 
-=======
+---------------
 CREATE PROCEDURE Insert_PNH
     @SoPhieuNhap VARCHAR(10),
     @MaMatHang VARCHAR(50),
@@ -52,7 +51,7 @@ BEGIN
 END
 >>>>>>> Update PhieuNhapHang
 
-
+--------------------
 ALTER PROCEDURE USP_GetCongNoInfo
 @Thang int,
 @Nam int
@@ -61,4 +60,30 @@ BEGIN
     SELECT TenDaiLy, NoDau, PhatSinh, NoCuoi
     FROM DAILY inner join BAOCAOCONGNO ON DAILY.MaDaiLy = BAOCAOCONGNO.MaDaiLy
 	WHERE BAOCAOCONGNO.Thang = @Thang AND BAOCAOCONGNO.Nam = @Nam
+END;
+
+--------------------
+CREATE PROCEDURE USP_AddCongNo
+    @MaDaiLy varchar(10),
+    @Thang int,
+    @Nam int,
+    @NoDau money,
+    @PhatSinh money,
+    @ErrorMessage NVARCHAR(1000) OUTPUT
+AS
+BEGIN
+    IF EXISTS(
+        SELECT * FROM BAOCAOCONGNO
+        WHERE MaDaiLy = @MaDaiLy
+            and Thang = @Thang
+            and Nam = @Nam)
+    BEGIN
+        SET @ErrorMessage = 'Đã tồn tại phiếu ghi nợ cùng tháng và năm của công ty này';
+        RETURN; -- Kết thúc procedure
+    END
+    
+    INSERT INTO BAOCAOCONGNO (MaDaiLy, Thang, Nam, NoDau, PhatSinh)
+    VALUES (@MaDaiLy, @Thang, @Nam, @NoDau, @PhatSinh)
+
+    SET @ErrorMessage = NULL;
 END;
