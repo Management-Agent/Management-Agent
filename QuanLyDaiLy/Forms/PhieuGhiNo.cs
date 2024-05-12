@@ -21,5 +21,43 @@ namespace QuanLyDaiLy.Forms
         {
 
         }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void DienThoaiBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxNoDau_TextChanged(object sender, EventArgs e)
+        {
+            if(textBoxNoDau.Text.Length > 0 && textBoxPhatSinh.Text.Length > 0) 
+            {
+                int noCuoiValue = int.Parse(textBoxNoDau.Text) + int.Parse(textBoxPhatSinh.Text);
+                textBoxNoCuoi.Text = noCuoiValue.ToString();
+            }
+        }
+
+        private void textBoxPhatSinh_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxNoDau.Text.Length > 0 && textBoxPhatSinh.Text.Length > 0)
+            {
+                int noCuoiValue = int.Parse(textBoxNoDau.Text) + int.Parse(textBoxPhatSinh.Text);
+                textBoxNoCuoi.Text = noCuoiValue.ToString();
+            }
+            else
+            {
+                textBoxNoCuoi.Text = "";
+            }
+        }
     }
 }
