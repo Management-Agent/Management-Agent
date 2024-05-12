@@ -83,10 +83,13 @@ namespace QuanLyDaiLy.Forms
 
         private void comboBoxMaDaiLy_TextChanged(object sender, EventArgs e)
         {
-            Button maDaiLyBox = (Button)sender;
+            ComboBox maDaiLyBox = (ComboBox)sender;
             if (maDaiLyBox.Text.Length > 0)
             {
                 string maDaiLy = maDaiLyBox.Text;
+                string query = "Exec USP_GetTenDaiLy @MaDaiLy ";
+                string data = DataProvider.Instance.ExecuteScalar(query, new object[] { maDaiLy }).ToString();
+                textBoxTenDaiLy.Text = data;
             }
             else
             {
