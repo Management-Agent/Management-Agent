@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.NNH = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // SPN
@@ -86,7 +88,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.label1.Location = new System.Drawing.Point(127, 109);
+            this.label1.Location = new System.Drawing.Point(115, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 25);
             this.label1.TabIndex = 18;
@@ -105,7 +107,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(127, 188);
+            this.label3.Location = new System.Drawing.Point(113, 188);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 25);
             this.label3.TabIndex = 20;
@@ -120,9 +122,31 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "Đơn giá nhập";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(113, 271);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(152, 25);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Ngày nhập hàng";
+            // 
+            // NNH
+            // 
+            this.NNH.AllowDrop = true;
+            this.NNH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NNH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.NNH.Location = new System.Drawing.Point(271, 265);
+            this.NNH.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
+            this.NNH.Name = "NNH";
+            this.NNH.Size = new System.Drawing.Size(204, 33);
+            this.NNH.TabIndex = 24;
+            // 
             // PhieuNhapHang
             // 
             this.ClientSize = new System.Drawing.Size(993, 506);
+            this.Controls.Add(this.NNH);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -159,5 +183,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker NNH;
     }
 }
