@@ -21,7 +21,7 @@ namespace QuanLyDaiLy
         public DataAccess() 
         {
             Instance = (DataAccess)this;
-            _con.ConnectionString = Helper.CnnVal("PNHTHDAT");
+            _con.ConnectionString = Helper.CnnVal("THANHDATDB");
             _command.Connection = _con;
         }
 
@@ -57,10 +57,10 @@ namespace QuanLyDaiLy
             _command.ExecuteNonQuery();
             _con.Close();
         }
-        public void AddPNH(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap, string ThanhTien)
+        public void AddPNH(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap)
         {
             _con.Open();
-            _queryString = "exec Insert_PNH '" + SoPhieuNhap + "', '" + MaMatHang + "', '" + SoLuongNhap + "', '" + DonGiaNhap + "', '" + ThanhTien + "'";
+            _queryString = "exec Insert_PNH '" + SoPhieuNhap + "', '" + MaMatHang + "', '" + SoLuongNhap + "', '" + DonGiaNhap + "'";
             _command.CommandText = _queryString;
             _command.ExecuteNonQuery();
             _con.Close();

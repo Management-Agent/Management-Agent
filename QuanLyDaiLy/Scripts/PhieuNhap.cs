@@ -12,14 +12,12 @@ namespace QuanLyDaiLy
         public string MaMatHang { get; set; }
         public string SoLuongNhap { get; set; }
         public string DonGiaNhap { get; set; }
-        public string ThanhTien { get; set; }
-        public PhieuNhap(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap, string ThanhTien)
+        public PhieuNhap(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap)
         {
             this.SoPhieuNhap = SoPhieuNhap;
             this.MaMatHang = MaMatHang;
             this.SoLuongNhap = SoLuongNhap;
             this.DonGiaNhap = DonGiaNhap;
-            this.ThanhTien = ThanhTien;
         }
     }
 }
