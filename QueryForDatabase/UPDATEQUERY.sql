@@ -19,6 +19,8 @@ BEGIN
     SELECT TenDaiLy, NoDau, PhatSinh, NoCuoi
     FROM DAILY inner join BAOCAOCONGNO ON DAILY.MaDaiLy = BAOCAOCONGNO.MaDaiLy
 END;
+
+
 =======
 CREATE PROCEDURE Insert_PNH
     @SoPhieuNhap VARCHAR(10),
@@ -34,3 +36,14 @@ BEGIN
 	VALUES (@SoPhieuNhap, @MaMatHang, @SoLuongNhap, @DonGiaNhap)
 END
 >>>>>>> Update PhieuNhapHang
+
+
+ALTER PROCEDURE USP_GetCongNoInfo
+@Thang int,
+@Nam int
+AS
+BEGIN
+    SELECT TenDaiLy, NoDau, PhatSinh, NoCuoi
+    FROM DAILY inner join BAOCAOCONGNO ON DAILY.MaDaiLy = BAOCAOCONGNO.MaDaiLy
+	WHERE BAOCAOCONGNO.Thang = @Thang AND BAOCAOCONGNO.Nam = @Nam
+END;
