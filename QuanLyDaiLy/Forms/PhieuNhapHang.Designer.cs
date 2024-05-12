@@ -156,6 +156,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.Name = "PhieuNhapHang";
             this.Text = "PhieuNhapHang";
+            this.Load += new System.EventHandler(this.PhieuNhapHang_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

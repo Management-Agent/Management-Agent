@@ -21,5 +21,10 @@ namespace QuanLyDaiLy
         {
             DataAccess.Instance.AddPNH(SPN.Text, MMH.Text, SLN.Text, DGN.Text, TT.Text);
         }
+
+        private void PhieuNhapHang_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
