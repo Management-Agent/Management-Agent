@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyDaiLy.Forms
+namespace QuanLyDaiLy
 {
     public partial class PhieuNhapHang : Form
     {
@@ -17,34 +17,9 @@ namespace QuanLyDaiLy.Forms
         {
             InitializeComponent();
         }
-        private void Save_Click(object sender, EventArgs e)
+        private void ThemPNH_Click(object sender, EventArgs e)
         {
-            string SPN = SoPhieuNhap.Text;
-            string NNH = NgayNhapHang.Text;
-            int TT = int.Parse(TongTien.Text);
-
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = LAPTOP-QPLRUS8G\\SQLEXPRESS; database = CNPM; integrated = true";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText= "insert into PHIEUNHAPHANG(SoPhieuNhap, NgayNhapHang, TongTien) values ('" + SPN + "', '" + NNH + "','" + TT + "')";
-            SqlDataAdapter DA = new SqlDataAdapter(cmd);
-            DataSet DS = new DataSet();
-            DA.Fill(DS);
-            MessageBox.Show("Data save");
-        }
-        private void Reset_Click(object sender, EventArgs e)
-        {
-            textBoxPNH.Clear();
-            textBoxNNH.Clear();
-            textBoxTT.Clear();
-            MessageBox.Show("Test");
-            MessageBox.Show("Test1");
-        }
-
-        private void PhieuNhapHang_Load(object sender, EventArgs e)
-        {
-
+            DataAccess.Instance.AddPNH(SPN.Text, MMH.Text, SLN.Text, DGN.Text, TT.Text);
         }
     }
 }
