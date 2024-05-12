@@ -87,3 +87,12 @@ BEGIN
 
     SET @ErrorMessage = NULL;
 END;
+
+--------
+CREATE PROCEDURE USP_GetTenDaiLy
+    @MaDaiLy varchar(10)
+AS
+BEGIN
+    SELECT TenDaiLy FROM DAILY
+	WHERE MaDaiLy = @MaDaiLy
+END;
