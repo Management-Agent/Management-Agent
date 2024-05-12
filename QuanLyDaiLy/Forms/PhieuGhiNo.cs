@@ -16,5 +16,10 @@ namespace QuanLyDaiLy.Forms
         {
             InitializeComponent();
         }
+
+        private void PhieuGhiNo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

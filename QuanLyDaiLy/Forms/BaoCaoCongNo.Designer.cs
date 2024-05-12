@@ -156,24 +156,28 @@
             // 
             // DaiLy
             // 
+            this.DaiLy.DataPropertyName = "TenDaiLy";
             this.DaiLy.HeaderText = "Đại lý";
             this.DaiLy.MinimumWidth = 6;
             this.DaiLy.Name = "DaiLy";
             // 
             // NoDau
             // 
+            this.NoDau.DataPropertyName = "NoDau";
             this.NoDau.HeaderText = "Nợ đầu";
             this.NoDau.MinimumWidth = 6;
             this.NoDau.Name = "NoDau";
             // 
             // PhatSinh
             // 
+            this.PhatSinh.DataPropertyName = "PhatSinh";
             this.PhatSinh.HeaderText = "Phát sinh";
             this.PhatSinh.MinimumWidth = 6;
             this.PhatSinh.Name = "PhatSinh";
             // 
             // NoCuoi
             // 
+            this.NoCuoi.DataPropertyName = "NoCuoi";
             this.NoCuoi.HeaderText = "Nợ cuối";
             this.NoCuoi.MinimumWidth = 6;
             this.NoCuoi.Name = "NoCuoi";
@@ -188,6 +192,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "BaoCaoCongNo";
             this.Text = "BaoCaoCongNo";
+            this.Load += new System.EventHandler(this.BaoCaoCongNo_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -206,11 +211,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn DaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhatSinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoCuoi;
-        private System.Windows.Forms.Label label6;
     }
 }

@@ -166,7 +166,7 @@
             this.label6.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(312, 43);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(203, 39);
+            this.label6.Size = new System.Drawing.Size(197, 37);
             this.label6.TabIndex = 40;
             this.label6.Text = "Phiếu Ghi Nợ";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -191,6 +191,7 @@
             this.Controls.Add(this.TenDaiLyBox);
             this.Name = "PhieuGhiNo";
             this.Text = "PhieuGhiNo";
+            this.Load += new System.EventHandler(this.PhieuGhiNo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

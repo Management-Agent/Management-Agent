@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDaiLy.Scripts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace QuanLyDaiLy.Forms
         public BaoCaoCongNo()
         {
             InitializeComponent();
+        }
+
+        private void BaoCaoCongNo_Load(object sender, EventArgs e)
+        {
+            //
+            int month = dateTimePicker1.Value.Month;
+            int year = dateTimePicker1.Value.Year;
+            //load data
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetCongNoInfo @Thang , @Nam ",new object[] {month,year});
+            dataGridView1.DataSource = data;
         }
     }
 }
