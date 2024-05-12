@@ -18,7 +18,7 @@ namespace QuanLyDaiLy
         private SqlConnection _con = new SqlConnection();
         private string _queryString;
         private SqlCommand _command = new SqlCommand();
-        public static DataAccess Instance {  get; private set; }
+        public static DataAccess Instance {  get; set; }
         public static bool IsInstantiated => Instance != null;
         public DataAccess() 
         {
@@ -69,10 +69,10 @@ namespace QuanLyDaiLy
             _command.ExecuteNonQuery();
             _con.Close();
         }
-        public void AddPNH(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap)
+        public void AddPNH(string SoPhieuNhap, string MaMatHang, string SoLuongNhap, string DonGiaNhap, string NgayNhapHang)
         {
             _con.Open();
-            _queryString = "exec Insert_PNH '" + SoPhieuNhap + "', '" + MaMatHang + "', '" + SoLuongNhap + "', '" + DonGiaNhap + "'";
+            _queryString = "exec Insert_PNH '" + SoPhieuNhap + "', '" + MaMatHang + "', '" + SoLuongNhap + "', '" + DonGiaNhap + "', '"+ NgayNhapHang + "'";
             _command.CommandText = _queryString;
             _command.ExecuteNonQuery();
             _con.Close();
