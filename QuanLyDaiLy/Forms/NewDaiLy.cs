@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDaiLy.Scripts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace QuanLyDaiLy
 {
@@ -39,7 +41,10 @@ namespace QuanLyDaiLy
         private void button1_Click(object sender, EventArgs e)
         {
             string theDate = NgayTiepNhanBox.Value.ToString("yyyy-MM-dd");
-            DataAccess.Instance.AddDaiLy(TenDaiLyBox.Text, LoaiDaiLyBox.Text, DienThoaiBox.Text, DiaChiBox.Text, EmailBox.Text, QuanBox.Text, theDate);
+            string queryString = "exec Insert_DaiLy @TenDaiLy , @MaLoaiDaiLy , @DienThoai , @DiaChi , @Email , @MaQuan , @NgayTiepNhan , @TongNo ";
+            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { TenDaiLyBox.Text, LoaiDaiLyBox.Text, DienThoaiBox.Text, DiaChiBox.Text, EmailBox.Text, QuanBox.Text, theDate, 0 });
+            if (test != 0) MessageBox.Show("Them thanh cong.");
+            else MessageBox.Show("Them khong thanh cong.");
         }
     }
 }
