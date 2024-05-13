@@ -98,3 +98,10 @@ BEGIN
 END;
 
 -------------------------
+create proc Useraccount_Login
+	@Username varchar(50),
+	@Password varchar(50)
+as
+begin
+	select * from USERACCOUNT where Username = @Username and Password = @Password
+end;
