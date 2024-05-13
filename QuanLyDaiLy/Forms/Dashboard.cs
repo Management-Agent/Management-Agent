@@ -41,5 +41,10 @@ namespace QuanLyDaiLy
         {
 
         }
+
+        private void đạiLýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
