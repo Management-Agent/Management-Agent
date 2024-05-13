@@ -19,8 +19,8 @@ namespace QuanLyDaiLy.Scripts
 
         public bool login(string Username, string Password)
         {
-            string stringQuery = "SELECT * FROM USERACCOUNT WHERE Username='" + Username + "' AND Password='" + Password + "'";
-            DataTable result = DataProvider.Instance.ExecuteQuery(stringQuery);
+            string stringQuery = "Useraccount_Login @Username , @Password";
+            DataTable result = DataProvider.Instance.ExecuteQuery(stringQuery, new object[] {Username, Password });
             return result.Rows.Count > 0;
         }
     }
