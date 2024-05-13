@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridViewBCDS = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelThang = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSoPhieuXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTongTriGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTyLe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelThang = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBCDS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,45 +57,13 @@
             this.dataGridViewBCDS.Size = new System.Drawing.Size(768, 318);
             this.dataGridViewBCDS.TabIndex = 0;
             // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(244, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(268, 37);
-            this.label6.TabIndex = 43;
-            this.label6.Text = "Báo Cáo Doanh Số";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelThang
-            // 
-            this.labelThang.AutoSize = true;
-            this.labelThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelThang.Location = new System.Drawing.Point(246, 66);
-            this.labelThang.Name = "labelThang";
-            this.labelThang.Size = new System.Drawing.Size(80, 25);
-            this.labelThang.TabIndex = 44;
-            this.labelThang.Text = "Tháng: ";
-            this.labelThang.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(317, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 25);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "................";
-            // 
             // colSTT
             // 
             this.colSTT.HeaderText = "STT";
             this.colSTT.MinimumWidth = 6;
             this.colSTT.Name = "colSTT";
             this.colSTT.ReadOnly = true;
+            this.colSTT.Width = 125;
             // 
             // colDaiLy
             // 
@@ -129,12 +97,57 @@
             this.colTyLe.ReadOnly = true;
             this.colTyLe.Width = 75;
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(244, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(268, 37);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "Báo Cáo Doanh Số";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelThang
+            // 
+            this.labelThang.AutoSize = true;
+            this.labelThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelThang.Location = new System.Drawing.Point(246, 66);
+            this.labelThang.Name = "labelThang";
+            this.labelThang.Size = new System.Drawing.Size(80, 25);
+            this.labelThang.TabIndex = 44;
+            this.labelThang.Text = "Tháng: ";
+            this.labelThang.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBox1.Location = new System.Drawing.Point(332, 67);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 45;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.label1_Click);
+            // 
             // BaoCaoDoanhSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelThang);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridViewBCDS);
@@ -151,11 +164,11 @@
         private System.Windows.Forms.DataGridView dataGridViewBCDS;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelThang;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoPhieuXuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTongTriGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTyLe;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

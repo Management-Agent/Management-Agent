@@ -23,7 +23,7 @@ namespace QuanLyDaiLy
         public DataAccess() 
         {
             Instance = (DataAccess)this;
-            _con.ConnectionString = Helper.CnnVal("DUCDATDB");
+            _con.ConnectionString = Helper.CnnVal("TRUNGDB");
             _command.Connection = _con;
         }
 

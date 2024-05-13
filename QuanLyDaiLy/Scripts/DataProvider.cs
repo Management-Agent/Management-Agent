@@ -19,7 +19,7 @@ namespace QuanLyDaiLy.Scripts
         }
 
         private DataProvider() {
-            connectionSTR = Helper.CnnVal("DUCDATDB");
+            connectionSTR = Helper.CnnVal("TRUNGDB");
         }
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
