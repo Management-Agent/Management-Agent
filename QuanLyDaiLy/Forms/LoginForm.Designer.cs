@@ -84,6 +84,7 @@
             this.LoginButton.TabIndex = 17;
             this.LoginButton.Text = "Đăng nhập";
             this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // LoginForm
             // 

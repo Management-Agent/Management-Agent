@@ -48,18 +48,6 @@ namespace QuanLyDaiLy
         {
             MessageBox.Show("Test!");
         }
-        public bool LoginAccount(string Username, string Password)
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT COUNT(*) FROM login WHERE username='" + Username + "' AND password='" + Password + "'", _con);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            if (dataTable.Rows[0][0].ToString() == "1")
-                return true;
-            else return false;
-        }
-
-
-
 
         public void AddDaiLy(string TenDaiLy, string MaLoaiDaiLy, string DienThoai, string DiaChi, string Email,string MaQuan, string NgayTiepNhan)
         {

@@ -96,6 +96,7 @@
     <Compile Include="Forms\NewDaiLy.Designer.cs">
       <DependentUpon>NewDaiLy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Scripts\LoginAccount.cs" />
     <Compile Include="Scripts\PhieuNhap.cs" />
     <Compile Include="Scripts\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
