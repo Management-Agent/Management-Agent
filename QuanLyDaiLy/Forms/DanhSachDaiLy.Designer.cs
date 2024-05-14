@@ -40,6 +40,8 @@
             this.LoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TienNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDaiLy)).BeginInit();
@@ -81,19 +83,22 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(982, 86);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(356, 20);
+            this.label6.Location = new System.Drawing.Point(25, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(259, 37);
             this.label6.TabIndex = 42;
@@ -163,6 +168,25 @@
             this.TienNo.MinimumWidth = 6;
             this.TienNo.Name = "TienNo";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(528, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 26);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Tìm kiếm:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(642, 26);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(294, 33);
+            this.textBox1.TabIndex = 44;
+            this.textBox1.Text = "Tên đại lý";
+            // 
             // DanhSachDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -196,5 +220,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LoaiDaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quan;
         private System.Windows.Forms.DataGridViewTextBoxColumn TienNo;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

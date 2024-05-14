@@ -33,5 +33,10 @@ namespace QuanLyDaiLy
             DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
             dataGridViewDaiLy.DataSource = data;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
