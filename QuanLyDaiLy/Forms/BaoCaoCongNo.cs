@@ -58,10 +58,7 @@ namespace QuanLyDaiLy.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using(PhieuGhiNo phieuGhiNo = new PhieuGhiNo())
-            {
-                phieuGhiNo.ShowDialog();
-            }
+            
         }
     }
 }
