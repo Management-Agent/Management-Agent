@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.SPN = new System.Windows.Forms.TextBox();
-            this.MMH = new System.Windows.Forms.TextBox();
             this.SLN = new System.Windows.Forms.TextBox();
             this.DGN = new System.Windows.Forms.TextBox();
             this.ThemPNH = new System.Windows.Forms.Button();
@@ -39,10 +38,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.NNH = new System.Windows.Forms.DateTimePicker();
-            this.MDVT = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.TDVT = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.MMH = new System.Windows.Forms.ComboBox();
+            this.MDVT = new System.Windows.Forms.ComboBox();
+            this.TDVT = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // SPN
@@ -52,14 +52,6 @@
             this.SPN.Name = "SPN";
             this.SPN.Size = new System.Drawing.Size(204, 33);
             this.SPN.TabIndex = 2;
-            // 
-            // MMH
-            // 
-            this.MMH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MMH.Location = new System.Drawing.Point(676, 112);
-            this.MMH.Name = "MMH";
-            this.MMH.Size = new System.Drawing.Size(204, 33);
-            this.MMH.TabIndex = 3;
             // 
             // SLN
             // 
@@ -146,14 +138,6 @@
             this.NNH.Size = new System.Drawing.Size(204, 33);
             this.NNH.TabIndex = 24;
             // 
-            // MDVT
-            // 
-            this.MDVT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MDVT.Location = new System.Drawing.Point(676, 268);
-            this.MDVT.Name = "MDVT";
-            this.MDVT.Size = new System.Drawing.Size(204, 33);
-            this.MDVT.TabIndex = 25;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -162,14 +146,6 @@
             this.label6.Size = new System.Drawing.Size(141, 25);
             this.label6.TabIndex = 26;
             this.label6.Text = "Mã đơn vị tính";
-            // 
-            // TDVT
-            // 
-            this.TDVT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TDVT.Location = new System.Drawing.Point(271, 340);
-            this.TDVT.Name = "TDVT";
-            this.TDVT.Size = new System.Drawing.Size(204, 33);
-            this.TDVT.TabIndex = 27;
             // 
             // label7
             // 
@@ -180,13 +156,42 @@
             this.label7.TabIndex = 28;
             this.label7.Text = "Tên đơn vị tính";
             // 
+            // MMH
+            // 
+            this.MMH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MMH.FormattingEnabled = true;
+            this.MMH.Location = new System.Drawing.Point(676, 109);
+            this.MMH.Name = "MMH";
+            this.MMH.Size = new System.Drawing.Size(204, 33);
+            this.MMH.TabIndex = 29;
+            // 
+            // MDVT
+            // 
+            this.MDVT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MDVT.FormattingEnabled = true;
+            this.MDVT.Location = new System.Drawing.Point(676, 268);
+            this.MDVT.Name = "MDVT";
+            this.MDVT.Size = new System.Drawing.Size(204, 33);
+            this.MDVT.TabIndex = 30;
+            this.MDVT.SelectedIndexChanged += new System.EventHandler(this.MDVT_SelectedIndexChanged);
+            // 
+            // TDVT
+            // 
+            this.TDVT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDVT.Location = new System.Drawing.Point(271, 340);
+            this.TDVT.Name = "TDVT";
+            this.TDVT.ReadOnly = true;
+            this.TDVT.Size = new System.Drawing.Size(204, 33);
+            this.TDVT.TabIndex = 27;
+            // 
             // PhieuNhapHang
             // 
             this.ClientSize = new System.Drawing.Size(993, 506);
+            this.Controls.Add(this.MDVT);
+            this.Controls.Add(this.MMH);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TDVT);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.MDVT);
             this.Controls.Add(this.NNH);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -196,11 +201,11 @@
             this.Controls.Add(this.ThemPNH);
             this.Controls.Add(this.DGN);
             this.Controls.Add(this.SLN);
-            this.Controls.Add(this.MMH);
             this.Controls.Add(this.SPN);
             this.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.Name = "PhieuNhapHang";
             this.Text = "PhieuNhapHang";
+            this.Load += new System.EventHandler(this.PhieuNhapHang_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,7 +222,6 @@
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Reset;
         private System.Windows.Forms.TextBox SPN;
-        private System.Windows.Forms.TextBox MMH;
         private System.Windows.Forms.TextBox SLN;
         private System.Windows.Forms.TextBox DGN;
         private System.Windows.Forms.Button ThemPNH;
@@ -227,9 +231,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker NNH;
-        private System.Windows.Forms.TextBox MDVT;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TDVT;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox MMH;
+        private System.Windows.Forms.ComboBox MDVT;
+        private System.Windows.Forms.TextBox TDVT;
     }
 }
