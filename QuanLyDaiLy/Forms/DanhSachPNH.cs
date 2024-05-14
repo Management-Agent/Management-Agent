@@ -35,7 +35,16 @@ namespace QuanLyDaiLy.Forms
         }
         private void TraCuuPhieuNhap(string maPhieuNhap)
         {
-            string queryString = "exec Search_Info @SoPhieuNhap";
+            string queryString = "";
+
+            if (maPhieuNhap.ToLower() == "all")
+            {
+                queryString = "exec Search_All_PNH @SoPhieuNhap";
+            }
+            else
+            {
+                queryString = "exec Search_Info_PNH @SoPhieuNhap";
+            }
 
             DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] { maPhieuNhap });
             dataGridViewPNH.DataSource = data;
@@ -49,10 +58,10 @@ namespace QuanLyDaiLy.Forms
         }
         private void XoaPhieuNhap(string maPhieuNhap)
         {
-            string queryString = "exec Delete_Info @SoPhieuNhap";
+            string queryString = "exec Delete_Info_PNH @SoPhieuNhap";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] { maPhieuNhap });
-            dataGridViewPNH.DataSource = data;
+            TraCuuPhieuNhap("all");
         }
     }
 }

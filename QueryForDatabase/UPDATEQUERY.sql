@@ -122,3 +122,30 @@ alter table DAILY
 alter column MaLoaiDaiLy varchar(10) not null
 alter table DAILY
 alter column DienThoai varchar(10) not null
+-------------------------
+CREATE PROCEDURE Search_Info_PNH
+	@SoPhieuNhap VARCHAR(10)
+AS
+BEGIN
+    SELECT *
+    FROM PHIEUNHAPHANG
+	WHERE SoPhieuNhap = @SoPhieuNhap
+END
+-------------------------
+CREATE PROCEDURE Delete_Info_PNH
+	@SoPhieuNhap VARCHAR(10)
+AS
+BEGIN
+	DELETE CT_PNH
+	WHERE SoPhieuNhap = @SoPhieuNhap
+    DELETE PHIEUNHAPHANG
+	WHERE SoPhieuNhap = @SoPhieuNhap
+END
+-------------------------
+CREATE PROCEDURE Search_All_PNH
+	@SoPhieuNhap VARCHAR(10)
+AS
+BEGIN
+    SELECT *
+    FROM PHIEUNHAPHANG
+END
