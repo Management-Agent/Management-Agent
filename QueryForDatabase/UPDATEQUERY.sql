@@ -105,3 +105,20 @@ as
 begin
 	select * from USERACCOUNT where Username = @Username and Password = @Password
 end;
+-------------------------
+create proc Delete_DAILY
+	@TenDaiLy varchar(10),
+	@DiaChi varchar(200)
+as
+begin
+	delete from DAILY where TenDaiLy = @TenDaiLy and DiaChi = @DiaChi
+end;
+-------------------------
+alter table DAILY
+alter column DiaChi varchar(200) not null
+alter table DAILY
+alter column TenDaiLy varchar(10) not null
+alter table DAILY
+alter column MaLoaiDaiLy varchar(10) not null
+alter table DAILY
+alter column DienThoai varchar(10) not null
