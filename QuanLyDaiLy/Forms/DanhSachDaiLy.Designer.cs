@@ -32,7 +32,7 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.modìyButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.FindBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -96,7 +96,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.FindBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -106,14 +106,14 @@
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // textBox1
+            // FindBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(642, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(294, 33);
-            this.textBox1.TabIndex = 44;
-            this.textBox1.Text = "Tên đại lý";
+            this.FindBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FindBox.Location = new System.Drawing.Point(642, 26);
+            this.FindBox.Name = "FindBox";
+            this.FindBox.Size = new System.Drawing.Size(294, 33);
+            this.FindBox.TabIndex = 44;
+            this.FindBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -159,6 +159,7 @@
             this.RefreshButton.TabIndex = 4;
             this.RefreshButton.Text = "Làm mới";
             this.RefreshButton.UseVisualStyleBackColor = true;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // dataGridViewDaiLy
             // 
@@ -356,7 +357,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridViewDaiLy;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox FindBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.Label label2;

@@ -31,6 +31,17 @@ begin
 	select TenQuan
 	from QUAN
 end;
+--Tim thong tin dai ly thong qua tim so dien thoai
+create proc USP_FindDaiLy
+	@DienThoai varchar(10)
+as
+begin
+	SELECT TenDaiLy, DienThoai,TenLoaiDaiLy, TenQuan, TongNo
+    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
+	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
+	where @DienThoai = DienThoai
+end;
+
 --Lay thong tin danh sach cong no
 CREATE PROCEDURE USP_GetCongNoInfo
 @Thang int,

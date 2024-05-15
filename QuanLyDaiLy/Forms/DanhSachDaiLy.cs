@@ -15,6 +15,7 @@ namespace QuanLyDaiLy
 {
     public partial class DanhSachDaiLy : Form
     {
+        DataTable listDaiLy;
         public DanhSachDaiLy()
         {
             InitializeComponent();
@@ -31,8 +32,8 @@ namespace QuanLyDaiLy
         private void DanhSachDaiLy_Load(object sender, EventArgs e)
         {
             //load data
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
-            dataGridViewDaiLy.DataSource = data;
+            listDaiLy = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
+            dataGridViewDaiLy.DataSource = listDaiLy;
             bindingDaiLy();
             showElementInLoaiDaiLy();
             showElementInQuan();
@@ -60,7 +61,7 @@ namespace QuanLyDaiLy
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show((dataGridViewDaiLy.SelectedColumns.Count).ToString());
+            MessageBox.Show(FindBox.Text);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,6 +79,16 @@ namespace QuanLyDaiLy
             DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetAllTenQuan");
             TenQuanComboBox.DataSource = data;
             TenQuanComboBox.DisplayMember = "TenQuan";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            listDaiLy = DataProvider.Instance.ExecuteQuery("exec USP_FindDaiLy @DienThoai ", new object[] { FindBox.Text });
         }
     }
 }
