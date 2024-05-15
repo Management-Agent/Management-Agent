@@ -164,7 +164,38 @@ BEGIN
     SELECT *
     FROM PHIEUNHAPHANG
 END
-
+-------------------------
+CREATE PROCEDURE Update_CT_PNH_SLN
+	@SoPhieuNhap VARCHAR(10),
+	@MaMatHang VARCHAR(50),
+	@SoLuongNhap BIGINT
+AS
+BEGIN
+	UPDATE CT_PNH
+	SET SoLuongNhap = @SoLuongNhap
+	WHERE SoPhieuNhap = @SoPhieuNhap and MaMatHang = @MaMatHang
+END
+-------------------------
+CREATE PROCEDURE Update_CT_PNH_DGN
+	@SoPhieuNhap VARCHAR(10),
+	@MaMatHang VARCHAR(50),
+	@DonGiaNhap MONEY
+AS
+BEGIN
+	UPDATE CT_PNH
+	SET DonGiaNhap = @DonGiaNhap
+	WHERE SoPhieuNhap = @SoPhieuNhap and MaMatHang = @MaMatHang
+END
+-------------------------
+CREATE PROCEDURE Search_CT_PNH_All
+	@SoPhieuNhap VARCHAR(10)
+AS
+BEGIN
+	SELECT CT_PNH.SoPhieuNhap, CT_PNH.MaMatHang, SoLuongNhap, DonGiaNhap, ThanhTien, MATHANG.MaDVT as 'Mã đơn vị tính', TenDVT 'Tên đơn vị tính'
+    FROM CT_PNH
+	JOIN MATHANG on MATHANG.MaMatHang = CT_PNH.MaMatHang
+	JOIN DVT on DVT.MaDVT = MATHANG.MaDVT
+END
 ----------------------------
 CREATE TRIGGER TR_AFTERINSERT_DAILY
 ON DAILY 

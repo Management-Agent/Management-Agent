@@ -71,5 +71,16 @@ namespace QuanLyDaiLy.Forms
             p.ShowDialog();
             this.Show();
         }
+
+        private void DanhSachPNH_Load(object sender, EventArgs e)
+        {
+            string queryString = "";
+            if (SearchPNH.Text == "")
+            {
+                queryString = "exec Search_All_PNH @SoPhieuNhap";
+                DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] { SearchPNH.Text });
+                dataGridViewPNH.DataSource = data;
+            }
+        }
     }
 }
