@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewPNH = new System.Windows.Forms.DataGridView();
+            this.colSPN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThemPNH = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.SearchPNH = new System.Windows.Forms.TextBox();
-            this.colSPN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeletePNH = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPNH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -59,6 +59,33 @@
             this.dataGridViewPNH.RowTemplate.Height = 24;
             this.dataGridViewPNH.Size = new System.Drawing.Size(775, 249);
             this.dataGridViewPNH.TabIndex = 0;
+            // 
+            // colSPN
+            // 
+            this.colSPN.DataPropertyName = "SoPhieuNhap";
+            this.colSPN.HeaderText = "Số phiếu nhập hàng";
+            this.colSPN.MinimumWidth = 6;
+            this.colSPN.Name = "colSPN";
+            this.colSPN.ReadOnly = true;
+            this.colSPN.Width = 200;
+            // 
+            // colNNH
+            // 
+            this.colNNH.DataPropertyName = "NgayNhapHang";
+            this.colNNH.HeaderText = "Ngày nhập hàng";
+            this.colNNH.MinimumWidth = 6;
+            this.colNNH.Name = "colNNH";
+            this.colNNH.ReadOnly = true;
+            this.colNNH.Width = 200;
+            // 
+            // colTT
+            // 
+            this.colTT.DataPropertyName = "TongTien";
+            this.colTT.HeaderText = "Tổng tiền";
+            this.colTT.MinimumWidth = 6;
+            this.colTT.Name = "colTT";
+            this.colTT.ReadOnly = true;
+            this.colTT.Width = 200;
             // 
             // ThemPNH
             // 
@@ -91,6 +118,7 @@
             this.button2.TabIndex = 20;
             this.button2.Text = "Sửa phiếu nhập hàng";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -110,33 +138,6 @@
             this.SearchPNH.Name = "SearchPNH";
             this.SearchPNH.Size = new System.Drawing.Size(368, 33);
             this.SearchPNH.TabIndex = 28;
-            // 
-            // colSPN
-            // 
-            this.colSPN.DataPropertyName = "SoPhieuNhap";
-            this.colSPN.HeaderText = "Số phiếu nhập hàng";
-            this.colSPN.MinimumWidth = 6;
-            this.colSPN.Name = "colSPN";
-            this.colSPN.ReadOnly = true;
-            this.colSPN.Width = 200;
-            // 
-            // colNNH
-            // 
-            this.colNNH.DataPropertyName = "NgayNhapHang";
-            this.colNNH.HeaderText = "Ngày nhập hàng";
-            this.colNNH.MinimumWidth = 6;
-            this.colNNH.Name = "colNNH";
-            this.colNNH.ReadOnly = true;
-            this.colNNH.Width = 200;
-            // 
-            // colTT
-            // 
-            this.colTT.DataPropertyName = "TongTien";
-            this.colTT.HeaderText = "Tổng tiền";
-            this.colTT.MinimumWidth = 6;
-            this.colTT.Name = "colTT";
-            this.colTT.ReadOnly = true;
-            this.colTT.Width = 200;
             // 
             // DeletePNH
             // 

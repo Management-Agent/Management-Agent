@@ -98,6 +98,12 @@
     <Compile Include="Forms\PhieuXuatHang.Designer.cs">
       <DependentUpon>PhieuXuatHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SuaPNH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuaPNH.Designer.cs">
+      <DependentUpon>SuaPNH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\DaiLy.cs" />
     <Compile Include="Forms\Dashboard.cs">
       <SubType>Form</SubType>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PhieuXuatHang.resx">
       <DependentUpon>PhieuXuatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuaPNH.resx">
+      <DependentUpon>SuaPNH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

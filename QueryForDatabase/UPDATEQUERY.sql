@@ -28,7 +28,8 @@ CREATE PROCEDURE Insert_PNH
     @DonGiaNhap MONEY,
 	@NgayNhapHang DATE,
     @MaDVT VARCHAR(10),
-    @TenDVT VARCHAR(10)
+    @TenDVT VARCHAR(10),
+	@TenMatHang VARCHAR(10)
 AS
 BEGIN
     IF NOT EXISTS (SELECT * FROM PHIEUNHAPHANG WHERE SoPhieuNhap = @SoPhieuNhap)
@@ -37,10 +38,16 @@ BEGIN
         VALUES (@SoPhieuNhap, @NgayNhapHang)
     END
 
-    IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
+	IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
     BEGIN
         INSERT INTO DVT (MaDVT, TenDVT)
         VALUES (@MaDVT, @TenDVT)
+    END
+
+	IF NOT EXISTS (SELECT * FROM MATHANG WHERE MaMatHang = @MaMatHang)
+    BEGIN
+        INSERT INTO MATHANG (MaMatHang, TenMatHang, MaDVT)
+        VALUES (@MaMatHang, @TenMatHang, @MaDVT)
     END
 
     IF NOT EXISTS (SELECT * FROM CT_PNH WHERE SoPhieuNhap = @SoPhieuNhap AND MaMatHang = @MaMatHang)

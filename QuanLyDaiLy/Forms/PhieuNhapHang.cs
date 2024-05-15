@@ -21,8 +21,8 @@ namespace QuanLyDaiLy
         private void ThemPNH_Click(object sender, EventArgs e)
         {
             string theDate = NNH.Value.ToString("yyyy-MM-dd");
-            string queryString = "exec Insert_PNH @SoPhieuNhap , @MaMatHang , @SoLuongNhap , @DonGiaNhap , @NgayNhapHang , @MaDVT , @TenDVT ";
-            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SPN.Text, MMH.SelectedItem.ToString(), SLN.Text, DGN.Text, theDate, MDVT.Text, TDVT.Text });
+            string queryString = "exec Insert_PNH @SoPhieuNhap , @MaMatHang , @SoLuongNhap , @DonGiaNhap , @NgayNhapHang , @MaDVT , @TenDVT , @TenMatHang ";
+            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SPN.Text, MMH.SelectedItem.ToString(), SLN.Text, DGN.Text, theDate, MDVT.Text, TDVT.Text, TMH.Text });
             if (test > 0)
                 MessageBox.Show("Thêm thành công.");
             else
@@ -44,6 +44,35 @@ namespace QuanLyDaiLy
             else if (MDVT.SelectedItem.ToString() == "2")
             {
                 TDVT.Text = "VND";
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MMH.SelectedItem.ToString() == "MH1") 
+            { 
+                TMH.Text = "MH1";
+            }
+            else if (MMH.SelectedItem.ToString() == "MH2")
+            {
+                TMH.Text = "MH2";
+            }
+            else if (MMH.SelectedItem.ToString() == "MH3")
+            {
+                TMH.Text = "MH3";
+            }
+            else if (MMH.SelectedItem.ToString() == "MH4")
+            {
+                TMH.Text = "MH4";
+            }
+            else if (MMH.SelectedItem.ToString() == "MH5")
+            {
+                TMH.Text = "MH5";
             }
         }
     }

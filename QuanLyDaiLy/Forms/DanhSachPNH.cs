@@ -63,5 +63,13 @@ namespace QuanLyDaiLy.Forms
             DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] { maPhieuNhap });
             TraCuuPhieuNhap("all");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SuaPNH p = new SuaPNH();
+            this.Hide();
+            p.ShowDialog();
+            this.Show();
+        }
     }
 }
