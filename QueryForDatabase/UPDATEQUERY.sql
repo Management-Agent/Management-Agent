@@ -290,3 +290,18 @@ BEGIN
 END
 
 -------
+CREATE TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
+ON PHIEUXUATHANG
+AFTER INSERT
+AS
+BEGIN
+	DECLARE @MaDaiLy1 varchar(10);
+	DECLARE @NgayXuatHang DATETIME;
+	Declare @ConLai money;
+
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = ConLai
+	FROM inserted
+
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
+
+END
