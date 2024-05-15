@@ -38,5 +38,14 @@ namespace QuanLyDaiLy
         {
 
         }
+
+        private void dataGridViewDaiLy_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
