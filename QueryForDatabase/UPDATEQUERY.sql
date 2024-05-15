@@ -173,6 +173,22 @@ BEGIN
 END
 
 -----------------------------
+drop table BAOCAOCONGNO
+GO
+Create TABLE BAOCAOCONGNO
+(
+MaDaiLy varchar(10) not null,
+Thang int not null constraint CK_BAOCAOCONGNO_Thang check(Thang >= 1 and Thang <= 12),
+Nam int not null constraint  CK_BAOCAOCONGNO_Nam check(Nam >= 0),
+NoDau money constraint CK_BAOCAOCONGNO_NoDau CHECK(NoDau > = 0) ,
+PhatSinh money ,
+NoCuoi As (NoDau + PhatSinh) PERSISTED,
+)
+GO
+ALTER TABLE BAOCAOCONGNO
+ADD CONSTRAINT PK_BAOCAOCONGNO PRIMARY KEY(MaDaiLy,Thang,Nam);
+ GO
+-----------------------------
 CREATE TRIGGER trgAfterInsertOnBAOCAOCONGNO
 ON BAOCAOCONGNO
 AFTER INSERT
@@ -224,4 +240,29 @@ BEGIN
     UPDATE BAOCAOCONGNO
     SET NoDau = ISNULL(@NoCuoiThangTruoc, 0)
     WHERE MaDaiLy = @MaDaiLy AND Thang = @Thang AND Nam = @Nam;
+END;
+
+------------
+CREATE TRIGGER trgAfterUpdateOnBAOCAOCONGNO
+ON BAOCAOCONGNO
+For Update
+AS
+BEGIN
+    DECLARE @MaDaiLy VARCHAR(10);
+    DECLARE @Thang INT;
+    DECLARE @Nam INT;
+	DECLARE @PhatSinhCu money;
+	DECLARE @PhatSinhMoi money;
+
+    SELECT @MaDaiLy = MaDaiLy, @Thang = Thang, @Nam = Nam,@PhatSinhMoi = PhatSinh
+    FROM inserted;
+
+	Select @PhatSinhCu = PhatSinh from deleted
+
+	DECLARE @N int;
+	set @N = @Nam * 12 + @Thang;
+
+	Update BAOCAOCONGNO
+	set NoDau += (@PhatSinhMoi - @PhatSinhCu)
+	where MaDaiLy = @MaDaiLy and (Nam*12 + Thang > @N)
 END;
