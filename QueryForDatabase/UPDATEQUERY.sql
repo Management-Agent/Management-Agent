@@ -290,6 +290,8 @@ BEGIN
 END
 
 -------
+drop  TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
+
 CREATE TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 AFTER INSERT
@@ -299,10 +301,11 @@ BEGIN
 	DECLARE @NgayXuatHang DATETIME;
 	Declare @ConLai money;
 
-	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = ConLai
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang, @ConLai = TongTien - SoTienTra
 	FROM inserted
 
-	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
+
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang , @ThayDoiConLai = @ConLai;
 
 END
 
@@ -316,16 +319,17 @@ BEGIN
 	DECLARE @NgayXuatHang DATETIME;
 	Declare @ConLai money;
 
-	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = -ConLai
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = SoTienTra - TongTien
 	FROM deleted
 
 	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
 
 END
 -----
+drop TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 CREATE TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
-AFTER UPDATE
+for UPDATE
 AS
 BEGIN
 	DECLARE @MaDaiLy1 varchar(10);
@@ -334,13 +338,16 @@ BEGIN
 	Declare @ConLaiMoi money;
 	Declare @ThayDoi money;
 
-	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLaiMoi = ConLai
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang , @ConLaiMoi = TongTien - SoTienTra
 	FROM inserted;
 
-	select @ConLaiCu = ConLai from deleted;
+	select @ConLaiCu = TongTien - SoTienTra from deleted;
 
 	Set @ThayDoi = @ConLaiMoi - @ConLaiCu;
 
 	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ThayDoi;
 
 END
+
+----------------------------------------------
+
