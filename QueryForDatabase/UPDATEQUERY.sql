@@ -17,6 +17,20 @@ begin
 	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
 end;
 
+--Lay thong tin danh sach ten loai dai ly
+create proc USP_GetAllTenLoaiDaiLy
+as
+begin
+	select TenLoaiDaiLy
+	from LOAIDAILY
+end;
+--Lay thong tin danh sach ten quan
+create proc USP_GetAllTenQuan
+as
+begin
+	select TenQuan
+	from QUAN
+end;
 --Lay thong tin danh sach cong no
 CREATE PROCEDURE USP_GetCongNoInfo
 @Thang int,

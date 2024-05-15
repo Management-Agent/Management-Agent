@@ -1,4 +1,5 @@
-﻿using QuanLyDaiLy.Scripts;
+﻿using Dapper;
+using QuanLyDaiLy.Scripts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,6 +34,8 @@ namespace QuanLyDaiLy
             DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
             dataGridViewDaiLy.DataSource = data;
             bindingDaiLy();
+            showElementInLoaiDaiLy();
+            showElementInQuan();
         }
 
 
@@ -40,8 +43,8 @@ namespace QuanLyDaiLy
         {
             TenDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenDaiLy"));
             SDTBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "DienThoai"));
-            LoaiDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenLoaiDaiLy"));
-            TenQuanBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenQuan"));
+            LoaiDaiLyComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenLoaiDaiLy"));
+            TenQuanComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenQuan"));
             TienNoBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TongNo"));
         }
 
@@ -58,6 +61,23 @@ namespace QuanLyDaiLy
         private void deleteButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show((dataGridViewDaiLy.SelectedColumns.Count).ToString());
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void showElementInLoaiDaiLy()
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetAllTenLoaiDaiLy");
+            LoaiDaiLyComboBox.DataSource = data;
+            LoaiDaiLyComboBox.DisplayMember = "TenLoaiDaiLy";
+        }
+        private void showElementInQuan()
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetAllTenQuan");
+            TenQuanComboBox.DataSource = data;
+            TenQuanComboBox.DisplayMember = "TenQuan";
         }
     }
 }
