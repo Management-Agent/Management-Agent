@@ -37,9 +37,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button3 = new System.Windows.Forms.Button();
-            this.SearchPNH = new System.Windows.Forms.TextBox();
             this.DeletePNH = new System.Windows.Forms.TextBox();
+            this.SearchPNH = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPNH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +120,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // DeletePNH
+            // 
+            this.DeletePNH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeletePNH.Location = new System.Drawing.Point(408, 334);
+            this.DeletePNH.Name = "DeletePNH";
+            this.DeletePNH.Size = new System.Drawing.Size(368, 33);
+            this.DeletePNH.TabIndex = 29;
+            // 
+            // SearchPNH
+            // 
+            this.SearchPNH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchPNH.Location = new System.Drawing.Point(408, 278);
+            this.SearchPNH.Name = "SearchPNH";
+            this.SearchPNH.Size = new System.Drawing.Size(368, 33);
+            this.SearchPNH.TabIndex = 28;
+            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,22 +146,6 @@
             this.button3.Text = "Tra cứu phiếu nhập hàng";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // SearchPNH
-            // 
-            this.SearchPNH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchPNH.Location = new System.Drawing.Point(408, 268);
-            this.SearchPNH.Name = "SearchPNH";
-            this.SearchPNH.Size = new System.Drawing.Size(368, 33);
-            this.SearchPNH.TabIndex = 28;
-            // 
-            // DeletePNH
-            // 
-            this.DeletePNH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeletePNH.Location = new System.Drawing.Point(408, 334);
-            this.DeletePNH.Name = "DeletePNH";
-            this.DeletePNH.Size = new System.Drawing.Size(368, 33);
-            this.DeletePNH.TabIndex = 29;
             // 
             // DanhSachPNH
             // 
@@ -161,6 +161,7 @@
             this.Controls.Add(this.dataGridViewPNH);
             this.Name = "DanhSachPNH";
             this.Text = "DanhSachPNH";
+            this.Load += new System.EventHandler(this.DanhSachPNH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPNH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -175,11 +176,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox SearchPNH;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSPN;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNNH;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTT;
         private System.Windows.Forms.TextBox DeletePNH;
+        private System.Windows.Forms.TextBox SearchPNH;
+        private System.Windows.Forms.Button button3;
     }
 }
