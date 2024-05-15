@@ -8,6 +8,14 @@ BEGIN
     FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
 	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
 END;
+----ALTER proc ben tren
+alter proc USP_GetDaiLyInfo
+as
+begin
+	SELECT TenDaiLy, DienThoai,TenLoaiDaiLy, TenQuan, TongNo
+    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
+	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
+end;
 
 --Lay thong tin danh sach cong no
 CREATE PROCEDURE USP_GetCongNoInfo

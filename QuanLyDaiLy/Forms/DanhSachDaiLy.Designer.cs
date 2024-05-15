@@ -37,12 +37,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewDaiLy = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SĐT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TienNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.TenDaiLyBox = new System.Windows.Forms.TextBox();
             this.SDTBox = new System.Windows.Forms.TextBox();
@@ -52,6 +46,14 @@
             this.TenQuanBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.RefreshButton = new System.Windows.Forms.Button();
+            this.TienNoBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TienNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDaiLy)).BeginInit();
@@ -156,7 +158,7 @@
             this.dataGridViewDaiLy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
             this.DaiLy,
-            this.SĐT,
+            this.DienThoai,
             this.LoaiDaiLy,
             this.Quan,
             this.TienNo});
@@ -168,6 +170,110 @@
             this.dataGridViewDaiLy.Size = new System.Drawing.Size(592, 395);
             this.dataGridViewDaiLy.TabIndex = 9;
             this.dataGridViewDaiLy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDaiLy_CellContentClick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(637, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 26);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Tên đại lý";
+            // 
+            // TenDaiLyBox
+            // 
+            this.TenDaiLyBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenDaiLyBox.Location = new System.Drawing.Point(753, 105);
+            this.TenDaiLyBox.Name = "TenDaiLyBox";
+            this.TenDaiLyBox.Size = new System.Drawing.Size(183, 33);
+            this.TenDaiLyBox.TabIndex = 11;
+            // 
+            // SDTBox
+            // 
+            this.SDTBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SDTBox.Location = new System.Drawing.Point(753, 176);
+            this.SDTBox.Name = "SDTBox";
+            this.SDTBox.Size = new System.Drawing.Size(183, 33);
+            this.SDTBox.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(637, 179);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 26);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Điện thoại";
+            // 
+            // LoaiDaiLyBox
+            // 
+            this.LoaiDaiLyBox.AllowDrop = true;
+            this.LoaiDaiLyBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoaiDaiLyBox.Location = new System.Drawing.Point(753, 249);
+            this.LoaiDaiLyBox.Name = "LoaiDaiLyBox";
+            this.LoaiDaiLyBox.Size = new System.Drawing.Size(183, 33);
+            this.LoaiDaiLyBox.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(637, 252);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(111, 26);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Loại đại lý";
+            // 
+            // TenQuanBox
+            // 
+            this.TenQuanBox.AllowDrop = true;
+            this.TenQuanBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenQuanBox.Location = new System.Drawing.Point(753, 321);
+            this.TenQuanBox.Name = "TenQuanBox";
+            this.TenQuanBox.Size = new System.Drawing.Size(183, 33);
+            this.TenQuanBox.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(637, 324);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 26);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Quận";
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.RefreshButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefreshButton.Location = new System.Drawing.Point(32, 17);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(182, 50);
+            this.RefreshButton.TabIndex = 4;
+            this.RefreshButton.Text = "Làm mới";
+            this.RefreshButton.UseVisualStyleBackColor = true;
+            // 
+            // TienNoBox
+            // 
+            this.TienNoBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TienNoBox.Location = new System.Drawing.Point(753, 384);
+            this.TienNoBox.Name = "TienNoBox";
+            this.TienNoBox.ReadOnly = true;
+            this.TienNoBox.Size = new System.Drawing.Size(183, 33);
+            this.TienNoBox.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(637, 387);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 26);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Tiền nợ";
             // 
             // STT
             // 
@@ -182,11 +288,12 @@
             this.DaiLy.MinimumWidth = 6;
             this.DaiLy.Name = "DaiLy";
             // 
-            // SĐT
+            // DienThoai
             // 
-            this.SĐT.HeaderText = "SDT";
-            this.SĐT.MinimumWidth = 6;
-            this.SĐT.Name = "SĐT";
+            this.DienThoai.DataPropertyName = "DienThoai";
+            this.DienThoai.HeaderText = "Điện thoại";
+            this.DienThoai.MinimumWidth = 6;
+            this.DienThoai.Name = "DienThoai";
             // 
             // LoaiDaiLy
             // 
@@ -209,96 +316,13 @@
             this.TienNo.MinimumWidth = 6;
             this.TienNo.Name = "TienNo";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(637, 135);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 26);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Tên đại lý";
-            // 
-            // TenDaiLyBox
-            // 
-            this.TenDaiLyBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TenDaiLyBox.Location = new System.Drawing.Point(753, 132);
-            this.TenDaiLyBox.Name = "TenDaiLyBox";
-            this.TenDaiLyBox.Size = new System.Drawing.Size(183, 33);
-            this.TenDaiLyBox.TabIndex = 11;
-            // 
-            // SDTBox
-            // 
-            this.SDTBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SDTBox.Location = new System.Drawing.Point(753, 203);
-            this.SDTBox.Name = "SDTBox";
-            this.SDTBox.Size = new System.Drawing.Size(183, 33);
-            this.SDTBox.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(637, 206);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 26);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "SĐT";
-            // 
-            // LoaiDaiLyBox
-            // 
-            this.LoaiDaiLyBox.AllowDrop = true;
-            this.LoaiDaiLyBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoaiDaiLyBox.Location = new System.Drawing.Point(753, 276);
-            this.LoaiDaiLyBox.Name = "LoaiDaiLyBox";
-            this.LoaiDaiLyBox.Size = new System.Drawing.Size(183, 33);
-            this.LoaiDaiLyBox.TabIndex = 15;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(637, 279);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 26);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Loại đại lý";
-            // 
-            // TenQuanBox
-            // 
-            this.TenQuanBox.AllowDrop = true;
-            this.TenQuanBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TenQuanBox.Location = new System.Drawing.Point(753, 348);
-            this.TenQuanBox.Name = "TenQuanBox";
-            this.TenQuanBox.Size = new System.Drawing.Size(183, 33);
-            this.TenQuanBox.TabIndex = 17;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(637, 351);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 26);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Quận";
-            // 
-            // RefreshButton
-            // 
-            this.RefreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.RefreshButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefreshButton.Location = new System.Drawing.Point(32, 17);
-            this.RefreshButton.Name = "RefreshButton";
-            this.RefreshButton.Size = new System.Drawing.Size(182, 50);
-            this.RefreshButton.TabIndex = 4;
-            this.RefreshButton.Text = "Làm mới";
-            this.RefreshButton.UseVisualStyleBackColor = true;
-            // 
             // DanhSachDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.TienNoBox);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.TenQuanBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.LoaiDaiLyBox);
@@ -333,12 +357,6 @@
         private System.Windows.Forms.DataGridView dataGridViewDaiLy;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DaiLy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SĐT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiDaiLy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TienNo;
         private System.Windows.Forms.Button RefreshButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TenDaiLyBox;
@@ -348,5 +366,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TenQuanBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TienNoBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DaiLy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DienThoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiDaiLy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TienNo;
     }
 }

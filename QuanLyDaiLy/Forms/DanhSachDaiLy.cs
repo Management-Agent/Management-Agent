@@ -32,6 +32,17 @@ namespace QuanLyDaiLy
             //load data
             DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
             dataGridViewDaiLy.DataSource = data;
+            bindingDaiLy();
+        }
+
+
+        private void bindingDaiLy()
+        {
+            TenDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenDaiLy"));
+            SDTBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "DienThoai"));
+            LoaiDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenLoaiDaiLy"));
+            TenQuanBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenQuan"));
+            TienNoBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TongNo"));
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -46,6 +57,7 @@ namespace QuanLyDaiLy
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            MessageBox.Show((dataGridViewDaiLy.SelectedColumns.Count).ToString());
         }
     }
 }
