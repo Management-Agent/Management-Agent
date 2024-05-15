@@ -156,3 +156,18 @@ BEGIN
     SELECT *
     FROM PHIEUNHAPHANG
 END
+
+----------------------------
+CREATE TRIGGER TR_AFTERINSERT_DAILY
+ON DAILY 
+AFTER INSERT
+AS
+BEGIN
+	DECLARE @MaDaiLy varchar(10);
+	DECLARE @NgayTiepNhan date;
+	
+	SELECT @MaDaiLy = MaDaiLy , @NgayTiepNhan = NgayTiepNhan from inserted
+
+	INSERT INTO BAOCAOCONGNO(MaDaiLy,Thang,Nam,NoDau,PhatSinh)
+	VALUES (@MaDaiLy, MONTH(@NgayTiepNhan), YEAR(@NgayTiepNhan), 0, 0)
+END
