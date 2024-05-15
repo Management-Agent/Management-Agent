@@ -322,3 +322,25 @@ BEGIN
 	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
 
 END
+-----
+CREATE TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
+ON PHIEUXUATHANG
+AFTER UPDATE
+AS
+BEGIN
+	DECLARE @MaDaiLy1 varchar(10);
+	DECLARE @NgayXuatHang DATETIME;
+	Declare @ConLaiCu money;
+	Declare @ConLaiMoi money;
+	Declare @ThayDoi money;
+
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLaiMoi = ConLai
+	FROM inserted;
+
+	select @ConLaiCu = ConLai from deleted;
+
+	Set @ThayDoi = @ConLaiMoi - @ConLaiCu;
+
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ThayDoi;
+
+END
