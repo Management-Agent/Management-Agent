@@ -171,3 +171,57 @@ BEGIN
 	INSERT INTO BAOCAOCONGNO(MaDaiLy,Thang,Nam,NoDau,PhatSinh)
 	VALUES (@MaDaiLy, MONTH(@NgayTiepNhan), YEAR(@NgayTiepNhan), 0, 0)
 END
+
+-----------------------------
+CREATE TRIGGER trgAfterInsertOnBAOCAOCONGNO
+ON BAOCAOCONGNO
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @MaDaiLy VARCHAR(10);
+    DECLARE @Thang INT;
+    DECLARE @Nam INT;
+    DECLARE @NoCuoiThangTruoc MONEY;
+
+    SELECT @MaDaiLy = MaDaiLy, @Thang = Thang, @Nam = Nam
+    FROM inserted;
+
+    -- Loop through missing months and insert records
+	Declare @N Int;
+	Set @N = @Nam * 12 + @Thang;
+    DECLARE @CurrentThang INT;
+    DECLARE @CurrentNam INT;
+	Declare @CurrentN Int;
+	
+
+	-- TIM THANG VA NAM CUA THOI GIAN MOI NHAT TRONG BANG KO TINH BO VUA MOI INSERT
+	
+		Select  @CurrentN = Isnull( max(Nam * 12 + Thang),0) from BAOCAOCONGNO
+
+		WHERE  MaDaiLy = @MaDaiLy and (nam != @Nam or thang != @Thang)
+	--
+	if(@CurrentN = 0)
+	return;
+     -- Loop through missing months and insert records
+   
+    WHILE @CurrentN < @N - 1
+    BEGIN
+        SELECT @NoCuoiThangTruoc = NoCuoi FROM BAOCAOCONGNO WHERE MaDaiLy = @MaDaiLy AND Nam = ((@CurrentN - 1)/12) And Thang = ((@CurrentN - 1) %12 +1)
+        INSERT INTO BAOCAOCONGNO (MaDaiLy, Thang,Nam, NoDau, PhatSinh)
+        VALUES (@MaDaiLy, ((@CurrentN +1 - 1) %12 +1),((@CurrentN + 1 - 1)/12), @NoCuoiThangTruoc, 0);
+
+        SET @CurrentN = @CurrentN + 1;
+    END;
+
+    -- Cập nhật NoDau cho bản ghi mới chèn
+	set @N = @N -1;
+    SELECT @NoCuoiThangTruoc = NoCuoi 
+    FROM BAOCAOCONGNO 
+    WHERE MaDaiLy = @MaDaiLy  AND Nam = ((@N - 1)/12) And Thang = ((@N - 1) %12 +1)
+
+    UPDATE BAOCAOCONGNO
+    SET NoDau = ISNULL(@NoCuoiThangTruoc, 0)
+    WHERE MaDaiLy = @MaDaiLy AND Thang = @Thang AND Nam = @Nam;
+END;

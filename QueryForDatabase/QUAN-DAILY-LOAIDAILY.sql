@@ -1,4 +1,4 @@
-create database QUANLYDAILY
+﻿create database QUANLYDAILY
 
 USE QUANLYDAILY
 GO
