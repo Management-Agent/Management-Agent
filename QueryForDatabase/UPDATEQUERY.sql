@@ -305,3 +305,20 @@ BEGIN
 	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
 
 END
+
+---
+CREATE TRIGGER TRG_DELETE_PXH_ThayDoiBaoCaoCongNo
+ON PHIEUXUATHANG
+AFTER DELETE
+AS
+BEGIN
+	DECLARE @MaDaiLy1 varchar(10);
+	DECLARE @NgayXuatHang DATETIME;
+	Declare @ConLai money;
+
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = -ConLai
+	FROM deleted
+
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
+
+END
