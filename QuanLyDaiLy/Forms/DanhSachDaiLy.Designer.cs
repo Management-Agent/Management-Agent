@@ -30,7 +30,7 @@
         {
             this.addButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.modìyButton = new System.Windows.Forms.Button();
+            this.modifyButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.RefreshButton = new System.Windows.Forms.Button();
             this.dataGridViewDaiLy = new System.Windows.Forms.DataGridView();
@@ -82,23 +82,23 @@
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // modìyButton
+            // modifyButton
             // 
-            this.modìyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.modìyButton.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.modìyButton.Location = new System.Drawing.Point(920, 17);
-            this.modìyButton.Name = "modìyButton";
-            this.modìyButton.Size = new System.Drawing.Size(162, 50);
-            this.modìyButton.TabIndex = 3;
-            this.modìyButton.Text = "Sửa thông tin";
-            this.modìyButton.UseVisualStyleBackColor = true;
+            this.modifyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.modifyButton.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.modifyButton.Location = new System.Drawing.Point(920, 17);
+            this.modifyButton.Name = "modifyButton";
+            this.modifyButton.Size = new System.Drawing.Size(162, 50);
+            this.modifyButton.TabIndex = 3;
+            this.modifyButton.Text = "Sửa thông tin";
+            this.modifyButton.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.RefreshButton);
             this.panel2.Controls.Add(this.addButton);
             this.panel2.Controls.Add(this.deleteButton);
-            this.panel2.Controls.Add(this.modìyButton);
+            this.panel2.Controls.Add(this.modifyButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 524);
             this.panel2.Name = "panel2";
@@ -354,7 +354,7 @@
         #endregion
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button modìyButton;
+        private System.Windows.Forms.Button modifyButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridViewDaiLy;
         private System.Windows.Forms.Button RefreshButton;

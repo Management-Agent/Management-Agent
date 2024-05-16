@@ -120,7 +120,14 @@ namespace QuanLyDaiLy
 
         private void FindButton_Click(object sender, EventArgs e)
         {
-            listDaiLy.DataSource = getListDaiLyBySDT(FindBox.Text);
+            try
+            {
+                listDaiLy.DataSource = getListDaiLyBySDT(FindBox.Text);
+            }
+            catch 
+            {
+                MessageBox.Show("Không tìm thấy!");
+            }
         }
     }
 }
