@@ -64,7 +64,16 @@ namespace QuanLyDaiLy
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(FindBox.Text);
+            try
+            {
+                DataProvider.Instance.ExecuteNonQuery("exec Delete_DAILY @TenDaiLy , @DiaChi", new object[] { TenDaiLyBox.Text, DiaChiBox.Text });
+                MessageBox.Show("Xóa thành công!");
+                refreshList();
+            }
+            catch
+            {
+                MessageBox.Show("Xóa không thành công!");
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,9 +98,14 @@ namespace QuanLyDaiLy
 
         }
 
-        private void RefreshButton_Click(object sender, EventArgs e)
+        void refreshList()
         {
             listDaiLy.DataSource = getListDaiLy();
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            refreshList();
         }
 
         private List<DaiLy> getListDaiLy()
