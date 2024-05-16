@@ -38,12 +38,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.RefreshButton = new System.Windows.Forms.Button();
             this.dataGridViewDaiLy = new System.Windows.Forms.DataGridView();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TienNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.TenDaiLyBox = new System.Windows.Forms.TextBox();
             this.SDTBox = new System.Windows.Forms.TextBox();
@@ -167,13 +161,6 @@
             this.dataGridViewDaiLy.AllowUserToDeleteRows = false;
             this.dataGridViewDaiLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDaiLy.ColumnHeadersHeight = 29;
-            this.dataGridViewDaiLy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
-            this.DaiLy,
-            this.DienThoai,
-            this.LoaiDaiLy,
-            this.Quan,
-            this.TienNo});
             this.dataGridViewDaiLy.Location = new System.Drawing.Point(0, 70);
             this.dataGridViewDaiLy.Name = "dataGridViewDaiLy";
             this.dataGridViewDaiLy.RowHeadersWidth = 51;
@@ -182,47 +169,6 @@
             this.dataGridViewDaiLy.Size = new System.Drawing.Size(592, 395);
             this.dataGridViewDaiLy.TabIndex = 9;
             this.dataGridViewDaiLy.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDaiLy_CellContentClick);
-            // 
-            // STT
-            // 
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            // 
-            // DaiLy
-            // 
-            this.DaiLy.DataPropertyName = "TenDaiLy";
-            this.DaiLy.HeaderText = "Đại lý";
-            this.DaiLy.MinimumWidth = 6;
-            this.DaiLy.Name = "DaiLy";
-            // 
-            // DienThoai
-            // 
-            this.DienThoai.DataPropertyName = "DienThoai";
-            this.DienThoai.HeaderText = "Điện thoại";
-            this.DienThoai.MinimumWidth = 6;
-            this.DienThoai.Name = "DienThoai";
-            // 
-            // LoaiDaiLy
-            // 
-            this.LoaiDaiLy.DataPropertyName = "TenLoaiDaiLy";
-            this.LoaiDaiLy.HeaderText = "Loại đại lý";
-            this.LoaiDaiLy.MinimumWidth = 6;
-            this.LoaiDaiLy.Name = "LoaiDaiLy";
-            // 
-            // Quan
-            // 
-            this.Quan.DataPropertyName = "TenQuan";
-            this.Quan.HeaderText = "Quận";
-            this.Quan.MinimumWidth = 6;
-            this.Quan.Name = "Quan";
-            // 
-            // TienNo
-            // 
-            this.TienNo.DataPropertyName = "TongNo";
-            this.TienNo.HeaderText = "Tiền nợ";
-            this.TienNo.MinimumWidth = 6;
-            this.TienNo.Name = "TienNo";
             // 
             // label2
             // 
@@ -368,12 +314,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TienNoBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DaiLy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiDaiLy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TienNo;
         private System.Windows.Forms.ComboBox LoaiDaiLyComboBox;
         private System.Windows.Forms.ComboBox TenQuanComboBox;
     }

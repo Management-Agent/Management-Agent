@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,9 @@ namespace QuanLyDaiLy
         public string DiaChi { get; set; }
         public string Email { get; set; }
         public string Quan { get; set; }
-        public DateTime NgayTiepNhan { get; set; }
-        public SqlMoney TongNo { get; set; }
-        public DaiLy(string TenDaiLy, string LoaiDaiLy, string DienThoai, string DiaChi, string Email, string Quan, DateTime NgayTiepNhan, SqlMoney TongNo)
+        public string NgayTiepNhan { get; set; }
+        public string TongNo { get; set; }
+        public DaiLy(string TenDaiLy, string LoaiDaiLy, string DienThoai, string DiaChi, string Email, string Quan, string NgayTiepNhan, string TongNo)
         {
             this.TenDaiLy = TenDaiLy;
             this.LoaiDaiLy = LoaiDaiLy;
@@ -27,6 +28,17 @@ namespace QuanLyDaiLy
             this.DiaChi = DiaChi;
             this.NgayTiepNhan = NgayTiepNhan;
             this.TongNo = TongNo;
+        }
+        public DaiLy(DataRow row)
+        {
+            this.TenDaiLy = row["TenDaiLy"].ToString();
+            this.LoaiDaiLy = row["TenLoaiDaiLy"].ToString();
+            this.Quan = row["TenQuan"].ToString();
+            this.DienThoai = row["DienThoai"].ToString();
+            this.Email = row["Email"].ToString();
+            this.DiaChi = row["DiaChi"].ToString(); 
+            this.NgayTiepNhan = row["NgayTiepNhan"].ToString();
+            this.TongNo = row["TongNo"].ToString();
         }
     }
 }

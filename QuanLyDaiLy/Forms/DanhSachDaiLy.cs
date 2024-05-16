@@ -15,7 +15,8 @@ namespace QuanLyDaiLy
 {
     public partial class DanhSachDaiLy : Form
     {
-        DataTable listDaiLy;
+        BindingSource listDaiLy = new BindingSource();
+
         public DanhSachDaiLy()
         {
             InitializeComponent();
@@ -32,21 +33,21 @@ namespace QuanLyDaiLy
         private void DanhSachDaiLy_Load(object sender, EventArgs e)
         {
             //load data
-            listDaiLy = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
             dataGridViewDaiLy.DataSource = listDaiLy;
+            RefreshButton_Click(sender, e);
             bindingDaiLy();
             showElementInLoaiDaiLy();
             showElementInQuan();
-        }
 
+        }
 
         private void bindingDaiLy()
         {
-            TenDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenDaiLy"));
-            SDTBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "DienThoai"));
-            LoaiDaiLyComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenLoaiDaiLy"));
-            TenQuanComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenQuan"));
-            TienNoBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TongNo"));
+            TenDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenDaiLy", true, DataSourceUpdateMode.Never));
+            SDTBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "DienThoai", true, DataSourceUpdateMode.Never));
+            LoaiDaiLyComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "LoaiDaiLy", true, DataSourceUpdateMode.Never));
+            TenQuanComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "Quan", true, DataSourceUpdateMode.Never));
+            TienNoBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TongNo", true, DataSourceUpdateMode.Never));
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -88,7 +89,19 @@ namespace QuanLyDaiLy
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
-            listDaiLy = DataProvider.Instance.ExecuteQuery("exec USP_FindDaiLy @DienThoai ", new object[] { FindBox.Text });
+            listDaiLy.DataSource = getListDaiLy();
+        }
+
+        private List<DaiLy> getListDaiLy()
+        {
+            List<DaiLy> list = new List<DaiLy>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
+            foreach (DataRow item in data.Rows)
+            {
+                DaiLy daiLy = new DaiLy(item);
+                list.Add(daiLy);
+            }
+            return list;
         }
     }
 }
