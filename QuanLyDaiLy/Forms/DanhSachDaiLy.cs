@@ -16,6 +16,7 @@ namespace QuanLyDaiLy
     public partial class DanhSachDaiLy : Form
     {
         BindingSource listDaiLy = new BindingSource();
+        BindingSource listDaiLyFindBySDT = new BindingSource();
 
         public DanhSachDaiLy()
         {
@@ -47,6 +48,8 @@ namespace QuanLyDaiLy
             SDTBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "DienThoai", true, DataSourceUpdateMode.Never));
             LoaiDaiLyComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "LoaiDaiLy", true, DataSourceUpdateMode.Never));
             TenQuanComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "Quan", true, DataSourceUpdateMode.Never));
+            EmailBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "Email", true, DataSourceUpdateMode.Never));
+            DiaChiBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "DiaChi", true, DataSourceUpdateMode.Never));
             TienNoBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TongNo", true, DataSourceUpdateMode.Never));
         }
 
@@ -93,6 +96,18 @@ namespace QuanLyDaiLy
         }
 
         private List<DaiLy> getListDaiLy()
+        {
+            List<DaiLy> list = new List<DaiLy>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
+            foreach (DataRow item in data.Rows)
+            {
+                DaiLy daiLy = new DaiLy(item);
+                list.Add(daiLy);
+            }
+            return list;
+        }
+
+        private List<DaiLy> getListDaiLyBySDT(string DienThoai)
         {
             List<DaiLy> list = new List<DaiLy>();
             DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
