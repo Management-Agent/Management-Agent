@@ -32,7 +32,7 @@
             this.panelTitle = new System.Windows.Forms.Panel();
             this.panelDescription = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelDescription = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTitle.SuspendLayout();
             this.panelDescription.SuspendLayout();
@@ -48,6 +48,7 @@
             this.ConfirmButton.TabIndex = 1;
             this.ConfirmButton.Text = "Xác nhận";
             this.ConfirmButton.UseVisualStyleBackColor = true;
+            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // panelTitle
             // 
@@ -63,7 +64,7 @@
             // panelDescription
             // 
             this.panelDescription.AutoSize = true;
-            this.panelDescription.Controls.Add(this.label1);
+            this.panelDescription.Controls.Add(this.labelDescription);
             this.panelDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDescription.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelDescription.Location = new System.Drawing.Point(0, 33);
@@ -82,14 +83,15 @@
             this.Title.Text = "Cảnh báo";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // labelDescription
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Xác nhận xóa đại lý này?";
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(4, 4);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(246, 26);
+            this.labelDescription.TabIndex = 0;
+            this.labelDescription.Text = "Xác nhận xóa đại lý này?";
+            this.labelDescription.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -126,7 +128,7 @@
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Panel panelDescription;
         private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Panel panel1;
     }
 }

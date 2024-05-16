@@ -16,5 +16,20 @@ namespace QuanLyDaiLy.Forms
         {
             InitializeComponent();
         }
+        public WarningForm(string message)
+        {
+            InitializeComponent();
+            labelDescription.Text = message;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfirmButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
