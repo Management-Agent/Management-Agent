@@ -92,6 +92,12 @@
     <Compile Include="Forms\PhieuNhapHang.Designer.cs">
       <DependentUpon>PhieuNhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PhieuThuTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PhieuThuTien.Designer.cs">
+      <DependentUpon>PhieuThuTien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PhieuXuatHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PhieuNhapHang.resx">
       <DependentUpon>PhieuNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PhieuThuTien.resx">
+      <DependentUpon>PhieuThuTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PhieuXuatHang.resx">
       <DependentUpon>PhieuXuatHang.cs</DependentUpon>
