@@ -16,7 +16,6 @@ namespace QuanLyDaiLy
     public partial class DanhSachDaiLy : Form
     {
         BindingSource listDaiLy = new BindingSource();
-        BindingSource listDaiLyFindBySDT = new BindingSource();
 
         public DanhSachDaiLy()
         {
@@ -110,13 +109,18 @@ namespace QuanLyDaiLy
         private List<DaiLy> getListDaiLyBySDT(string DienThoai)
         {
             List<DaiLy> list = new List<DaiLy>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetDaiLyInfo");
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec USP_FindDaiLy @DienThoai", new object[] { DienThoai});
             foreach (DataRow item in data.Rows)
             {
                 DaiLy daiLy = new DaiLy(item);
                 list.Add(daiLy);
             }
             return list;
+        }
+
+        private void FindButton_Click(object sender, EventArgs e)
+        {
+            listDaiLy.DataSource = getListDaiLyBySDT(FindBox.Text);
         }
     }
 }

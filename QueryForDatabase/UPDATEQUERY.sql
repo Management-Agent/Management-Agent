@@ -12,7 +12,7 @@ END;
 alter proc USP_GetDaiLyInfo
 as
 begin
-	SELECT TenDaiLy, DienThoai,TenLoaiDaiLy, TenQuan, TongNo
+	SELECT TenDaiLy,TenLoaiDaiLy, DienThoai, DiaChi,Email,TenQuan,NgayTiepNhan, TongNo
     FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
 	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
 end;
@@ -32,11 +32,11 @@ begin
 	from QUAN
 end;
 --Tim thong tin dai ly thong qua tim so dien thoai
-create proc USP_FindDaiLy
+alter proc USP_FindDaiLy
 	@DienThoai varchar(10)
 as
 begin
-	SELECT TenDaiLy, DienThoai,TenLoaiDaiLy, TenQuan, TongNo
+	SELECT TenDaiLy,TenLoaiDaiLy, DienThoai, DiaChi,Email,TenQuan,NgayTiepNhan, TongNo
     FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
 	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
 	where @DienThoai = DienThoai

@@ -47,7 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.FindBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.FindButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.EmailBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -257,19 +257,20 @@
             this.FindBox.TabIndex = 44;
             this.FindBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // button1
+            // FindButton
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1007, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.FindButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FindButton.Location = new System.Drawing.Point(1007, 11);
+            this.FindButton.Name = "FindButton";
+            this.FindButton.Size = new System.Drawing.Size(75, 33);
+            this.FindButton.TabIndex = 45;
+            this.FindButton.Text = "Tìm";
+            this.FindButton.UseVisualStyleBackColor = true;
+            this.FindButton.Click += new System.EventHandler(this.FindButton_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.FindButton);
             this.panel1.Controls.Add(this.FindBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
@@ -370,7 +371,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox FindBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button FindButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox EmailBox;
         private System.Windows.Forms.Label label8;
