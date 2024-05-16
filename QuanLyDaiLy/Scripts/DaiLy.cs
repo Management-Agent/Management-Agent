@@ -10,18 +10,18 @@ namespace QuanLyDaiLy
     public class DaiLy
     {
         public string TenDaiLy { get; set; }
-        public string MaLoaiDaiLy { get; set; }
+        public string LoaiDaiLy { get; set; }
         public string DienThoai { get; set; }
         public string DiaChi { get; set; }
         public string Email { get; set; }
-        public string MaQuan { get; set; }
+        public string Quan { get; set; }
         public DateTime NgayTiepNhan { get; set; }
         public SqlMoney TongNo { get; set; }
-        public DaiLy(string TenDaiLy, string MaLoaiDaiLy, string DienThoai, string DiaChi, string Email, string MaQuan, DateTime NgayTiepNhan, SqlMoney TongNo)
+        public DaiLy(string TenDaiLy, string LoaiDaiLy, string DienThoai, string DiaChi, string Email, string Quan, DateTime NgayTiepNhan, SqlMoney TongNo)
         {
             this.TenDaiLy = TenDaiLy;
-            this.MaLoaiDaiLy = MaLoaiDaiLy;
-            this.MaQuan = MaQuan;
+            this.LoaiDaiLy = LoaiDaiLy;
+            this.Quan = Quan;
             this.DienThoai = DienThoai;
             this.Email = Email;
             this.DiaChi = DiaChi;
