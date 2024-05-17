@@ -440,3 +440,25 @@ BEGIN
     DELETE PHIEUXUATHANG
 	WHERE SoPhieuXuat = @SoPhieuXuat
 END
+---------------------------------------------
+CREATE PROCEDURE Update_CT_PXH_SLX
+	@SoPhieuXuat VARCHAR(10),
+	@MaMatHangXuat VARCHAR(50),
+	@SoLuongXuat BIGINT
+AS
+BEGIN
+	UPDATE CT_PXH
+	SET SoLuongXuat = @SoLuongXuat
+	WHERE SoPhieuXuat = @SoPhieuXuat and MaMatHangXuat = @MaMatHangXuat
+END
+-------------------------------------------------
+CREATE PROCEDURE Update_CT_PXH_SLX
+	@SoPhieuXuat VARCHAR(10),
+	@MaMatHangXuat VARCHAR(50),
+	@DonGiaXuat Money
+AS
+BEGIN
+	UPDATE CT_PXH
+	SET DonGiaXuat = @DonGiaXuat 
+	WHERE SoPhieuXuat = @SoPhieuXuat and MaMatHangXuat = @MaMatHangXuat
+END
