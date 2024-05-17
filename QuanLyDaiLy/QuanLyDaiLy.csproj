@@ -74,6 +74,18 @@
     <Compile Include="Forms\DanhSachPNH.Designer.cs">
       <DependentUpon>DanhSachPNH.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DanhSachPTT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DanhSachPTT.Designer.cs">
+      <DependentUpon>DanhSachPTT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DanhSachPXH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DanhSachPXH.Designer.cs">
+      <DependentUpon>DanhSachPXH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +116,23 @@
     <Compile Include="Forms\PhieuXuatHang.Designer.cs">
       <DependentUpon>PhieuXuatHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SuaPhieuThuTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuaPhieuThuTien.Designer.cs">
+      <DependentUpon>SuaPhieuThuTien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SuaPNH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\SuaPNH.Designer.cs">
       <DependentUpon>SuaPNH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuaPXH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuaPXH.Designer.cs">
+      <DependentUpon>SuaPXH.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\WarningForm.cs">
       <SubType>Form</SubType>
@@ -147,6 +171,12 @@
       <DependentUpon>DanhSachPNH.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DanhSachPTT.resx">
+      <DependentUpon>DanhSachPTT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DanhSachPXH.resx">
+      <DependentUpon>DanhSachPXH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,8 +201,14 @@
     <EmbeddedResource Include="Forms\PhieuXuatHang.resx">
       <DependentUpon>PhieuXuatHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuaPhieuThuTien.resx">
+      <DependentUpon>SuaPhieuThuTien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SuaPNH.resx">
       <DependentUpon>SuaPNH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuaPXH.resx">
+      <DependentUpon>SuaPXH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WarningForm.resx">
       <DependentUpon>WarningForm.cs</DependentUpon>

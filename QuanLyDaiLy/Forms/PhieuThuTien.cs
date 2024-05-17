@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDaiLy.Scripts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace QuanLyDaiLy.Forms
         }
         void insertData(string SoPhieuThu, string MaDaiLy, DateTime NgayThuTien, decimal SoTienThu)
         {
-            SqlConnection conn = new SqlConnection("Data Source=GNH134\\SQLEXPRESS;Initial Catalog=tester;Integrated Security=True;TrustServerCertificate=True");
+            SqlConnection conn = new SqlConnection(DataProvider.Instance.connectionSTR);
             string query = "INSERT INTO PHIEUTHUTIEN (SoPhieuThu, MaDaiLy, NgayThuTien, SoTienThu) VALUES (@SoPhieuThu, @MaDaiLy, @NgayThuTien, @SoTienThu)";
             SqlCommand command = new SqlCommand(query, conn);
 

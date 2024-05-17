@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDaiLy.Scripts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,8 +22,8 @@ namespace QuanLyDaiLy.Forms
         }
         void insertDataPXH(string SoPhieuXuat, string MaDaiLy, DateTime NgayXuatHang, Decimal SoTienTra, Decimal TongTien, Decimal ConLai)
         {
-
-            SqlConnection conn = new SqlConnection("Data Source=GNH134\\SQLEXPRESS;Initial Catalog=tester;Integrated Security=True;TrustServerCertificate=True");
+            
+            SqlConnection conn = new SqlConnection(DataProvider.Instance.connectionSTR);
             string query1 = "INSERT INTO PHIEUXUATHANG (SoPhieuXuat, MaDaiLy, NgayXuatHang, SoTienTra, TongTien, ConLai) VALUES (@SoPhieuXuat, @MaDaiLy, @NgayXuatHang, @SoTienTra, @TongTien, @ConLai)";
             SqlCommand cmd = new SqlCommand(query1, conn);
 
@@ -33,7 +34,6 @@ namespace QuanLyDaiLy.Forms
             cmd.Parameters.AddWithValue("@NgayXuatHang", NgayXuatHang);
             cmd.Parameters.AddWithValue("@SoTienTra", SoTienTra);
             conn.Open();
-
 
             int i = cmd.ExecuteNonQuery();
 
@@ -53,7 +53,7 @@ namespace QuanLyDaiLy.Forms
         }
         void insertDataCT_PXH(string SoPhieuXuat, String MaMatHangXuat, int SoLuongXuat, decimal DonGiaXuat, decimal ThanhTien)
         {
-            SqlConnection conn2 = new SqlConnection("Data Source=GNH134\\SQLEXPRESS;Initial Catalog=tester;Integrated Security=True;TrustServerCertificate=True");
+            SqlConnection conn2 = new SqlConnection(DataProvider.Instance.connectionSTR);
             string query2 = "INSERT INTO CT_PXH (ThanhTien, DonGiaXuat, SoPhieuXuat, MaMatHangXuat, SoLuongXuat) VAlUES (@ThanhTien, @DonGiaXuat, @SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat)";
             SqlCommand command2 = new SqlCommand(query2, conn2);
 
@@ -100,7 +100,7 @@ namespace QuanLyDaiLy.Forms
         }
         void fill_data()
         {
-            SqlConnection conn = new SqlConnection("Data Source=GNH134\\SQLEXPRESS;Initial Catalog=tester;Integrated Security=True;TrustServerCertificate=True");
+            SqlConnection conn = new SqlConnection(DataProvider.Instance.connectionSTR);
             SqlCommand command = new SqlCommand("select * form CT_PNH", conn);
             string selectquery = "select * from CT_PNH";
             SqlDataAdapter adapter = new SqlDataAdapter(selectquery, conn);
