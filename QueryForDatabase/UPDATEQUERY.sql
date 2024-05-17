@@ -414,4 +414,29 @@ BEGIN
 END
 
 ----------------------------------------------
-
+CREATE PROCEDURE Search_All_PXH
+	@SoPhieuXuat VARCHAR(10)
+AS
+BEGIN
+    SELECT SoPhieuXuat, NgayXuatHang, TongTien, MaDaiLy
+    FROM PHIEUXUATHANG
+END
+----------------------------------------------
+CREATE PROCEDURE Search_Info_PXH
+	@SoPhieuXuat VARCHAR(10)
+AS
+BEGIN
+    SELECT SoPhieuXuat, NgayXuatHang, TongTien, MaDaiLy
+    FROM PHIEUXUATHANG
+	WHERE @SoPhieuXuat = SoPhieuXuat		
+END
+--------------------------------------------------
+CREATE PROCEDURE Delete_Info_PXH
+	@SoPhieuXuat VARCHAR(10)
+AS
+BEGIN
+	DELETE CT_PXH
+	WHERE SoPhieuXuat = @SoPhieuXuat
+    DELETE PHIEUXUATHANG
+	WHERE SoPhieuXuat = @SoPhieuXuat
+END
