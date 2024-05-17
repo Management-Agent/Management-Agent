@@ -462,3 +462,20 @@ BEGIN
 	SET DonGiaXuat = @DonGiaXuat 
 	WHERE SoPhieuXuat = @SoPhieuXuat and MaMatHangXuat = @MaMatHangXuat
 END
+-------------------------------------------------
+CREATE PROCEDURE Search_CT_PXH
+	@SoPhieuXuat VARCHAR(10)
+	@MaMatHangXuat VARCHAR(50)
+AS 
+BEGIN
+	SELECT SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat, ThanhTien
+	WHERE SoPhieuXuat = @SoPhieuXuat And @MaMatHangXuat = MaMatHangXuat
+END
+------------------------------------------------
+CREATE PROCEDURE Search_CT_PXH_All 
+	@SophieuXuat VARCHAR(10)
+AS 
+BEGIN
+	SELECT SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat, ThanhTien
+	WHERE SoPhieuXuat = @SoPhieuXuat 
+END
