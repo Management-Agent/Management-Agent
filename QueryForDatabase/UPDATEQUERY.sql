@@ -496,3 +496,23 @@ BEGIN
 	FROM PHIEUTHUTIEN
 	WHERE 	@SoPhieuThu = SoPhieuThu
 END
+----------------------------------------
+CREATE PROCEDURE Delete_Info_PTT
+	@SoPhieuThu VARCHAR(10)
+AS
+BEGIN
+	DELETE FROM PHIEUTHUTIEN 
+	WHERE @SoPhieuThu = SoPhieuThu
+END
+----------------------------------------
+CREATE PROCEDURE Update_PTT_STT
+	@SoPhieuThu VARCHAR(10)
+	@MaDaiLy VARCHAR(10)
+	@SoTienThu Money
+AS 
+BEGIN 
+	UPDATE PHIEUTHUTIEN
+	SET SoTienThu = @SoTienThu
+	where SoPhieuThu = @SoPhieuThu and MaDaiLy = @MaDaiLy
+END
+---------------------------------------
