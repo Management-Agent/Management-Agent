@@ -479,3 +479,20 @@ BEGIN
 	SELECT SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat, ThanhTien
 	WHERE SoPhieuXuat = @SoPhieuXuat 
 END
+--------------------------------------
+CREATE PROCEDURE Search_All_PTT
+	@SoPhieuThu VARCHAR(10)
+AS
+BEGIN
+	SELECT SoPhieuThu, MaDaiLy, NgayThuTien, SoTienTHu
+	FROM PHIEUTHUTIEN
+END
+-------------------------------------
+CREATE PROCEDURE Search_Info_PTT
+	@SoPhieuThu VARCHAR(10)
+AS
+BEGIN
+	SELECT SoPhieuThu, MaDaiLy, NgayThuTien, SoTienTHu
+	FROM PHIEUTHUTIEN
+	WHERE 	@SoPhieuThu = SoPhieuThu
+END
