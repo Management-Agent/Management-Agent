@@ -414,6 +414,7 @@ BEGIN
 END
 
 ----------------------------------------------
+<<<<<<< Updated upstream
 CREATE PROCEDURE Search_All_PXH
 	@SoPhieuXuat VARCHAR(10)
 AS
@@ -516,3 +517,15 @@ BEGIN
 	where SoPhieuThu = @SoPhieuThu and MaDaiLy = @MaDaiLy
 END
 ---------------------------------------
+=======
+CREATE PROCEDURE Update_CT_PNH_DVT
+	@SoPhieuNhap VARCHAR(10),
+	@MaMatHang VARCHAR(50),
+	@MaDVT VARCHAR(10)
+AS
+BEGIN
+	UPDATE MATHANG
+	SET MaDVT = @MaDVT
+	WHERE MaMatHang = @MaMatHang
+END
+>>>>>>> Stashed changes
