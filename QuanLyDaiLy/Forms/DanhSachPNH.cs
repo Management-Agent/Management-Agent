@@ -52,7 +52,7 @@ namespace QuanLyDaiLy.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string maPhieuNhap = DeletePNH.Text;
+            string maPhieuNhap = SearchPNH.Text;
 
             XoaPhieuNhap(maPhieuNhap);
         }

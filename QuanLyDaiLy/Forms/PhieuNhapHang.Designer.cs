@@ -240,6 +240,7 @@
             this.Controls.Add(this.SPN);
             this.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.Name = "PhieuNhapHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PhieuNhapHang";
             this.Load += new System.EventHandler(this.PhieuNhapHang_Load);
             this.ResumeLayout(false);

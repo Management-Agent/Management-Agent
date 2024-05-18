@@ -44,6 +44,11 @@ namespace QuanLyDaiLy.Forms
                 string queryString = "exec Update_CT_PNH_DGN @SoPhieuNhap , @MaMatHang , @DonGiaNhap ";
                 DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SearchSPN.Text, SearchMMH.Text, DGN.Text });
             }
+            if (!string.IsNullOrWhiteSpace(DVT.Text))
+            {
+                string queryString = "exec Update_CT_PNH_DVT @SoPhieuNhap , @MaMatHang , @MaDonViTinh ";
+                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SearchSPN.Text, SearchMMH.Text, DVT.Text });
+            }
             TraCuuCTPNH(SearchSPN.Text, SearchMMH.Text);
         }
 
