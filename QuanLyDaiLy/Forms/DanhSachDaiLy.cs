@@ -43,6 +43,7 @@ namespace QuanLyDaiLy
 
         private void bindingDaiLy()
         {
+            MaDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "MaDaiLy", true, DataSourceUpdateMode.Never));
             TenDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenDaiLy", true, DataSourceUpdateMode.Never));
             SDTBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "DienThoai", true, DataSourceUpdateMode.Never));
             LoaiDaiLyComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "LoaiDaiLy", true, DataSourceUpdateMode.Never));
