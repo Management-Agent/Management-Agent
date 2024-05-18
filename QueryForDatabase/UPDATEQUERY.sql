@@ -152,14 +152,13 @@ alter column MaLoaiDaiLy varchar(10) not null
 alter table DAILY
 alter column DienThoai varchar(10) not null
 -------------------------
-create proc Update_DAILY
+alter proc Update_DAILY
 @MaDaiLy varchar(10),
 @TenDaiLy varchar(200),
 @MaLoaiDaiLy varchar(10),
 @DienThoai varchar(10),
 @Email varchar(255),
-@MaQuan varchar(10),
-@NgayTiepNhan date
+@MaQuan varchar(10)
 as
 begin
 	update DAILY
@@ -167,8 +166,7 @@ begin
 			MaLoaiDaiLy = @MaLoaiDaiLy,
 			DienThoai = @DienThoai,
 			Email = @Email,
-			MaQuan = @MaQuan,
-			NgayTiepNhan = @NgayTiepNhan
+			MaQuan = @MaQuan
 	where MaDaiLy = @MaDaiLy
 end;
 -------------------------
