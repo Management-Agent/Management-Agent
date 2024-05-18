@@ -147,7 +147,17 @@ namespace QuanLyDaiLy
 
         private void modifyButton_Click(object sender, EventArgs e)
         {
-
+            
+            try
+            {
+                DataProvider.Instance.ExecuteNonQuery("exec Update_DAILY @MaDaiLy , @TenDaiLy , @MaLoaiDaiLy , @DienThoai , @Email , @MaQuan", new object[] { MaDaiLyBox.Text, TenDaiLyBox.Text, LoaiDaiLyComboBox.Text, SDTBox.Text, EmailBox.Text, TenQuanComboBox.Text });
+                MessageBox.Show("Chỉnh sửa thành công!");
+                refreshList();
+            }
+            catch
+            {
+                MessageBox.Show("Chỉnh sửa không thành công!");
+            }
         }
     }
 }

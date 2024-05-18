@@ -17,6 +17,8 @@ namespace QuanLyDaiLy
         public NewDaiLy()
         {
             InitializeComponent();
+            showElementInLoaiDaiLy();
+            showElementInQuan();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -45,6 +47,23 @@ namespace QuanLyDaiLy
             int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { TenDaiLyBox.Text, LoaiDaiLyBox.Text, DienThoaiBox.Text, DiaChiBox.Text, EmailBox.Text, QuanBox.Text, theDate, 0 });
             if (test != 0) MessageBox.Show("Them thanh cong.");
             else MessageBox.Show("Them khong thanh cong.");
+        }
+
+        private void LoaiDaiLyBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void showElementInLoaiDaiLy()
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetLoaiDaiLy");
+            LoaiDaiLyBox.DataSource = data;
+            LoaiDaiLyBox.DisplayMember = "MaLoaiDaiLy";
+        }
+        private void showElementInQuan()
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaQuan");
+            QuanBox.DataSource = data;
+            QuanBox.DisplayMember = "MaQuan";
         }
     }
 }

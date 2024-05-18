@@ -199,6 +199,7 @@
             this.LoaiDaiLyBox.Name = "LoaiDaiLyBox";
             this.LoaiDaiLyBox.Size = new System.Drawing.Size(204, 33);
             this.LoaiDaiLyBox.TabIndex = 18;
+            this.LoaiDaiLyBox.SelectedIndexChanged += new System.EventHandler(this.LoaiDaiLyBox_SelectedIndexChanged);
             // 
             // QuanBox
             // 
