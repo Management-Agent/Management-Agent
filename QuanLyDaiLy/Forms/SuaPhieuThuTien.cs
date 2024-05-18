@@ -33,7 +33,7 @@ namespace QuanLyDaiLy.Forms
 
             queryString = "exec Search_All_PTT @SoPhieuThu ";
 
-            DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] { SPT, maDaiLy });
+            DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] { SPT });
             dgvSPTT.DataSource = data;
         }
 
