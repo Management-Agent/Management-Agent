@@ -147,11 +147,10 @@ begin
 end;
 -------------------------
 create proc Delete_DAILY
-	@TenDaiLy varchar(10),
-	@DiaChi varchar(200)
+	@MaDaiLy varchar(10)
 as
 begin
-	delete from DAILY where TenDaiLy = @TenDaiLy and DiaChi = @DiaChi
+	delete from DAILY where @MaDaiLy = MaDaiLy
 end;
 -------------------------
 alter table DAILY
