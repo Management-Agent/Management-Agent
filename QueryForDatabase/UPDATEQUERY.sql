@@ -237,7 +237,6 @@ BEGIN
 END
 
 -----------------------------
-drop table BAOCAOCONGNO
 GO
 Create TABLE BAOCAOCONGNO
 (
@@ -306,7 +305,7 @@ BEGIN
     WHERE MaDaiLy = @MaDaiLy AND Thang = @Thang AND Nam = @Nam;
 END;
 
-------------
+-----------------------------------
 CREATE TRIGGER trgAfterUpdateOnBAOCAOCONGNO
 ON BAOCAOCONGNO
 For Update
@@ -332,84 +331,99 @@ BEGIN
 END;
 
 -------
-create procedure USP_PHIEUXUATHANG_BAOCAOCONGNO
-@MaDaiLy varchar(10),
-@ThoiGian datetime,
-@ThayDoiConLai money
-AS
-BEGIN
-	Declare @Thang Int ;Set @Thang = month(@ThoiGian);
-	Declare @Nam Int; Set @Nam = year(@ThoiGian);
-
-	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
-	Begin
-		Update BAOCAOCONGNO
-		set PhatSinh += @ThayDoiConLai;
-	end
-	Else
-	Begin
-		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
-		values (@MaDaiLy,@Thang,@Nam,@ThayDoiConLai);
-	end
-END
-
 -------
-drop  TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
 
 CREATE TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 AFTER INSERT
 AS
 BEGIN
-	DECLARE @MaDaiLy1 varchar(10);
+	DECLARE @MaDaiLy varchar(10);
 	DECLARE @NgayXuatHang DATETIME;
 	Declare @ConLai money;
 
-	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang, @ConLai = TongTien - SoTienTra
+	SELECT @MaDaiLy = MaDaiLy ,@NgayXuatHang = NgayXuatHang, @ConLai = TongTien - SoTienTra
 	FROM inserted
 
+	Declare @Thang Int ;Set @Thang = month(@NgayXuatHang);
+	Declare @Nam Int; Set @Nam = year(@NgayXuatHang);
 
-	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang , @ThayDoiConLai = @ConLai;
-
+	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
+	Begin
+		Update BAOCAOCONGNO
+		set PhatSinh += @ConLai
+		where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang
+	end
+	Else
+	Begin
+		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
+		values (@MaDaiLy,@Thang,@Nam,@ConLai);
+	end
 END
 
 ---
+
 CREATE TRIGGER TRG_DELETE_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 AFTER DELETE
 AS
 BEGIN
-	DECLARE @MaDaiLy1 varchar(10);
+	DECLARE @MaDaiLy varchar(10);
 	DECLARE @NgayXuatHang DATETIME;
 	Declare @ConLai money;
 
-	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = SoTienTra - TongTien
+	SELECT @MaDaiLy = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = SoTienTra - TongTien
 	FROM deleted
 
-	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
+	Declare @Thang Int ;Set @Thang = month(@NgayXuatHang);
+	Declare @Nam Int; Set @Nam = year(@NgayXuatHang);
+
+	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
+	Begin
+		Update BAOCAOCONGNO
+		set PhatSinh += @ConLai
+		where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang
+	end
+	Else
+	Begin
+		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
+		values (@MaDaiLy,@Thang,@Nam,@ConLai);
+	end
 
 END
 -----
-drop TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 CREATE TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 for UPDATE
 AS
 BEGIN
-	DECLARE @MaDaiLy1 varchar(10);
+	DECLARE @MaDaiLy varchar(10);
 	DECLARE @NgayXuatHang DATETIME;
 	Declare @ConLaiCu money;
 	Declare @ConLaiMoi money;
 	Declare @ThayDoi money;
 
-	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang , @ConLaiMoi = TongTien - SoTienTra
+	SELECT @MaDaiLy = MaDaiLy ,@NgayXuatHang = NgayXuatHang , @ConLaiMoi = TongTien - SoTienTra
 	FROM inserted;
 
 	select @ConLaiCu = TongTien - SoTienTra from deleted;
 
 	Set @ThayDoi = @ConLaiMoi - @ConLaiCu;
 
-	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ThayDoi;
+	Declare @Thang Int ;Set @Thang = month(@NgayXuatHang);
+	Declare @Nam Int; Set @Nam = year(@NgayXuatHang);
+
+	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
+	Begin
+		Update BAOCAOCONGNO
+		set PhatSinh += @ThayDoi
+		where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang
+	end
+	Else
+	Begin
+		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
+		values (@MaDaiLy,@Thang,@Nam,@ThayDoi);
+	end
 
 END
 

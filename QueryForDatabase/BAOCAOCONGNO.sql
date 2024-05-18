@@ -4,10 +4,10 @@ GO
 CREATE TABLE BAOCAOCONGNO
 (
 MaDaiLy varchar(10) not null,
-Thang int not null ,-- constraint CK_BAOCAOCONGNO_Thang check(Thang >= 1 and Thang <= 12),
-Nam int not null ,--constraint  CK_BAOCAOCONGNO_Nam check(Nam >= 0),
+Thang int not null ,
+Nam int not null ,
 NoDau money constraint CK_BAOCAOCONGNO_NoDau CHECK(NoDau > = 0) ,
-PhatSinh money ,--constraint CK_BAOCAOCONGNO_PhatSinh CHECK(PhatSinh > = 0),
+PhatSinh money ,
 NoCuoi As (NoDau + PhatSinh) PERSISTED,
 )
 GO

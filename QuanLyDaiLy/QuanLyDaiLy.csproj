@@ -86,6 +86,12 @@
     <Compile Include="Forms\DanhSachPXH.Designer.cs">
       <DependentUpon>DanhSachPXH.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LoaiDaiLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoaiDaiLy.Designer.cs">
+      <DependentUpon>LoaiDaiLy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BaoCaoDoanhSo.resx">
       <DependentUpon>BaoCaoDoanhSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoaiDaiLy.resx">
+      <DependentUpon>LoaiDaiLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

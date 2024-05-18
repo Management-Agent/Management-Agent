@@ -14,5 +14,3 @@ values
 ('TiLeTinhDonGiaXuat', 102),
 ('ApDungQDKiemTraSoTienThu', 1);
 GO
-
-

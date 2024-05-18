@@ -49,7 +49,7 @@
             this.colSoPhieuXuat,
             this.colTongTriGia,
             this.colTyLe});
-            this.dataGridViewBCDS.Location = new System.Drawing.Point(31, 105);
+            this.dataGridViewBCDS.Location = new System.Drawing.Point(20, 97);
             this.dataGridViewBCDS.Name = "dataGridViewBCDS";
             this.dataGridViewBCDS.ReadOnly = true;
             this.dataGridViewBCDS.RowHeadersWidth = 51;
