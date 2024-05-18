@@ -529,3 +529,11 @@ BEGIN
 	WHERE MaMatHang = @MaMatHang
 END
 >>>>>>> Stashed changes
+
+--------------------------------
+INSERT INTO THAMSO(TenThamSo,GiaTri)
+VALUES
+('SoLoaiDaiLy',2),
+('SoMatHang',5),
+('SoDonViTinh',2)
+	
