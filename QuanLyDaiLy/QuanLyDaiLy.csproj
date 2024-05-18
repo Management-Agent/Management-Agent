@@ -134,6 +134,12 @@
     <Compile Include="Forms\SuaPXH.Designer.cs">
       <DependentUpon>SuaPXH.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SuaThamSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuaThamSo.Designer.cs">
+      <DependentUpon>SuaThamSo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WarningForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SuaPXH.resx">
       <DependentUpon>SuaPXH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuaThamSo.resx">
+      <DependentUpon>SuaThamSo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WarningForm.resx">
       <DependentUpon>WarningForm.cs</DependentUpon>

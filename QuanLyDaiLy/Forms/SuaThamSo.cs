@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDaiLy.Scripts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,57 @@ namespace QuanLyDaiLy.Forms
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SuaThamSo_Load(object sender, EventArgs e)
+        {
+            textBoxSoDaiLyToiDa.Text = GetSoDaiLyToiDa().ToString();
+            textBoxSoLoaiDaiLy.Text = GetSoLoaiDaiLy().ToString();
+            textBoxTiLeDonGia.Text = GetTyLeDonGia().ToString();
+            textBoxSoMatHang.Text = GetSoLuongMatHang().ToString();
+            textBoxSoDVT.Text = GetSoLuongDVT().ToString();
+
+        }
+
+        private int GetSoLoaiDaiLy()
+        {
+            string query = @"Select Count(MaDaiLy) from DaiLy";
+            int result = (int)DataProvider.Instance.ExecuteScalar(query);
+            return result;
+        }
+
+        private int GetSoDaiLyToiDa()
+        {
+            string query = @"Select GiaTri from THAMSO where TenThamSo = 'SoDaiLyToiDa'";
+            int result = (int)DataProvider.Instance.ExecuteScalar(query);
+            return result;
+        }
+
+        private int GetTyLeDonGia()
+        {
+            string query = @"Select GiaTri from THAMSO where TenThamSo = 'TiLeTinhDonGiaXuat'";
+            int result = (int)DataProvider.Instance.ExecuteScalar(query);
+            return result;
+        }
+
+        private int GetSoLuongMatHang()
+        {
+            string query = @"Select Count(MaMatHang) from MATHANG";
+            int result = (int)DataProvider.Instance.ExecuteScalar(query);
+            return result;
+        }
+
+        private int GetSoLuongDVT()
+        {
+            string query = @"Select Count(MaDVT) from DVT";
+            int result = (int)DataProvider.Instance.ExecuteScalar(query);
+            return result;
+        }
+
+
     }
 }
