@@ -96,6 +96,7 @@
             this.modifyButton.TabIndex = 3;
             this.modifyButton.Text = "Sửa thông tin";
             this.modifyButton.UseVisualStyleBackColor = true;
+            this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
             // 
             // panel2
             // 

@@ -83,15 +83,15 @@ namespace QuanLyDaiLy
         }
         private void showElementInLoaiDaiLy()
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetAllTenLoaiDaiLy");
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetLoaiDaiLy");
             LoaiDaiLyComboBox.DataSource = data;
-            LoaiDaiLyComboBox.DisplayMember = "TenLoaiDaiLy";
+            LoaiDaiLyComboBox.DisplayMember = "MaLoaiDaiLy";
         }
         private void showElementInQuan()
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetAllTenQuan");
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaQuan");
             TenQuanComboBox.DataSource = data;
-            TenQuanComboBox.DisplayMember = "TenQuan";
+            TenQuanComboBox.DisplayMember = "MaQuan";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -143,6 +143,11 @@ namespace QuanLyDaiLy
             {
                 MessageBox.Show("Không tìm thấy!");
             }
+        }
+
+        private void modifyButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

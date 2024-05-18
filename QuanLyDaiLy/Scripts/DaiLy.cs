@@ -35,8 +35,8 @@ namespace QuanLyDaiLy
         {
             this.MaDaiLy = row["MaDaiLy"].ToString();
             this.TenDaiLy = row["TenDaiLy"].ToString();
-            this.LoaiDaiLy = row["TenLoaiDaiLy"].ToString();
-            this.Quan = row["TenQuan"].ToString();
+            this.LoaiDaiLy = row["MaLoaiDaiLy"].ToString();
+            this.Quan = row["MaQuan"].ToString();
             this.DienThoai = row["DienThoai"].ToString();
             this.Email = row["Email"].ToString();
             this.DiaChi = row["DiaChi"].ToString(); 

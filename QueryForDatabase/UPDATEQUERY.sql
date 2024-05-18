@@ -1,34 +1,25 @@
 ﻿USE QUANLYDAILY
 GO
 -----Lay thong tin danh sach dai ly
-CREATE PROCEDURE USP_GetDaiLyInfo
-AS
-BEGIN
-    SELECT TenDaiLy, TenLoaiDaiLy, TenQuan, TongNo
-    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
-	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
-END;
-----ALTER proc ben tren
 alter proc USP_GetDaiLyInfo
 as
 begin
-	SELECT MaDaiLy, TenDaiLy,TenLoaiDaiLy, DienThoai, DiaChi,Email,TenQuan,NgayTiepNhan, TongNo
-    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
-	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
+	SELECT MaDaiLy, TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
+    FROM DAILY
 end;
 
 --Lay thong tin danh sach ten loai dai ly
-create proc USP_GetAllTenLoaiDaiLy
+create proc USP_GetLoaiDaiLy
 as
 begin
-	select TenLoaiDaiLy
+	select MaLoaiDaiLy
 	from LOAIDAILY
 end;
 --Lay thong tin danh sach ten quan
-create proc USP_GetAllTenQuan
+create proc USP_GetMaQuan
 as
 begin
-	select TenQuan
+	select MaQuan
 	from QUAN
 end;
 --Tim thong tin dai ly thong qua tim so dien thoai
@@ -36,9 +27,8 @@ alter proc USP_FindDaiLy
 	@DienThoai varchar(10)
 as
 begin
-	SELECT MaDaiLy,TenDaiLy,TenLoaiDaiLy, DienThoai, DiaChi,Email,TenQuan,NgayTiepNhan, TongNo
-    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
-	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
+	SELECT MaDaiLy,TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
+    FROM DAILY
 	where @DienThoai = DienThoai
 end;
 
@@ -156,11 +146,31 @@ end;
 alter table DAILY
 alter column DiaChi varchar(200) not null
 alter table DAILY
-alter column TenDaiLy varchar(10) not null
+alter column TenDaiLy varchar(200) not null
 alter table DAILY
 alter column MaLoaiDaiLy varchar(10) not null
 alter table DAILY
 alter column DienThoai varchar(10) not null
+-------------------------
+create proc Update_DAILY
+@MaDaiLy varchar(10),
+@TenDaiLy varchar(200),
+@MaLoaiDaiLy varchar(10),
+@DienThoai varchar(10),
+@Email varchar(255),
+@MaQuan varchar(10),
+@NgayTiepNhan date
+as
+begin
+	update DAILY
+	set		TenDaiLy = @TenDaiLy,
+			MaLoaiDaiLy = @MaLoaiDaiLy,
+			DienThoai = @DienThoai,
+			Email = @Email,
+			MaQuan = @MaQuan,
+			NgayTiepNhan = @NgayTiepNhan
+	where MaDaiLy = @MaDaiLy
+end;
 -------------------------
 CREATE PROCEDURE Search_Info_PNH
 	@SoPhieuNhap VARCHAR(10)
