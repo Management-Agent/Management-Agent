@@ -68,6 +68,59 @@ namespace QuanLyDaiLy.Forms
             return result;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
 
+            int soDaiLyToiDa = int.Parse(textBoxSoDaiLyToiDa.Text);
+            if (soDaiLyToiDa < 0)
+            {
+                MessageBox.Show("So dai ly toi da khong the nho hon 0", "Thong Bao", MessageBoxButtons.OK);
+            }
+            else
+            {
+
+                string query = "UPDATE THAMSO SET GiaTri =" + soDaiLyToiDa.ToString() +
+                        "where TenThamSo = 'SoDaiLyToiDa'";
+                DataProvider.Instance.ExecuteNonQuery(query);
+                MessageBox.Show("Thay doi thanh cong", "Thong Bao", MessageBoxButtons.OK);
+
+            }
+        }
+
+        private void textBoxSoDaiLyToiDa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Ngăn chặn ký tự không hợp lệ
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxTiLeDonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Ngăn chặn ký tự không hợp lệ
+                e.Handled = true;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int tyLeDonGia = int.Parse(textBoxSoDaiLyToiDa.Text);
+            if (tyLeDonGia < 0)
+            {
+                MessageBox.Show(" Ty le don gia khong the nho hon 0", "Thong Bao", MessageBoxButtons.OK);
+            }
+            else
+            {
+
+                string query = "UPDATE THAMSO SET GiaTri =" + tyLeDonGia.ToString() +
+                        "where TenThamSo = 'TiLeTinhDonGiaXuat'";
+                DataProvider.Instance.ExecuteNonQuery(query);
+                MessageBox.Show("Thay doi thanh cong", "Thong Bao", MessageBoxButtons.OK);
+
+            }
+        }
     }
 }
