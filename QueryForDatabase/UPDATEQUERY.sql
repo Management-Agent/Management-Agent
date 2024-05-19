@@ -1,25 +1,36 @@
 ﻿USE QUANLYDAILY
+
 GO
+
 -----Lay thong tin danh sach dai ly
+CREATE PROCEDURE USP_GetDaiLyInfo
+AS
+BEGIN
+    SELECT TenDaiLy, TenLoaiDaiLy, TenQuan, TongNo
+    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
+	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
+END;
+----ALTER proc ben tren
 alter proc USP_GetDaiLyInfo
 as
 begin
-	SELECT MaDaiLy, TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
-    FROM DAILY
+	SELECT TenDaiLy,TenLoaiDaiLy, DienThoai, DiaChi,Email,TenQuan,NgayTiepNhan, TongNo
+    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
+	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
 end;
 
 --Lay thong tin danh sach ten loai dai ly
-create proc USP_GetLoaiDaiLy
+create proc USP_GetAllTenLoaiDaiLy
 as
 begin
-	select MaLoaiDaiLy
+	select TenLoaiDaiLy
 	from LOAIDAILY
 end;
 --Lay thong tin danh sach ten quan
-create proc USP_GetMaQuan
+create proc USP_GetAllTenQuan
 as
 begin
-	select MaQuan
+	select TenQuan
 	from QUAN
 end;
 --Tim thong tin dai ly thong qua tim so dien thoai
@@ -27,8 +38,9 @@ alter proc USP_FindDaiLy
 	@DienThoai varchar(10)
 as
 begin
-	SELECT MaDaiLy,TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
-    FROM DAILY
+	SELECT TenDaiLy,TenLoaiDaiLy, DienThoai, DiaChi,Email,TenQuan,NgayTiepNhan, TongNo
+    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
+	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
 	where @DienThoai = DienThoai
 end;
 
@@ -137,38 +149,21 @@ begin
 end;
 -------------------------
 create proc Delete_DAILY
-	@MaDaiLy varchar(10)
+	@TenDaiLy varchar(10),
+	@DiaChi varchar(200)
 as
 begin
-	delete from DAILY where @MaDaiLy = MaDaiLy
+	delete from DAILY where TenDaiLy = @TenDaiLy and DiaChi = @DiaChi
 end;
 -------------------------
 alter table DAILY
 alter column DiaChi varchar(200) not null
 alter table DAILY
-alter column TenDaiLy varchar(200) not null
+alter column TenDaiLy varchar(10) not null
 alter table DAILY
 alter column MaLoaiDaiLy varchar(10) not null
 alter table DAILY
 alter column DienThoai varchar(10) not null
--------------------------
-alter proc Update_DAILY
-@MaDaiLy varchar(10),
-@TenDaiLy varchar(200),
-@MaLoaiDaiLy varchar(10),
-@DienThoai varchar(10),
-@Email varchar(255),
-@MaQuan varchar(10)
-as
-begin
-	update DAILY
-	set		TenDaiLy = @TenDaiLy,
-			MaLoaiDaiLy = @MaLoaiDaiLy,
-			DienThoai = @DienThoai,
-			Email = @Email,
-			MaQuan = @MaQuan
-	where MaDaiLy = @MaDaiLy
-end;
 -------------------------
 CREATE PROCEDURE Search_Info_PNH
 	@SoPhieuNhap VARCHAR(10)
@@ -244,6 +239,7 @@ BEGIN
 END
 
 -----------------------------
+drop table BAOCAOCONGNO
 GO
 Create TABLE BAOCAOCONGNO
 (
@@ -312,7 +308,7 @@ BEGIN
     WHERE MaDaiLy = @MaDaiLy AND Thang = @Thang AND Nam = @Nam;
 END;
 
------------------------------------
+------------
 CREATE TRIGGER trgAfterUpdateOnBAOCAOCONGNO
 ON BAOCAOCONGNO
 For Update
@@ -338,99 +334,84 @@ BEGIN
 END;
 
 -------
+create procedure USP_PHIEUXUATHANG_BAOCAOCONGNO
+@MaDaiLy varchar(10),
+@ThoiGian datetime,
+@ThayDoiConLai money
+AS
+BEGIN
+	Declare @Thang Int ;Set @Thang = month(@ThoiGian);
+	Declare @Nam Int; Set @Nam = year(@ThoiGian);
+
+	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
+	Begin
+		Update BAOCAOCONGNO
+		set PhatSinh += @ThayDoiConLai;
+	end
+	Else
+	Begin
+		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
+		values (@MaDaiLy,@Thang,@Nam,@ThayDoiConLai);
+	end
+END
+
 -------
+drop  TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
 
 CREATE TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 AFTER INSERT
 AS
 BEGIN
-	DECLARE @MaDaiLy varchar(10);
+	DECLARE @MaDaiLy1 varchar(10);
 	DECLARE @NgayXuatHang DATETIME;
 	Declare @ConLai money;
 
-	SELECT @MaDaiLy = MaDaiLy ,@NgayXuatHang = NgayXuatHang, @ConLai = TongTien - SoTienTra
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang, @ConLai = TongTien - SoTienTra
 	FROM inserted
 
-	Declare @Thang Int ;Set @Thang = month(@NgayXuatHang);
-	Declare @Nam Int; Set @Nam = year(@NgayXuatHang);
 
-	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
-	Begin
-		Update BAOCAOCONGNO
-		set PhatSinh += @ConLai
-		where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang
-	end
-	Else
-	Begin
-		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
-		values (@MaDaiLy,@Thang,@Nam,@ConLai);
-	end
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang , @ThayDoiConLai = @ConLai;
+
 END
 
 ---
-
 CREATE TRIGGER TRG_DELETE_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 AFTER DELETE
 AS
 BEGIN
-	DECLARE @MaDaiLy varchar(10);
+	DECLARE @MaDaiLy1 varchar(10);
 	DECLARE @NgayXuatHang DATETIME;
 	Declare @ConLai money;
 
-	SELECT @MaDaiLy = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = SoTienTra - TongTien
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = SoTienTra - TongTien
 	FROM deleted
 
-	Declare @Thang Int ;Set @Thang = month(@NgayXuatHang);
-	Declare @Nam Int; Set @Nam = year(@NgayXuatHang);
-
-	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
-	Begin
-		Update BAOCAOCONGNO
-		set PhatSinh += @ConLai
-		where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang
-	end
-	Else
-	Begin
-		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
-		values (@MaDaiLy,@Thang,@Nam,@ConLai);
-	end
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
 
 END
 -----
+drop TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 CREATE TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 for UPDATE
 AS
 BEGIN
-	DECLARE @MaDaiLy varchar(10);
+	DECLARE @MaDaiLy1 varchar(10);
 	DECLARE @NgayXuatHang DATETIME;
 	Declare @ConLaiCu money;
 	Declare @ConLaiMoi money;
 	Declare @ThayDoi money;
 
-	SELECT @MaDaiLy = MaDaiLy ,@NgayXuatHang = NgayXuatHang , @ConLaiMoi = TongTien - SoTienTra
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang , @ConLaiMoi = TongTien - SoTienTra
 	FROM inserted;
 
 	select @ConLaiCu = TongTien - SoTienTra from deleted;
 
 	Set @ThayDoi = @ConLaiMoi - @ConLaiCu;
 
-	Declare @Thang Int ;Set @Thang = month(@NgayXuatHang);
-	Declare @Nam Int; Set @Nam = year(@NgayXuatHang);
-
-	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
-	Begin
-		Update BAOCAOCONGNO
-		set PhatSinh += @ThayDoi
-		where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang
-	end
-	Else
-	Begin
-		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
-		values (@MaDaiLy,@Thang,@Nam,@ThayDoi);
-	end
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ThayDoi;
 
 END
 
@@ -558,3 +539,96 @@ VALUES
 ('SoMatHang',5),
 ('SoDonViTinh',2)
 	
+
+
+CREATE PROCEDURE sp_GetBaoCaoDoanhSo
+    @Thang INT,
+    @Nam INT
+AS
+BEGIN
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY MaDaily) AS STT,
+        MaDaily AS [Đại Lý],
+        COUNT(*) AS [Số Phiếu Xuất],
+        SUM(ThanhTien) AS [Tổng Trị Giá],
+        (SUM(TongTriGia) / (SELECT SUM(TongTriGia) FROM BAOCAODOANHSO WHERE Thang = @Thang AND Nam = @Nam)) * 100 AS [Tỷ Lệ]
+    FROM 
+        BAOCAODOANHSO BCDS
+		join 
+    WHERE 
+        Thang = @Thang AND Nam = @Nam
+    GROUP BY 
+        MaDaily
+END
+	
+
+create proc BCDS_month
+@Thang int,
+@Nam int
+as 
+begin
+
+SELECT ROW_NUMBER() OVER (ORDER BY CTBCDS.MaDaiLy) AS 'STT',CTBCDS.MaDaiLy,SoLuongPhieuXuat AS 'Số Phiếu Xuất' ,TongTriGia as 'Tổng trị giá' ,TiLe as 'Tỉ Lệ'
+FROM CT_BCDOANHSO CTBCDS
+	JOIN BAOCAODOANHSO BCDS
+	ON CTBCDS.MaBCDS = BCDS.MaBCDS
+WHERE BCDS.Thang = @Thang and BCDS.Nam = @Nam
+
+end
+
+
+exec BCDS_month 1
+
+-----------------------------------
+
+CREATE PROCEDURE Update_LoaiDaiLy_Ten
+	@MaLoaiDaiLy VARCHAR(10),
+	@TenLoaiDaiLy VARCHAR(100)
+AS 
+BEGIN 
+	UPDATE LOAIDAILY
+	SET TenLoaiDaiLy = @TenLoaiDaiLy
+	where MaLoaiDaiLy = @MaLoaiDaiLy
+END
+
+-------------------------------------
+
+
+CREATE PROCEDURE Update_LoaiDaiLy_SoNoToiDa
+	@MaLoaiDaiLy varchar(10),
+	@SoNoToiDa money
+AS 
+BEGIN 
+	UPDATE LOAIDAILY
+	SET SoNoToiDa = @SoNoToiDa
+	where MaLoaiDaiLy = @MaLoaiDaiLy
+END
+
+
+
+
+CREATE PROCEDURE datagridview_loaidaily
+AS
+BEGIN
+	select MaLoaiDaiLy,TenLoaiDaiLy,SoNoToiDa
+	from LOAIDAILY
+END
+
+create procedure datagridview_Quan
+as
+begin
+	select MaQuan,TenQuan
+	from QUAN
+end
+
+
+CREATE PROCEDURE Update_TenQuan
+	@MaQuan varchar(10),
+	@TenQuan varchar(100)
+AS 
+BEGIN 
+	UPDATE QUAN
+	SET TenQuan = @TenQuan
+	where MaQuan = @MaQuan
+END
+
