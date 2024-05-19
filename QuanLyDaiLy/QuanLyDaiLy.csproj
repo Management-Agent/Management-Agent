@@ -116,6 +116,12 @@
     <Compile Include="Forms\PhieuXuatHang.Designer.cs">
       <DependentUpon>PhieuXuatHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SuaLoaiDL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuaLoaiDL.Designer.cs">
+      <DependentUpon>SuaLoaiDL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SuaPhieuThuTien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     </Compile>
     <Compile Include="Forms\SuaPXH.Designer.cs">
       <DependentUpon>SuaPXH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SuaQuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuaQuan.Designer.cs">
+      <DependentUpon>SuaQuan.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SuaThamSo.cs">
       <SubType>Form</SubType>
@@ -207,6 +219,9 @@
     <EmbeddedResource Include="Forms\PhieuXuatHang.resx">
       <DependentUpon>PhieuXuatHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuaLoaiDL.resx">
+      <DependentUpon>SuaLoaiDL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SuaPhieuThuTien.resx">
       <DependentUpon>SuaPhieuThuTien.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SuaPXH.resx">
       <DependentUpon>SuaPXH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuaQuan.resx">
+      <DependentUpon>SuaQuan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SuaThamSo.resx">
       <DependentUpon>SuaThamSo.cs</DependentUpon>

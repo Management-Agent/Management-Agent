@@ -20,10 +20,21 @@ namespace QuanLyDaiLy.Forms
 
         private void label1_Click(object sender, EventArgs e)
         {
-            string thang_bc = comboBox1.SelectedItem.ToString();
-            string querystring = "exec BCDS_month @Thang";
-            DataTable data = DataProvider.Instance.ExecuteQuery(querystring, new object[] {"Thang"});
-            dataGridViewBCDS.DataSource = data; 
+           
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            BaoCaoDoanhSo_Load(sender, e);
+        }
+
+        private void BaoCaoDoanhSo_Load(object sender, EventArgs e)
+        {
+            int month = dateTimePicker1.Value.Month;
+            int year = dateTimePicker1.Value.Year;
+            string querystring = "exec BCDS_month @Thang , @Nam";
+            DataTable data = DataProvider.Instance.ExecuteQuery(querystring, new object[] { month, year });
+            dataGridViewBCDS.DataSource = data;
         }
     }
 }

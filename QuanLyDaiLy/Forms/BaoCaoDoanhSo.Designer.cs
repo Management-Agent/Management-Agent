@@ -35,8 +35,8 @@
             this.colTongTriGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTyLe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
-            this.labelThang = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBCDS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             this.colSoPhieuXuat,
             this.colTongTriGia,
             this.colTyLe});
-            this.dataGridViewBCDS.Location = new System.Drawing.Point(31, 105);
+            this.dataGridViewBCDS.Location = new System.Drawing.Point(31, 134);
             this.dataGridViewBCDS.Name = "dataGridViewBCDS";
             this.dataGridViewBCDS.ReadOnly = true;
             this.dataGridViewBCDS.RowHeadersWidth = 51;
@@ -102,57 +102,47 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(244, 20);
+            this.label6.Location = new System.Drawing.Point(260, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(268, 37);
             this.label6.TabIndex = 43;
             this.label6.Text = "Báo Cáo Doanh Số";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelThang
+            // label1
             // 
-            this.labelThang.AutoSize = true;
-            this.labelThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelThang.Location = new System.Drawing.Point(246, 66);
-            this.labelThang.Name = "labelThang";
-            this.labelThang.Size = new System.Drawing.Size(80, 25);
-            this.labelThang.TabIndex = 44;
-            this.labelThang.Text = "Tháng: ";
-            this.labelThang.Click += new System.EventHandler(this.label1_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.label1.Location = new System.Drawing.Point(231, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 25);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Thời gian";
             // 
-            // comboBox1
+            // dateTimePicker1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.comboBox1.Location = new System.Drawing.Point(332, 67);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 45;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.label1_Click);
+            this.dateTimePicker1.CustomFormat = "MM/yyyy";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(333, 76);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(195, 33);
+            this.dateTimePicker1.TabIndex = 47;
+            this.dateTimePicker1.Value = new System.DateTime(2024, 5, 17, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // BaoCaoDoanhSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.labelThang);
+            this.ClientSize = new System.Drawing.Size(833, 483);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridViewBCDS);
             this.Name = "BaoCaoDoanhSo";
             this.Text = "BaoCaoDoanhSo";
+            this.Load += new System.EventHandler(this.BaoCaoDoanhSo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBCDS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -163,12 +153,12 @@
 
         private System.Windows.Forms.DataGridView dataGridViewBCDS;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelThang;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoPhieuXuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTongTriGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTyLe;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
