@@ -632,3 +632,56 @@ BEGIN
 	where MaQuan = @MaQuan
 END
 
+
+CREATE PROCEDURE Insert_LoaiDaiLy
+@MaLoaiDaiLy varchar(10),
+@TenLoaiDaiLy varchar(100),
+@SoNoToiDa money
+AS
+BEGIN
+	INSERT INTO LOAIDAILY(MaLoaiDaiLy,TenLoaiDaiLy,SoNoToiDa) values (@MaLoaiDaiLy, @TenLoaiDaiLy, @SoNoToiDa)
+END
+
+
+
+CREATE PROCEDURE Delete_LoaiDaiLy
+@MaLoaiDaiLy varchar(10)
+AS
+BEGIN
+	DELETE FROM LOAIDAILY
+	WHERE MaLoaiDaiLy = @MaLoaiDaiLy 
+END
+
+CREATE PROCEDURE Search_LoaiDaiLy
+@MaLoaiDaiLy varchar(10)
+AS
+BEGIN
+	SELECT MaLoaiDaiLy,TenLoaiDaiLy,SoNoToiDa
+	from LOAIDAILY
+END
+
+
+CREATE PROCEDURE load_Quan
+AS
+BEGIN
+	SELECT MaQuan,TenQuan
+	from QUAN	
+END
+
+
+CREATE PROCEDURE Insert_TenQuan
+@MaQuan varchar(10),
+@TenQuan varchar(100)
+AS
+BEGIN
+	INSERT INTO QUAN(MaQuan,TenQuan) values (@MaQuan, @TenQuan)
+END
+
+
+CREATE PROCEDURE Delete_Quan
+@MaQuan varchar(10)
+AS
+BEGIN
+	DELETE FROM QUAN
+	WHERE MaQuan = @MaQuan 
+END

@@ -69,5 +69,49 @@ namespace QuanLyDaiLy.Forms
         {
             this.Close();
         }
+
+        private void btThem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtSoNoToiDa.Text) && !string.IsNullOrWhiteSpace(txtMaLoaiDaiLy.Text) && !string.IsNullOrWhiteSpace(txtTenLoaiDaiLy.Text))
+            {
+                string queryString = "exec Insert_LoaiDaiLy @MaLoaiDaiLy , @TenLoaiDaiLy , @SoNoToiDa";
+                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { txtMaLoaiDaiLy.Text, txtTenLoaiDaiLy.Text, txtSoNoToiDa.Text });
+            }
+            else
+            {
+                MessageBox.Show("Hãy điền đầy đủ dữ liệu");
+            }
+            search_data(txtMaLoaiDaiLy.Text);
+        }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtMaLoaiDaiLy.Text))
+            {
+                string queryString = "exec Delete_LoaiDaiLy @MaLoaiDaiLy";
+                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { txtMaLoaiDaiLy.Text});
+            }
+            else
+            {
+                MessageBox.Show("Hãy điền đầy đủ dữ liệu");
+            }
+            search_data(txtMaLoaiDaiLy.Text);
+        }
+
+        private void LuuLoaiDaiLy_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtTenLoaiDaiLy.Text))
+            {
+                string queryString = "exec Update_LoaiDaiLy_Ten @MaLoaiDaiLy , @TenLoaiDaiLy";
+                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { txtMaLoaiDaiLy.Text, txtTenLoaiDaiLy.Text });
+            }
+            if (!string.IsNullOrWhiteSpace(txtSoNoToiDa.Text))
+            {
+                string queryString = "exec Update_LoaiDaiLy_SoNoToiDa @MaLoaiDaiLy , @SoNoToiDa";
+                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { txtMaLoaiDaiLy.Text, txtSoNoToiDa.Text });
+            }
+
+            search_data(txtMaLoaiDaiLy.Text);
+        }
     }
 }
