@@ -7,10 +7,10 @@ MaDaiLy varchar(10),
 NgayXuatHang date,
 TongTien money,
 SoTienTra money,
-ConLai money DEFAULT 0,
-CONSTRAINT fk_MaDaiLy FOREIGN KEY (MaDaiLy) REFERENCES DAILY(MaDaiLy)
+ConLai  As(TongTien - SoTienTra) persisted
 );
 GO
+
 
 CREATE TABLE CT_PXH(
 SoPhieuXuat varchar(10) NOT NULL FOREIGN KEY REFERENCES PHIEUXUATHANG(SoPhieuXuat),
@@ -74,19 +74,7 @@ WHERE PHIEUXUATHANG.SoPhieuXuat IN
 END
 END;
 GO
----------------------------------------------------------
-CREATE TRIGGER tr_PXH_SotienTra
-ON PHIEUXUATHANG
-AFTER INSERT, UPDATE, DELETE
-AS 
-BEGIN
 
-UPDATE PHIEUXUATHANG
-SET ConLai = TongTien - SoTienTra
-
-
-END;
-GO
 --------------------------------------
 CREATE TRIGGER tr_ThanhTien 
 ON CT_PXH  

@@ -10,6 +10,7 @@ namespace QuanLyDaiLy
 {
     public class DaiLy
     {
+        public string MaDaiLy {  get; set; }
         public string TenDaiLy { get; set; }
         public string LoaiDaiLy { get; set; }
         public string DienThoai { get; set; }
@@ -18,8 +19,9 @@ namespace QuanLyDaiLy
         public string Quan { get; set; }
         public string NgayTiepNhan { get; set; }
         public string TongNo { get; set; }
-        public DaiLy(string TenDaiLy, string LoaiDaiLy, string DienThoai, string DiaChi, string Email, string Quan, string NgayTiepNhan, string TongNo)
+        public DaiLy(string MaDaiLy , string TenDaiLy, string LoaiDaiLy, string DienThoai, string DiaChi, string Email, string Quan, string NgayTiepNhan, string TongNo)
         {
+            this.MaDaiLy = MaDaiLy;
             this.TenDaiLy = TenDaiLy;
             this.LoaiDaiLy = LoaiDaiLy;
             this.Quan = Quan;
@@ -31,9 +33,10 @@ namespace QuanLyDaiLy
         }
         public DaiLy(DataRow row)
         {
+            this.MaDaiLy = row["MaDaiLy"].ToString();
             this.TenDaiLy = row["TenDaiLy"].ToString();
-            this.LoaiDaiLy = row["TenLoaiDaiLy"].ToString();
-            this.Quan = row["TenQuan"].ToString();
+            this.LoaiDaiLy = row["MaLoaiDaiLy"].ToString();
+            this.Quan = row["MaQuan"].ToString();
             this.DienThoai = row["DienThoai"].ToString();
             this.Email = row["Email"].ToString();
             this.DiaChi = row["DiaChi"].ToString(); 

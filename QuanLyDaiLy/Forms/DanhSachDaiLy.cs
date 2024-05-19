@@ -43,6 +43,7 @@ namespace QuanLyDaiLy
 
         private void bindingDaiLy()
         {
+            MaDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "MaDaiLy", true, DataSourceUpdateMode.Never));
             TenDaiLyBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "TenDaiLy", true, DataSourceUpdateMode.Never));
             SDTBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "DienThoai", true, DataSourceUpdateMode.Never));
             LoaiDaiLyComboBox.DataBindings.Add(new Binding("text", dataGridViewDaiLy.DataSource, "LoaiDaiLy", true, DataSourceUpdateMode.Never));
@@ -66,7 +67,7 @@ namespace QuanLyDaiLy
         {
             try
             {
-                DataProvider.Instance.ExecuteNonQuery("exec Delete_DAILY @TenDaiLy , @DiaChi", new object[] { TenDaiLyBox.Text, DiaChiBox.Text });
+                DataProvider.Instance.ExecuteNonQuery("exec Delete_DAILY @MaDaiLy", new object[] { MaDaiLyBox.Text });
                 MessageBox.Show("Xóa thành công!");
                 refreshList();
             }
@@ -82,15 +83,15 @@ namespace QuanLyDaiLy
         }
         private void showElementInLoaiDaiLy()
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetAllTenLoaiDaiLy");
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetLoaiDaiLy");
             LoaiDaiLyComboBox.DataSource = data;
-            LoaiDaiLyComboBox.DisplayMember = "TenLoaiDaiLy";
+            LoaiDaiLyComboBox.DisplayMember = "MaLoaiDaiLy";
         }
         private void showElementInQuan()
         {
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetAllTenQuan");
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaQuan");
             TenQuanComboBox.DataSource = data;
-            TenQuanComboBox.DisplayMember = "TenQuan";
+            TenQuanComboBox.DisplayMember = "MaQuan";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -141,6 +142,21 @@ namespace QuanLyDaiLy
             catch 
             {
                 MessageBox.Show("Không tìm thấy!");
+            }
+        }
+
+        private void modifyButton_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                DataProvider.Instance.ExecuteNonQuery("exec Update_DAILY @MaDaiLy , @TenDaiLy , @MaLoaiDaiLy , @DienThoai , @Email , @MaQuan", new object[] { MaDaiLyBox.Text, TenDaiLyBox.Text, LoaiDaiLyComboBox.Text, SDTBox.Text, EmailBox.Text, TenQuanComboBox.Text });
+                MessageBox.Show("Chỉnh sửa thành công!");
+                refreshList();
+            }
+            catch
+            {
+                MessageBox.Show("Chỉnh sửa không thành công!");
             }
         }
     }
