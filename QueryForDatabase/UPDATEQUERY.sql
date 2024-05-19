@@ -562,22 +562,28 @@ BEGIN
 END
 	
 
-create proc BCDS_month
-@Thang int,
-@Nam int
-as 
-begin
+CREATE PROCEDURE BCDS_month
+    @Thang INT,
+    @Nam INT
+AS
+BEGIN
+    DECLARE @SoLuongPhieuXuat INT, @TongTriGia FLOAT;
 
-SELECT ROW_NUMBER() OVER (ORDER BY CTBCDS.MaDaiLy) AS 'STT',CTBCDS.MaDaiLy,SoLuongPhieuXuat AS 'Số Phiếu Xuất' ,TongTriGia as 'Tổng trị giá' ,TiLe as 'Tỉ Lệ'
-FROM CT_BCDOANHSO CTBCDS
-	JOIN BAOCAODOANHSO BCDS
-	ON CTBCDS.MaBCDS = BCDS.MaBCDS
-WHERE BCDS.Thang = @Thang and BCDS.Nam = @Nam
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY PX.MaDaiLy) AS 'STT',
+        PX.MaDaiLy,
+        COUNT(*) AS 'Số Phiếu Xuất',
+        SUM(CTPX.ThanhTien) AS 'Tổng trị giá',
+        100.0 AS 'Tỉ Lệ'
+    FROM 
+        PHIEUXUATHANG PX
+        JOIN CT_PXH CTPX ON PX.SoPhieuXuat = CTPX.SoPhieuXuat
+    WHERE 
+        MONTH(PX.NgayXuatHang) = @Thang AND YEAR(PX.NgayXuatHang) = @Nam  
+	GROUP BY 
+        PX.MaDaiLy
+END
 
-end
-
-
-exec BCDS_month 1
 
 -----------------------------------
 
