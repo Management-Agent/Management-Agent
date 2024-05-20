@@ -306,7 +306,8 @@ BEGIN
     UPDATE BAOCAOCONGNO
     SET NoDau = ISNULL(@NoCuoiThangTruoc, 0)
     WHERE MaDaiLy = @MaDaiLy AND Thang = @Thang AND Nam = @Nam;
-END;
+END
+GO
 
 ------------
 CREATE TRIGGER trgAfterUpdateOnBAOCAOCONGNO
@@ -332,6 +333,7 @@ BEGIN
 	set NoDau += (@PhatSinhMoi - @PhatSinhCu)
 	where MaDaiLy = @MaDaiLy and (Nam*12 + Thang > @N)
 END;
+GO
 
 -------
 create procedure USP_PHIEUXUATHANG_BAOCAOCONGNO
@@ -346,7 +348,8 @@ BEGIN
 	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
 	Begin
 		Update BAOCAOCONGNO
-		set PhatSinh += @ThayDoiConLai;
+		set PhatSinh += @ThayDoiConLai
+		Where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang;
 	end
 	Else
 	Begin
@@ -356,8 +359,6 @@ BEGIN
 END
 
 -------
-drop  TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
-
 CREATE TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 AFTER INSERT
@@ -392,7 +393,6 @@ BEGIN
 
 END
 -----
-drop TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 CREATE TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 for UPDATE
@@ -690,4 +690,66 @@ AS
 BEGIN
 	DELETE FROM QUAN
 	WHERE MaQuan = @MaQuan 
+END
+
+-----------------------------------------------
+CREATE TRIGGER TRG_INSERT_PTT_ThayDoiBaoCaoCongNo
+ON PHIEUTHUTIEN
+AFTER INSERT
+AS
+BEGIN
+	DECLARE @MaDaiLy varchar(10);
+	DECLARE @NgayThu DATETIME;
+	Declare @ThayDoiNo money;
+
+	SELECT @MaDaiLy = MaDaiLy ,@NgayThu = NgayThuTien, @ThayDoiNo =  SoTienThu * (-1)
+	FROM inserted
+
+
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy , @ThoiGian = @NgayThu , @ThayDoiConLai = @ThayDoiNo
+
+END
+
+-----------------------------------------------
+CREATE TRIGGER TRG_DELETE_PTT_ThayDoiBaoCaoCongNo
+ON PHIEUTHUTIEN
+AFTER DELETE
+AS
+BEGIN
+	DECLARE @MaDaiLy varchar(10);
+	DECLARE @NgayThu DATETIME;
+	Declare @ThayDoiNo money;
+
+	SELECT @MaDaiLy = MaDaiLy ,@NgayThu = NgayThuTien, @ThayDoiNo =  SoTienThu
+	FROM deleted
+
+
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy , @ThoiGian = @NgayThu , @ThayDoiConLai = @ThayDoiNo
+
+END
+
+--------------------------------------------------
+CREATE TRIGGER TRG_UPDATE_PTT_ThayDoiBaoCaoCongNo
+ON PHIEUTHUTIEN
+AFTER UPDATE
+AS
+BEGIN
+	DECLARE @MaDaiLy varchar(10);
+	DECLARE @NgayThu DATETIME;
+	Declare @SoTienThuMoi money;
+	Declare @SoTienThuCu money;
+	Declare @ThayDoiNo money;
+
+
+
+	SELECT @MaDaiLy = MaDaiLy ,@NgayThu = NgayThuTien, @SoTienThuMoi = SoTienThu
+	FROM inserted
+
+	Select @SoTienThuCu = SoTienThu
+	From deleted
+
+	Set @ThayDoiNo = @SoTienThuCu - @SoTienThuMoi;
+
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy , @ThoiGian = @NgayThu , @ThayDoiConLai = @ThayDoiNo
+
 END
