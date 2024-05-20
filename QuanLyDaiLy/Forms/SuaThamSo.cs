@@ -122,5 +122,24 @@ namespace QuanLyDaiLy.Forms
 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoaiDaiLy loaiDaiLy = new LoaiDaiLy();
+            loaiDaiLy.ShowDialog();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MatHang matHang = new MatHang();
+            matHang.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DonViTinh donViTinh = new DonViTinh();
+            donViTinh.ShowDialog();
+        }
     }
 }
