@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.MaLoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoNoToiDa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,25 +57,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 318);
             this.dataGridView1.TabIndex = 0;
             // 
-            // MaLoaiDaiLy
-            // 
-            this.MaLoaiDaiLy.HeaderText = "Mã Loại Đại Lý";
-            this.MaLoaiDaiLy.MinimumWidth = 6;
-            this.MaLoaiDaiLy.Name = "MaLoaiDaiLy";
-            this.MaLoaiDaiLy.ReadOnly = true;
-            // 
-            // TenLoaiDaiLy
-            // 
-            this.TenLoaiDaiLy.HeaderText = "Loại Đại Lý";
-            this.TenLoaiDaiLy.MinimumWidth = 6;
-            this.TenLoaiDaiLy.Name = "TenLoaiDaiLy";
-            // 
-            // SoNoToiDa
-            // 
-            this.SoNoToiDa.HeaderText = "Số Nợ Tối Đa";
-            this.SoNoToiDa.MinimumWidth = 6;
-            this.SoNoToiDa.Name = "SoNoToiDa";
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
@@ -93,17 +76,64 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Huỷ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.button3.Location = new System.Drawing.Point(12, 343);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(115, 50);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Thêm";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.button4.Location = new System.Drawing.Point(133, 343);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(115, 50);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Xoá";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // MaLoaiDaiLy
+            // 
+            this.MaLoaiDaiLy.DataPropertyName = "MaLoaiDaiLy";
+            this.MaLoaiDaiLy.HeaderText = "Mã Loại Đại Lý";
+            this.MaLoaiDaiLy.MinimumWidth = 6;
+            this.MaLoaiDaiLy.Name = "MaLoaiDaiLy";
+            this.MaLoaiDaiLy.ReadOnly = true;
+            // 
+            // TenLoaiDaiLy
+            // 
+            this.TenLoaiDaiLy.DataPropertyName = "TenLoaiDaiLy";
+            this.TenLoaiDaiLy.HeaderText = "Loại Đại Lý";
+            this.TenLoaiDaiLy.MinimumWidth = 6;
+            this.TenLoaiDaiLy.Name = "TenLoaiDaiLy";
+            // 
+            // SoNoToiDa
+            // 
+            this.SoNoToiDa.DataPropertyName = "SoNoToiDa";
+            this.SoNoToiDa.HeaderText = "Số Nợ Tối Đa";
+            this.SoNoToiDa.MinimumWidth = 6;
+            this.SoNoToiDa.Name = "SoNoToiDa";
             // 
             // LoaiDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 418);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "LoaiDaiLy";
-            this.Text = "s";
+            this.Text = "LoaiDaiLy";
+            this.Load += new System.EventHandler(this.LoaiDaiLy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -112,10 +142,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLoaiDaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiDaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoNoToiDa;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }

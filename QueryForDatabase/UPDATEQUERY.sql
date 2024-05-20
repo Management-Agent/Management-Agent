@@ -753,3 +753,25 @@ BEGIN
 	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy , @ThoiGian = @NgayThu , @ThayDoiConLai = @ThayDoiNo
 
 END
+
+---------------------------------
+create trigger TR_GenerateMaLoaiDaiLy
+on LOAIDAILY
+instead of insert
+as
+begin
+	declare @Prefix varchar(4) = 'MLDL'
+	declare @Length int = 4
+
+	declare @MaxMaLoaiDaiLy int
+	select @MaxMaLoaiDaiLy = ISNULL(max(cast(substring(MaLoaiDaiLy, len(@Prefix) + 1, @Length)
+	as int)), 0)
+	from LOAIDAILY
+
+	insert into LOAIDAILY(MaLoaiDaiLy, TenLoaiDaiLy, SoNoToiDa)
+	select @Prefix + right('0000' + cast(@MaxMaLoaiDaiLy + row_number() over (order by(select null)) as varchar), @Length),
+	i.TenLoaiDaiLy, i.SoNoToiDa
+	from inserted i
+
+end;
+GO

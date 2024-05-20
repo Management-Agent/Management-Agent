@@ -86,6 +86,12 @@
     <Compile Include="Forms\DanhSachPXH.Designer.cs">
       <DependentUpon>DanhSachPXH.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DonViTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DonViTinh.Designer.cs">
+      <DependentUpon>DonViTinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoaiDaiLy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,12 @@
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MatHang.Designer.cs">
+      <DependentUpon>MatHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PhieuGhiNo.cs">
       <SubType>Form</SubType>
