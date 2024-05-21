@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MaLoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoNoToiDa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.MaLoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoNoToiDa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +56,29 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(800, 318);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowValidated);
+            // 
+            // MaLoaiDaiLy
+            // 
+            this.MaLoaiDaiLy.DataPropertyName = "MaLoaiDaiLy";
+            this.MaLoaiDaiLy.HeaderText = "Mã Loại Đại Lý";
+            this.MaLoaiDaiLy.MinimumWidth = 6;
+            this.MaLoaiDaiLy.Name = "MaLoaiDaiLy";
+            this.MaLoaiDaiLy.ReadOnly = true;
+            // 
+            // TenLoaiDaiLy
+            // 
+            this.TenLoaiDaiLy.DataPropertyName = "TenLoaiDaiLy";
+            this.TenLoaiDaiLy.HeaderText = "Loại Đại Lý";
+            this.TenLoaiDaiLy.MinimumWidth = 6;
+            this.TenLoaiDaiLy.Name = "TenLoaiDaiLy";
+            // 
+            // SoNoToiDa
+            // 
+            this.SoNoToiDa.DataPropertyName = "SoNoToiDa";
+            this.SoNoToiDa.HeaderText = "Số Nợ Tối Đa";
+            this.SoNoToiDa.MinimumWidth = 6;
+            this.SoNoToiDa.Name = "SoNoToiDa";
             // 
             // button1
             // 
@@ -66,6 +89,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Lưu";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -98,28 +122,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Xoá";
             this.button4.UseVisualStyleBackColor = true;
-            // 
-            // MaLoaiDaiLy
-            // 
-            this.MaLoaiDaiLy.DataPropertyName = "MaLoaiDaiLy";
-            this.MaLoaiDaiLy.HeaderText = "Mã Loại Đại Lý";
-            this.MaLoaiDaiLy.MinimumWidth = 6;
-            this.MaLoaiDaiLy.Name = "MaLoaiDaiLy";
-            this.MaLoaiDaiLy.ReadOnly = true;
-            // 
-            // TenLoaiDaiLy
-            // 
-            this.TenLoaiDaiLy.DataPropertyName = "TenLoaiDaiLy";
-            this.TenLoaiDaiLy.HeaderText = "Loại Đại Lý";
-            this.TenLoaiDaiLy.MinimumWidth = 6;
-            this.TenLoaiDaiLy.Name = "TenLoaiDaiLy";
-            // 
-            // SoNoToiDa
-            // 
-            this.SoNoToiDa.DataPropertyName = "SoNoToiDa";
-            this.SoNoToiDa.HeaderText = "Số Nợ Tối Đa";
-            this.SoNoToiDa.MinimumWidth = 6;
-            this.SoNoToiDa.Name = "SoNoToiDa";
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // LoaiDaiLy
             // 
