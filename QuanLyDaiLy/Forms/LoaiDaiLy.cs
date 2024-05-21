@@ -15,8 +15,10 @@ namespace QuanLyDaiLy.Forms
     public partial class LoaiDaiLy : Form
     {
         DataTable data;
+        
         List<DataGridViewRow> needDelete = new List<DataGridViewRow>();
         List<DataGridViewRow> needUpdate = new List<DataGridViewRow>();
+
         public LoaiDaiLy()
         {
             InitializeComponent();
@@ -47,7 +49,8 @@ namespace QuanLyDaiLy.Forms
             {
                 // Lấy hàng đang được chọn
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                needDelete.Add(selectedRow);
+                DataGridViewRow clone = CloneDataGridViewRow(selectedRow);
+                needDelete.Add(clone);
                 // Xóa hàng khỏi DataGridView
                 dataGridView1.Rows.Remove(selectedRow);
             }
@@ -59,48 +62,62 @@ namespace QuanLyDaiLy.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            foreach (DataRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in needUpdate)
             {
-                if(WasUpdate(row))
+                string maLoaiDaiLy = row.Cells[0].Value.ToString();
+                string tenLoaiDaiLy = row.Cells[1].Value.ToString();
+                string soNoToiDaString = row.Cells[2].Value.ToString();
+                decimal soNoToiDa;
+                if(soNoToiDaString == "")
                 {
-                    //get value
-                    string maLoaiDaiLy = row[0].ToString();
-                    string tenLoaiDaiLy = row[1].ToString();
-                    decimal soTienNoToiDa = decimal.Parse(row[2].ToString());
-                    //update this row in csdl 
-                    string query = "UPDATE LOAIDAILY SET TenLoaiDaiLy=" + tenLoaiDaiLy +"Where MaLoaiDaiLy=" + maLoaiDaiLy;
-                    DataProvider.Instance.ExecuteNonQuery(query);
-                    query = "UPDATE LOAIDAILY SET SoTienNoToiDa=" + soTienNoToiDa + "Where MaLoaiDaiLy=" + maLoaiDaiLy;
-                    DataProvider.Instance.ExecuteNonQuery(query);
+                    soNoToiDa = 0;
                 }
-            }
-        }
+                else
+                {
+                    soNoToiDa = decimal.Parse(soNoToiDaString);
+                }
 
-        private bool IsNewRow(DataRow testRow)
-        {
-            int maLoai = int.Parse(testRow.ItemArray[0].ToString());
-            foreach(DataRow row in data.Rows)
+               
+
+                string query = @"USP_UpdateLoaiDaiLy @MaLoaiDaiLy , @TenLoaiDaiLy , @SoNoToiDa ";
+                DataProvider.Instance.ExecuteNonQuery(query,new object[] {maLoaiDaiLy,tenLoaiDaiLy,soNoToiDa});
+            }
+
+            foreach (DataGridViewRow row in needDelete)
             {
-                if (int.Parse(row[0].ToString()) == maLoai)
-                    return false;
-            }
-            return true;
-        }
+                
+                
+                string maLoaiDaiLy = row.Cells[0].Value.ToString();
+                string query = @"USP_DeleteLoaiDaiLy @MaLoaiDaiLy ";
+                DataProvider.Instance.ExecuteNonQuery(query,new object[] {maLoaiDaiLy});
 
-        private bool WasUpdate(DataRow testRow)
-        {
-            int maLoai = int.Parse(testRow[0].ToString());
-            DataRow findRow = data.Rows.Find(testRow.ItemArray[0]);
-            if (findRow.Equals(testRow))
-                return false;
-            else
-                return true;
+            }
+            needDelete.Clear();
+            needUpdate.Clear();
         }
 
         private void dataGridView1_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = (DataGridViewRow)sender;
-            needUpdate.Add(row);
+            
+            if(dataGridView1.SelectedRows.Count > 0) {
+                needUpdate.Add(dataGridView1.SelectedRows[0]);
+            }
         }
+
+        private DataGridViewRow CloneDataGridViewRow(DataGridViewRow sourceRow)
+        {
+            // Tạo một hàng mới với cùng số lượng ô
+            DataGridViewRow newRow = (DataGridViewRow)sourceRow.Clone();
+
+            // Sao chép giá trị từ từng ô của hàng gốc vào hàng mới
+            for (int i = 0; i < sourceRow.Cells.Count; i++)
+            {
+                newRow.Cells[i].Value = sourceRow.Cells[i].Value;
+            }
+
+            return newRow;
+        }
+
+
     }
 }

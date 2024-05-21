@@ -127,7 +127,6 @@ namespace QuanLyDaiLy.Forms
         {
             LoaiDaiLy loaiDaiLy = new LoaiDaiLy();
             loaiDaiLy.ShowDialog();
-
         }
 
         private void button4_Click(object sender, EventArgs e)

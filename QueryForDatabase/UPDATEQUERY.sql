@@ -775,3 +775,27 @@ begin
 
 end;
 GO
+
+--------------------------------
+create procedure USP_DeleteLoaiDaiLy
+@MaLoaiDaiLy varchar(10)
+as
+begin
+	delete LOAIDAILY
+	where MaLoaiDaiLy = @MaLoaiDaiLy
+end
+
+--------------------------------
+create procedure USP_UpdateLoaiDaiLy
+@MaLoaiDaiLy varchar(10),
+@TenLoaiDaiLy varchar(100),
+@SoNoToiDa money
+as
+begin
+	Update LOAIDAILY
+	Set
+		TenLoaiDaiLy = @TenLoaiDaiLy,
+		SoNoToiDa = @SoNoToiDa
+	Where
+		MaLoaiDaiLy  = @MaLoaiDaiLy
+end
