@@ -32,10 +32,10 @@
             this.MaLoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenLoaiDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoNoToiDa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,59 +82,59 @@
             this.SoNoToiDa.MinimumWidth = 6;
             this.SoNoToiDa.Name = "SoNoToiDa";
             // 
-            // button1
+            // buttonSave
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.button1.Location = new System.Drawing.Point(556, 343);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 50);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Lưu";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSave.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.buttonSave.Location = new System.Drawing.Point(556, 343);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(111, 50);
+            this.buttonSave.TabIndex = 3;
+            this.buttonSave.Text = "Lưu";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // buttonCancel
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.button2.Location = new System.Drawing.Point(673, 343);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 50);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Huỷ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonCancel.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.buttonCancel.Location = new System.Drawing.Point(673, 343);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(115, 50);
+            this.buttonCancel.TabIndex = 4;
+            this.buttonCancel.Text = "Huỷ";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // buttonAdd
             // 
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.button3.Location = new System.Drawing.Point(12, 343);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(115, 50);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Thêm";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonAdd.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.buttonAdd.Location = new System.Drawing.Point(12, 343);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(115, 50);
+            this.buttonAdd.TabIndex = 5;
+            this.buttonAdd.Text = "Thêm";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // buttonDelete
             // 
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.button4.Location = new System.Drawing.Point(133, 343);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(115, 50);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Xoá";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.buttonDelete.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.buttonDelete.Location = new System.Drawing.Point(133, 343);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(115, 50);
+            this.buttonDelete.TabIndex = 6;
+            this.buttonDelete.Text = "Xoá";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.button4_Click);
             // 
             // LoaiDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 418);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridView1);
             this.Name = "LoaiDaiLy";
             this.Text = "LoaiDaiLy";
@@ -147,10 +147,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLoaiDaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiDaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoNoToiDa;

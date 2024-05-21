@@ -15,7 +15,6 @@ namespace QuanLyDaiLy.Forms
     public partial class LoaiDaiLy : Form
     {
         DataTable data;
-        private Dictionary<int, List<object>> originalRowData = new Dictionary<int, List<object>>();
         List<DataGridViewRow> needDelete = new List<DataGridViewRow>();
         List<DataGridViewRow> needUpdate = new List<DataGridViewRow>();
 
@@ -135,5 +134,7 @@ namespace QuanLyDaiLy.Forms
             }
             
         }
+
+       
     }
 }

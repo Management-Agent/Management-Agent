@@ -7,7 +7,8 @@ MaDVT varchar(10) constraint PK_DVT PRIMARY KEY,
 TenDVT varchar(10)
 )
 go
- 
+
+drop table MATHANG
 CREATE TABLE MATHANG
 (
 MaMatHang varchar(50) constraint PK_MATHANG PRIMARY KEY,

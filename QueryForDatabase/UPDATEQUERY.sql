@@ -799,3 +799,25 @@ begin
 	Where
 		MaLoaiDaiLy  = @MaLoaiDaiLy
 end
+---------------------------------
+drop trigger TR_GenerateMaMatHang
+create trigger TR_GenerateMaMatHang
+on MATHANG
+instead of insert
+as
+begin
+	declare @Prefix varchar(3) = 'MMH'
+	declare @Length int = 4
+
+	declare @MaxMaMatHang int
+	select @MaxMaMatHang = ISNULL(max(cast(substring(MaMatHang, len(@Prefix) + 1, @Length)
+	as int)), 0)
+	from MATHANG
+
+	insert into MATHANG(MaMatHang, TenMatHang,MaDVT, SoLuongTon)
+	select @Prefix + right('0000' + cast(@MaxMaMatHang + row_number() over (order by(select null)) as varchar), @Length),
+	i.TenMatHang, i.MaDVT , i.SoLuongTon
+	from inserted i
+
+end;
+GO
