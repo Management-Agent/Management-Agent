@@ -15,7 +15,7 @@ namespace QuanLyDaiLy.Forms
     public partial class LoaiDaiLy : Form
     {
         DataTable data;
-        
+        private Dictionary<int, List<object>> originalRowData = new Dictionary<int, List<object>>();
         List<DataGridViewRow> needDelete = new List<DataGridViewRow>();
         List<DataGridViewRow> needUpdate = new List<DataGridViewRow>();
 
@@ -33,7 +33,7 @@ namespace QuanLyDaiLy.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string query = @"INSERT INTO LOAIDAILY(TenLoaiDaiLy,SoNoToiDa) values (null,null)";
+            string query = @"INSERT INTO LOAIDAILY(TenLoaiDaiLy,SoNoToiDa) values (null,0)";
             DataProvider.Instance.ExecuteNonQuery(query);
             LoaiDaiLy_Load(sender,e);
         }
@@ -99,9 +99,8 @@ namespace QuanLyDaiLy.Forms
         private void dataGridView1_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
             
-            if(dataGridView1.SelectedRows.Count > 0) {
-                needUpdate.Add(dataGridView1.SelectedRows[0]);
-            }
+
+            
         }
 
         private DataGridViewRow CloneDataGridViewRow(DataGridViewRow sourceRow)
@@ -116,8 +115,25 @@ namespace QuanLyDaiLy.Forms
             }
 
             return newRow;
+
+
         }
 
+        private void dataGridView1_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            
+        }
 
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            if (rowIndex >= 0 && rowIndex < dataGridView1.Rows.Count)
+            {
+                DataGridViewRow clone = CloneDataGridViewRow(dataGridView1.Rows[rowIndex]);
+
+                needUpdate.Add(clone);
+            }
+            
+        }
     }
 }
