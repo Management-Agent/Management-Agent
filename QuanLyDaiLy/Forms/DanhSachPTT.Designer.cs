@@ -158,7 +158,7 @@
             this.MaximumSize = new System.Drawing.Size(744, 481);
             this.MinimumSize = new System.Drawing.Size(744, 481);
             this.Name = "DanhSachPTT";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DanhSachPTT";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPTT)).EndInit();
             this.ResumeLayout(false);

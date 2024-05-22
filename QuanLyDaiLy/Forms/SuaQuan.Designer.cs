@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuaQuan));
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewQuan = new System.Windows.Forms.DataGridView();
             this.lbMaQuan = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(330, 38);
             this.label1.Name = "label1";
@@ -54,6 +56,7 @@
             // dataGridViewQuan
             // 
             this.dataGridViewQuan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewQuan.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dataGridViewQuan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewQuan.Location = new System.Drawing.Point(118, 83);
             this.dataGridViewQuan.Name = "dataGridViewQuan";
@@ -65,6 +68,7 @@
             // lbMaQuan
             // 
             this.lbMaQuan.AutoSize = true;
+            this.lbMaQuan.BackColor = System.Drawing.Color.Transparent;
             this.lbMaQuan.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.lbMaQuan.Location = new System.Drawing.Point(214, 263);
             this.lbMaQuan.Name = "lbMaQuan";
@@ -107,6 +111,7 @@
             // lbTenQuan
             // 
             this.lbTenQuan.AutoSize = true;
+            this.lbTenQuan.BackColor = System.Drawing.Color.Transparent;
             this.lbTenQuan.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.lbTenQuan.Location = new System.Drawing.Point(214, 316);
             this.lbTenQuan.Name = "lbTenQuan";
@@ -149,6 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btXoa);
             this.Controls.Add(this.btThem);
@@ -160,7 +166,12 @@
             this.Controls.Add(this.lbMaQuan);
             this.Controls.Add(this.dataGridViewQuan);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(818, 497);
+            this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "SuaQuan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SuaQuan";
             this.Load += new System.EventHandler(this.SuaQuan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuan)).EndInit();

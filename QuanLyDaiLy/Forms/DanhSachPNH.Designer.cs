@@ -169,7 +169,7 @@
             this.MaximumSize = new System.Drawing.Size(907, 497);
             this.MinimumSize = new System.Drawing.Size(907, 497);
             this.Name = "DanhSachPNH";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DanhSachPNH";
             this.Load += new System.EventHandler(this.DanhSachPNH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPNH)).EndInit();

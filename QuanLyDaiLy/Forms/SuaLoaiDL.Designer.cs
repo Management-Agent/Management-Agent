@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuaLoaiDL));
             this.dataGridViewLoaiDaiLy = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,8 +47,9 @@
             // dataGridViewLoaiDaiLy
             // 
             this.dataGridViewLoaiDaiLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewLoaiDaiLy.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dataGridViewLoaiDaiLy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLoaiDaiLy.Location = new System.Drawing.Point(134, 52);
+            this.dataGridViewLoaiDaiLy.Location = new System.Drawing.Point(150, 59);
             this.dataGridViewLoaiDaiLy.Name = "dataGridViewLoaiDaiLy";
             this.dataGridViewLoaiDaiLy.RowHeadersWidth = 51;
             this.dataGridViewLoaiDaiLy.RowTemplate.Height = 24;
@@ -57,8 +59,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(310, 9);
+            this.label1.Location = new System.Drawing.Point(343, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 29);
             this.label1.TabIndex = 80;
@@ -67,8 +70,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.label3.Location = new System.Drawing.Point(204, 228);
+            this.label3.Location = new System.Drawing.Point(221, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 25);
             this.label3.TabIndex = 81;
@@ -78,7 +82,7 @@
             // 
             this.txtMaLoaiDaiLy.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLoaiDaiLy.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtMaLoaiDaiLy.Location = new System.Drawing.Point(394, 228);
+            this.txtMaLoaiDaiLy.Location = new System.Drawing.Point(411, 230);
             this.txtMaLoaiDaiLy.Name = "txtMaLoaiDaiLy";
             this.txtMaLoaiDaiLy.Size = new System.Drawing.Size(204, 33);
             this.txtMaLoaiDaiLy.TabIndex = 82;
@@ -86,8 +90,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.label2.Location = new System.Drawing.Point(219, 321);
+            this.label2.Location = new System.Drawing.Point(236, 323);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 25);
             this.label2.TabIndex = 83;
@@ -96,8 +101,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.label4.Location = new System.Drawing.Point(199, 276);
+            this.label4.Location = new System.Drawing.Point(216, 278);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(164, 25);
             this.label4.TabIndex = 84;
@@ -107,7 +113,7 @@
             // 
             this.txtSoNoToiDa.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoNoToiDa.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtSoNoToiDa.Location = new System.Drawing.Point(394, 321);
+            this.txtSoNoToiDa.Location = new System.Drawing.Point(411, 323);
             this.txtSoNoToiDa.Name = "txtSoNoToiDa";
             this.txtSoNoToiDa.Size = new System.Drawing.Size(204, 33);
             this.txtSoNoToiDa.TabIndex = 85;
@@ -116,7 +122,7 @@
             // 
             this.txtTenLoaiDaiLy.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenLoaiDaiLy.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtTenLoaiDaiLy.Location = new System.Drawing.Point(394, 276);
+            this.txtTenLoaiDaiLy.Location = new System.Drawing.Point(411, 278);
             this.txtTenLoaiDaiLy.Name = "txtTenLoaiDaiLy";
             this.txtTenLoaiDaiLy.Size = new System.Drawing.Size(204, 33);
             this.txtTenLoaiDaiLy.TabIndex = 86;
@@ -161,7 +167,7 @@
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(130, 50);
             this.btXoa.TabIndex = 90;
-            this.btXoa.Text = "xóa";
+            this.btXoa.Text = "Xóa";
             this.btXoa.UseVisualStyleBackColor = true;
             this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
@@ -169,6 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(857, 450);
             this.Controls.Add(this.btXoa);
             this.Controls.Add(this.btThem);
@@ -182,7 +189,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewLoaiDaiLy);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(875, 497);
+            this.MinimumSize = new System.Drawing.Size(875, 497);
             this.Name = "SuaLoaiDL";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SuaLoaiDL";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLoaiDaiLy)).EndInit();
             this.ResumeLayout(false);

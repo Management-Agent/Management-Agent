@@ -99,6 +99,7 @@
             this.MaximumSize = new System.Drawing.Size(851, 530);
             this.MinimumSize = new System.Drawing.Size(851, 530);
             this.Name = "BaoCaoDoanhSo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "BaoCaoDoanhSo";
             this.Load += new System.EventHandler(this.BaoCaoDoanhSo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBCDS)).EndInit();

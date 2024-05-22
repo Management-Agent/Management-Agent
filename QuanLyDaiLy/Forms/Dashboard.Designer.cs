@@ -43,9 +43,9 @@
             this.mặtHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ngườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýNgườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhSáchQuậnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhSáchQuậnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,14 +85,14 @@
             // 
             this.quảnLýĐạiLýToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.quảnLýĐạiLýToolStripMenuItem.Name = "quảnLýĐạiLýToolStripMenuItem";
-            this.quảnLýĐạiLýToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.quảnLýĐạiLýToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.quảnLýĐạiLýToolStripMenuItem.Text = "Quản lý đại lý";
             this.quảnLýĐạiLýToolStripMenuItem.Click += new System.EventHandler(this.quảnLýĐạiLýToolStripMenuItem_Click);
             // 
             // loạiĐạiLýToolStripMenuItem
             // 
             this.loạiĐạiLýToolStripMenuItem.Name = "loạiĐạiLýToolStripMenuItem";
-            this.loạiĐạiLýToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.loạiĐạiLýToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.loạiĐạiLýToolStripMenuItem.Text = "Loại đại lý";
             // 
             // phiếuToolStripMenuItem
@@ -110,21 +110,21 @@
             // phiếuNhậpHàngToolStripMenuItem
             // 
             this.phiếuNhậpHàngToolStripMenuItem.Name = "phiếuNhậpHàngToolStripMenuItem";
-            this.phiếuNhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.phiếuNhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.phiếuNhậpHàngToolStripMenuItem.Text = "Phiếu nhập hàng";
             this.phiếuNhậpHàngToolStripMenuItem.Click += new System.EventHandler(this.phiếuNhậpHàngToolStripMenuItem_Click);
             // 
             // phiếuXuấtHanToolStripMenuItem
             // 
             this.phiếuXuấtHanToolStripMenuItem.Name = "phiếuXuấtHanToolStripMenuItem";
-            this.phiếuXuấtHanToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.phiếuXuấtHanToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.phiếuXuấtHanToolStripMenuItem.Text = "Phiếu xuất hàng";
             this.phiếuXuấtHanToolStripMenuItem.Click += new System.EventHandler(this.phiếuXuấtHanToolStripMenuItem_Click);
             // 
             // phiếuThuTiềnToolStripMenuItem
             // 
             this.phiếuThuTiềnToolStripMenuItem.Name = "phiếuThuTiềnToolStripMenuItem";
-            this.phiếuThuTiềnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.phiếuThuTiềnToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.phiếuThuTiềnToolStripMenuItem.Text = "Phiếu thu tiền";
             this.phiếuThuTiềnToolStripMenuItem.Click += new System.EventHandler(this.phiếuThuTiềnToolStripMenuItem_Click);
             // 
@@ -142,14 +142,14 @@
             // doanhSốToolStripMenuItem
             // 
             this.doanhSốToolStripMenuItem.Name = "doanhSốToolStripMenuItem";
-            this.doanhSốToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.doanhSốToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.doanhSốToolStripMenuItem.Text = "Doanh số ";
             this.doanhSốToolStripMenuItem.Click += new System.EventHandler(this.doanhSốToolStripMenuItem_Click);
             // 
             // côngNợToolStripMenuItem
             // 
             this.côngNợToolStripMenuItem.Name = "côngNợToolStripMenuItem";
-            this.côngNợToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.côngNợToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.côngNợToolStripMenuItem.Text = "Công nợ";
             this.côngNợToolStripMenuItem.Click += new System.EventHandler(this.côngNợToolStripMenuItem_Click);
             // 
@@ -178,6 +178,13 @@
             this.quảnLýNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
             this.quảnLýNgườiDùngToolStripMenuItem.Text = "Quản lý người dùng";
             // 
+            // danhSáchQuậnToolStripMenuItem
+            // 
+            this.danhSáchQuậnToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.danhSáchQuậnToolStripMenuItem.Name = "danhSáchQuậnToolStripMenuItem";
+            this.danhSáchQuậnToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.danhSáchQuậnToolStripMenuItem.Text = "Danh sách quận";
+            // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("đăngXuấtToolStripMenuItem.Image")));
@@ -195,13 +202,6 @@
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
-            // danhSáchQuậnToolStripMenuItem
-            // 
-            this.danhSáchQuậnToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.danhSáchQuậnToolStripMenuItem.Name = "danhSáchQuậnToolStripMenuItem";
-            this.danhSáchQuậnToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
-            this.danhSáchQuậnToolStripMenuItem.Text = "Danh sách quận";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -215,6 +215,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(884, 548);
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quan Ly Dai Ly";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);

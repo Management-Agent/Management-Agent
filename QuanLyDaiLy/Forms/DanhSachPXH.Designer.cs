@@ -174,7 +174,7 @@
             this.MaximumSize = new System.Drawing.Size(940, 504);
             this.MinimumSize = new System.Drawing.Size(940, 504);
             this.Name = "DanhSachPXH";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DanhSachPXH";
             this.Load += new System.EventHandler(this.DanhSachPXH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPXH)).EndInit();

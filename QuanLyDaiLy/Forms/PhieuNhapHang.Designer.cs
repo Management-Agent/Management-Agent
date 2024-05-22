@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuNhapHang));
             this.SPN = new System.Windows.Forms.TextBox();
             this.SLN = new System.Windows.Forms.TextBox();
             this.DGN = new System.Windows.Forms.TextBox();
@@ -52,7 +53,7 @@
             // SPN
             // 
             this.SPN.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SPN.Location = new System.Drawing.Point(269, 109);
+            this.SPN.Location = new System.Drawing.Point(225, 108);
             this.SPN.Name = "SPN";
             this.SPN.Size = new System.Drawing.Size(204, 33);
             this.SPN.TabIndex = 2;
@@ -60,7 +61,7 @@
             // SLN
             // 
             this.SLN.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SLN.Location = new System.Drawing.Point(271, 188);
+            this.SLN.Location = new System.Drawing.Point(227, 187);
             this.SLN.Name = "SLN";
             this.SLN.Size = new System.Drawing.Size(204, 33);
             this.SLN.TabIndex = 4;
@@ -68,7 +69,7 @@
             // DGN
             // 
             this.DGN.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DGN.Location = new System.Drawing.Point(676, 188);
+            this.DGN.Location = new System.Drawing.Point(632, 187);
             this.DGN.Name = "DGN";
             this.DGN.Size = new System.Drawing.Size(204, 33);
             this.DGN.TabIndex = 5;
@@ -76,7 +77,7 @@
             // ThemPNH
             // 
             this.ThemPNH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThemPNH.Location = new System.Drawing.Point(537, 414);
+            this.ThemPNH.Location = new System.Drawing.Point(577, 414);
             this.ThemPNH.Name = "ThemPNH";
             this.ThemPNH.Size = new System.Drawing.Size(130, 50);
             this.ThemPNH.TabIndex = 17;
@@ -87,8 +88,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.label1.Location = new System.Drawing.Point(115, 109);
+            this.label1.Location = new System.Drawing.Point(71, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 25);
             this.label1.TabIndex = 18;
@@ -97,8 +99,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.label2.Location = new System.Drawing.Point(532, 109);
+            this.label2.Location = new System.Drawing.Point(488, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 25);
             this.label2.TabIndex = 19;
@@ -107,7 +110,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(113, 188);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(69, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 25);
             this.label3.TabIndex = 20;
@@ -116,7 +120,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(532, 188);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(488, 187);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 25);
             this.label4.TabIndex = 21;
@@ -125,7 +130,8 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(113, 271);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(69, 270);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(152, 25);
             this.label5.TabIndex = 23;
@@ -136,7 +142,7 @@
             this.NNH.AllowDrop = true;
             this.NNH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NNH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.NNH.Location = new System.Drawing.Point(271, 265);
+            this.NNH.Location = new System.Drawing.Point(227, 264);
             this.NNH.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
             this.NNH.Name = "NNH";
             this.NNH.Size = new System.Drawing.Size(204, 33);
@@ -145,7 +151,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(532, 271);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(488, 270);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(141, 25);
             this.label6.TabIndex = 26;
@@ -154,7 +161,8 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(115, 340);
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(71, 339);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(146, 25);
             this.label7.TabIndex = 28;
@@ -164,7 +172,7 @@
             // 
             this.MMH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MMH.FormattingEnabled = true;
-            this.MMH.Location = new System.Drawing.Point(676, 109);
+            this.MMH.Location = new System.Drawing.Point(632, 108);
             this.MMH.Name = "MMH";
             this.MMH.Size = new System.Drawing.Size(204, 33);
             this.MMH.TabIndex = 29;
@@ -174,7 +182,7 @@
             // 
             this.MDVT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MDVT.FormattingEnabled = true;
-            this.MDVT.Location = new System.Drawing.Point(676, 268);
+            this.MDVT.Location = new System.Drawing.Point(632, 267);
             this.MDVT.Name = "MDVT";
             this.MDVT.Size = new System.Drawing.Size(204, 33);
             this.MDVT.TabIndex = 30;
@@ -183,7 +191,7 @@
             // TDVT
             // 
             this.TDVT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TDVT.Location = new System.Drawing.Point(271, 340);
+            this.TDVT.Location = new System.Drawing.Point(227, 339);
             this.TDVT.Name = "TDVT";
             this.TDVT.ReadOnly = true;
             this.TDVT.Size = new System.Drawing.Size(204, 33);
@@ -192,7 +200,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(706, 414);
+            this.button1.Location = new System.Drawing.Point(746, 414);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 50);
             this.button1.TabIndex = 31;
@@ -203,7 +211,7 @@
             // TMH
             // 
             this.TMH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TMH.Location = new System.Drawing.Point(676, 340);
+            this.TMH.Location = new System.Drawing.Point(632, 339);
             this.TMH.Name = "TMH";
             this.TMH.ReadOnly = true;
             this.TMH.Size = new System.Drawing.Size(204, 33);
@@ -212,7 +220,8 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(532, 340);
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(488, 339);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(130, 25);
             this.label8.TabIndex = 33;
@@ -221,8 +230,9 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(387, 30);
+            this.label9.Location = new System.Drawing.Point(343, 29);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(222, 31);
             this.label9.TabIndex = 111;
@@ -230,7 +240,8 @@
             // 
             // PhieuNhapHang
             // 
-            this.ClientSize = new System.Drawing.Size(993, 506);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(911, 487);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.TMH);
@@ -251,8 +262,12 @@
             this.Controls.Add(this.SLN);
             this.Controls.Add(this.SPN);
             this.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(929, 534);
+            this.MinimumSize = new System.Drawing.Size(929, 534);
             this.Name = "PhieuNhapHang";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PhieuNhapHang";
             this.Load += new System.EventHandler(this.PhieuNhapHang_Load);
             this.ResumeLayout(false);

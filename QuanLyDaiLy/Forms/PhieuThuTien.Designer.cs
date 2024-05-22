@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuThuTien));
             this.dtbNTT = new System.Windows.Forms.DateTimePicker();
             this.btnInsertPTT = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,7 +43,8 @@
             // 
             // dtbNTT
             // 
-            this.dtbNTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtbNTT.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtbNTT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtbNTT.Location = new System.Drawing.Point(189, 181);
             this.dtbNTT.Name = "dtbNTT";
             this.dtbNTT.Size = new System.Drawing.Size(204, 28);
@@ -62,8 +64,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.label1.Location = new System.Drawing.Point(452, 98);
+            this.label1.Location = new System.Drawing.Point(452, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 25);
             this.label1.TabIndex = 92;
@@ -72,8 +75,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.label4.Location = new System.Drawing.Point(431, 187);
+            this.label4.Location = new System.Drawing.Point(452, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 25);
             this.label4.TabIndex = 93;
@@ -82,8 +86,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.label3.Location = new System.Drawing.Point(35, 187);
+            this.label3.Location = new System.Drawing.Point(35, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 25);
             this.label3.TabIndex = 94;
@@ -92,6 +97,7 @@
             // lblSoPhieuThu
             // 
             this.lblSoPhieuThu.AutoSize = true;
+            this.lblSoPhieuThu.BackColor = System.Drawing.Color.Transparent;
             this.lblSoPhieuThu.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.lblSoPhieuThu.Location = new System.Drawing.Point(35, 101);
             this.lblSoPhieuThu.Name = "lblSoPhieuThu";
@@ -126,6 +132,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(320, 25);
             this.label2.Name = "label2";
@@ -137,6 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(824, 382);
             this.Controls.Add(this.dtbNTT);
             this.Controls.Add(this.btnInsertPTT);
@@ -148,7 +156,12 @@
             this.Controls.Add(this.tbxSTT);
             this.Controls.Add(this.tbxSPT);
             this.Controls.Add(this.label2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(842, 429);
+            this.MinimumSize = new System.Drawing.Size(842, 429);
             this.Name = "PhieuThuTien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PhieuThuTien";
             this.Load += new System.EventHandler(this.PhieuThuTien_Load);
             this.ResumeLayout(false);
