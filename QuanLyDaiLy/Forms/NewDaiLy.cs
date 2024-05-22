@@ -65,5 +65,10 @@ namespace QuanLyDaiLy
             QuanBox.DataSource = data;
             QuanBox.DisplayMember = "MaQuan";
         }
+
+        private void NewDaiLy_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

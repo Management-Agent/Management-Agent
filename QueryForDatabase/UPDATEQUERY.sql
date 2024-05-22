@@ -53,7 +53,13 @@ BEGIN
     SELECT TenDaiLy, NoDau, PhatSinh, NoCuoi
     FROM DAILY inner join BAOCAOCONGNO ON DAILY.MaDaiLy = BAOCAOCONGNO.MaDaiLy
 END;
-
+----------------
+ALTER proc [dbo].[USP_GetLoaiDaiLy]
+as
+begin
+	select MaLoaiDaiLy
+	from LOAIDAILY
+end;
 
 ---------------
 CREATE PROCEDURE Insert_PNH
