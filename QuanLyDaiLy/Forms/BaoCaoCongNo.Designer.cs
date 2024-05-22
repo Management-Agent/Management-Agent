@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaoCaoCongNo));
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.NoDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhatSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoCuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -59,7 +61,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.button1.Location = new System.Drawing.Point(771, 27);
+            this.button1.Location = new System.Drawing.Point(773, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(199, 50);
             this.button1.TabIndex = 2;
@@ -79,13 +81,14 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(982, 111);
+            this.panel1.Size = new System.Drawing.Size(984, 111);
             this.panel1.TabIndex = 6;
             // 
             // label6
@@ -101,16 +104,18 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 464);
+            this.panel2.Location = new System.Drawing.Point(0, 451);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(982, 89);
+            this.panel2.Size = new System.Drawing.Size(984, 89);
             this.panel2.TabIndex = 7;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.PaleTurquoise;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
@@ -125,7 +130,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(982, 353);
+            this.dataGridView1.Size = new System.Drawing.Size(984, 340);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.ColumnDisplayIndexChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dataGridView1_ColumnDisplayIndexChanged);
@@ -169,10 +174,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 553);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(984, 540);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1002, 587);
+            this.MinimumSize = new System.Drawing.Size(1002, 587);
             this.Name = "BaoCaoCongNo";
             this.Text = "BaoCaoCongNo";
             this.Load += new System.EventHandler(this.BaoCaoCongNo_Load);
@@ -198,5 +208,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NoDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhatSinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoCuoi;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

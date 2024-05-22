@@ -128,7 +128,7 @@
             this.dataGridViewDaiLy.AllowUserToAddRows = false;
             this.dataGridViewDaiLy.AllowUserToDeleteRows = false;
             this.dataGridViewDaiLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewDaiLy.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dataGridViewDaiLy.BackgroundColor = System.Drawing.Color.PowderBlue;
             this.dataGridViewDaiLy.ColumnHeadersHeight = 29;
             this.dataGridViewDaiLy.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewDaiLy.Name = "dataGridViewDaiLy";
