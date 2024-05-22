@@ -455,7 +455,7 @@ BEGIN
 	WHERE SoPhieuXuat = @SoPhieuXuat and MaMatHangXuat = @MaMatHangXuat
 END
 -------------------------------------------------
-CREATE PROCEDURE Update_CT_PXH_SLX
+CREATE PROCEDURE Update_CT_PXH_DGX
 	@SoPhieuXuat VARCHAR(10),
 	@MaMatHangXuat VARCHAR(50),
 	@DonGiaXuat Money
