@@ -540,7 +540,7 @@ VALUES
 ('SoDonViTinh',2)
 	
 
-
+/*
 CREATE PROCEDURE sp_GetBaoCaoDoanhSo
     @Thang INT,
     @Nam INT
@@ -560,7 +560,7 @@ BEGIN
     GROUP BY 
         MaDaily
 END
-	
+*/	
 
 CREATE PROCEDURE BCDS_month
     @Thang INT,
