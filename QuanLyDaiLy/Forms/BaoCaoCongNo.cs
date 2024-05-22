@@ -63,5 +63,27 @@ namespace QuanLyDaiLy.Forms
                 phieuGhiNo.ShowDialog();
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            DateTime currentDate = dateTimePicker1.Value;
+
+            // Thay đổi giá trị lên 1 tháng
+            DateTime newDate = currentDate.AddMonths(-1);
+
+            // Cập nhật giá trị của DateTimePicker
+            dateTimePicker1.Value = newDate;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime currentDate = dateTimePicker1.Value;
+
+            // Thay đổi giá trị lên 1 tháng
+            DateTime newDate = currentDate.AddMonths(1);
+
+            // Cập nhật giá trị của DateTimePicker
+            dateTimePicker1.Value = newDate;
+        }
     }
 }

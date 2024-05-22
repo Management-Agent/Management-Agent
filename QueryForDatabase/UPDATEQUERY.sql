@@ -898,3 +898,14 @@ begin
 	set TenDVT =@TenDVT
 	where MaDVT = @MaDVT
 end
+
+------------------------------------
+Alter PROCEDURE USP_GetCongNoInfo
+@Thang int,
+@Nam int
+AS
+BEGIN
+    SELECT DaiLy.MaDaiLy as MaDaiLy ,TenDaiLy, NoDau, PhatSinh, NoCuoi
+    FROM DAILY inner join BAOCAOCONGNO ON DAILY.MaDaiLy = BAOCAOCONGNO.MaDaiLy
+	where Thang = @Thang and Nam =@Nam
+END;

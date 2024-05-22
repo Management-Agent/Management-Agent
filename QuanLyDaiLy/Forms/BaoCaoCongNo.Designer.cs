@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhatSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoCuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,22 +51,11 @@
             this.dateTimePicker1.CustomFormat = "MM/yyyy";
             this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(451, 64);
+            this.dateTimePicker1.Location = new System.Drawing.Point(486, 64);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(195, 33);
             this.dateTimePicker1.TabIndex = 0;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F);
-            this.button1.Location = new System.Drawing.Point(771, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 50);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Xem Chi Tiết";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -79,6 +69,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dateTimePicker1);
@@ -101,7 +93,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 464);
             this.panel2.Name = "panel2";
@@ -114,6 +105,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
+            this.MaDaiLy,
             this.DaiLy,
             this.NoDau,
             this.PhatSinh,
@@ -136,6 +128,15 @@
             this.STT.HeaderText = "STT";
             this.STT.MinimumWidth = 6;
             this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            // 
+            // MaDaiLy
+            // 
+            this.MaDaiLy.DataPropertyName = "MaDaiLy";
+            this.MaDaiLy.HeaderText = "Mã đại lý";
+            this.MaDaiLy.MinimumWidth = 6;
+            this.MaDaiLy.Name = "MaDaiLy";
+            this.MaDaiLy.ReadOnly = true;
             // 
             // DaiLy
             // 
@@ -143,6 +144,7 @@
             this.DaiLy.HeaderText = "Đại lý";
             this.DaiLy.MinimumWidth = 6;
             this.DaiLy.Name = "DaiLy";
+            this.DaiLy.ReadOnly = true;
             // 
             // NoDau
             // 
@@ -150,6 +152,7 @@
             this.NoDau.HeaderText = "Nợ đầu";
             this.NoDau.MinimumWidth = 6;
             this.NoDau.Name = "NoDau";
+            this.NoDau.ReadOnly = true;
             // 
             // PhatSinh
             // 
@@ -157,6 +160,7 @@
             this.PhatSinh.HeaderText = "Phát sinh";
             this.PhatSinh.MinimumWidth = 6;
             this.PhatSinh.Name = "PhatSinh";
+            this.PhatSinh.ReadOnly = true;
             // 
             // NoCuoi
             // 
@@ -164,6 +168,29 @@
             this.NoCuoi.HeaderText = "Nợ cuối";
             this.NoCuoi.MinimumWidth = 6;
             this.NoCuoi.Name = "NoCuoi";
+            this.NoCuoi.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(445, 62);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 35);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "<";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(687, 62);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 35);
+            this.button2.TabIndex = 43;
+            this.button2.Text = ">";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // BaoCaoCongNo
             // 
@@ -178,7 +205,6 @@
             this.Load += new System.EventHandler(this.BaoCaoCongNo_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -187,16 +213,18 @@
         #endregion
 
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaDaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn DaiLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhatSinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoCuoi;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
