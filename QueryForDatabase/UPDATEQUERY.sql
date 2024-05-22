@@ -877,8 +877,8 @@ AS
 BEGIN
     IF NOT EXISTS (SELECT * FROM PHIEUXUATHANG WHERE SoPhieuXuat = @SoPhieuXuat)
     BEGIN
-        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, NgayXuatHang, ThanhTien)
-        VALUES (@SoPhieuXuat, @NgayXuatHang, @ThanhTien)
+        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, NgayXuatHang)
+        VALUES (@SoPhieuXuat, @NgayXuatHang)
     END
 
 	IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
@@ -893,7 +893,7 @@ BEGIN
 
     IF NOT EXISTS (SELECT * FROM CT_PXH WHERE SoPhieuXuat = @SoPhieuXuat AND MaMatHangXuat = @MaMatHangXuat)
     BEGIN
-        INSERT INTO CT_PXH (SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat)
-        VALUES (@SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat, @DonGiaXuat)
+        INSERT INTO CT_PXH (SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat, ThanhTien)
+        VALUES (@SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat, @DonGiaXuat, @ThanhTien)
     END
 END
