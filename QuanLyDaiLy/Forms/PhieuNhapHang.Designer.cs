@@ -46,6 +46,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.TMH = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SPN
@@ -217,9 +218,20 @@
             this.label8.TabIndex = 33;
             this.label8.Text = "Tên mặt hàng";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(387, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(222, 31);
+            this.label9.TabIndex = 111;
+            this.label9.Text = "Phiếu Nhập Hàng";
+            // 
             // PhieuNhapHang
             // 
             this.ClientSize = new System.Drawing.Size(993, 506);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.TMH);
             this.Controls.Add(this.button1);
@@ -276,5 +288,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox TMH;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
