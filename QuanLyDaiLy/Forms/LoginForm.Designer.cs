@@ -107,6 +107,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(822, 512);
             this.panel1.TabIndex = 18;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // title
             // 
@@ -114,7 +115,7 @@
             this.title.Font = new System.Drawing.Font("Times New Roman", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.Location = new System.Drawing.Point(266, 94);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(271, 51);
+            this.title.Size = new System.Drawing.Size(268, 49);
             this.title.TabIndex = 18;
             this.title.Text = "Quản lý đại lý";
             // 

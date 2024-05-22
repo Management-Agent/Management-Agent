@@ -26,6 +26,12 @@ begin
 	select TenLoaiDaiLy
 	from LOAIDAILY
 end;
+create proc USP_GetMaQuan
+as
+begin
+	select MaQuan
+	from QUAN
+end;
 --Lay thong tin danh sach ten quan
 create proc USP_GetAllTenQuan
 as

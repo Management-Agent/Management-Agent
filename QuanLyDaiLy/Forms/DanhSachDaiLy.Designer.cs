@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachDaiLy));
             this.addButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.modifyButton = new System.Windows.Forms.Button();
@@ -100,6 +101,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.RefreshButton);
             this.panel2.Controls.Add(this.addButton);
             this.panel2.Controls.Add(this.deleteButton);
@@ -127,6 +129,7 @@
             this.dataGridViewDaiLy.AllowUserToAddRows = false;
             this.dataGridViewDaiLy.AllowUserToDeleteRows = false;
             this.dataGridViewDaiLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewDaiLy.BackgroundColor = System.Drawing.Color.LightSkyBlue;
             this.dataGridViewDaiLy.ColumnHeadersHeight = 29;
             this.dataGridViewDaiLy.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewDaiLy.Name = "dataGridViewDaiLy";
@@ -275,6 +278,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.FindButton);
             this.panel1.Controls.Add(this.FindBox);
             this.panel1.Controls.Add(this.label1);
@@ -344,6 +348,7 @@
             // panel3
             // 
             this.panel3.AutoSize = true;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.SDTBox);
             this.panel3.Controls.Add(this.dataGridViewDaiLy);
             this.panel3.Controls.Add(this.MaDaiLyBox);
@@ -372,10 +377,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1094, 606);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DanhSachDaiLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DanhSachDaiLy";
