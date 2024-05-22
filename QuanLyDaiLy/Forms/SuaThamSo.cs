@@ -35,7 +35,7 @@ namespace QuanLyDaiLy.Forms
 
         private int GetSoLoaiDaiLy()
         {
-            string query = @"Select Count(MaDaiLy) from DaiLy";
+            string query = @"Select Count(MaLoaiDaiLy) from LoaiDaiLy";
             int result = (int)DataProvider.Instance.ExecuteScalar(query);
             return result;
         }
@@ -127,18 +127,23 @@ namespace QuanLyDaiLy.Forms
         {
             LoaiDaiLy loaiDaiLy = new LoaiDaiLy();
             loaiDaiLy.ShowDialog();
+            SuaThamSo_Load(sender,e);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             MatHang matHang = new MatHang();
             matHang.ShowDialog();
+            SuaThamSo_Load(sender, e);
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             DonViTinh donViTinh = new DonViTinh();
             donViTinh.ShowDialog();
+            SuaThamSo_Load(sender, e);
+
         }
     }
 }

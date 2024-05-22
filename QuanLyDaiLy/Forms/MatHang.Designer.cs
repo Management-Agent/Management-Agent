@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.MaMatHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenMatHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongTon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenDVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +60,35 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            // 
+            // MaMatHang
+            // 
+            this.MaMatHang.DataPropertyName = "MaMatHang";
+            this.MaMatHang.HeaderText = "MaMatHang";
+            this.MaMatHang.MinimumWidth = 6;
+            this.MaMatHang.Name = "MaMatHang";
+            // 
+            // TenMatHang
+            // 
+            this.TenMatHang.DataPropertyName = "TenMatHang";
+            this.TenMatHang.HeaderText = "Tên mặt hàng";
+            this.TenMatHang.MinimumWidth = 6;
+            this.TenMatHang.Name = "TenMatHang";
+            // 
+            // SoLuongTon
+            // 
+            this.SoLuongTon.DataPropertyName = "SoLuongTon";
+            this.SoLuongTon.HeaderText = "Số lượng tồn";
+            this.SoLuongTon.MinimumWidth = 6;
+            this.SoLuongTon.Name = "SoLuongTon";
+            // 
+            // TenDVT
+            // 
+            this.TenDVT.DataPropertyName = "TenDVT";
+            this.TenDVT.HeaderText = "Đơn vị tính";
+            this.TenDVT.MinimumWidth = 6;
+            this.TenDVT.Name = "TenDVT";
+            this.TenDVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // buttonDelete
             // 
@@ -105,35 +134,6 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // MaMatHang
-            // 
-            this.MaMatHang.DataPropertyName = "MaMatHang";
-            this.MaMatHang.HeaderText = "MaMatHang";
-            this.MaMatHang.MinimumWidth = 6;
-            this.MaMatHang.Name = "MaMatHang";
-            // 
-            // TenMatHang
-            // 
-            this.TenMatHang.DataPropertyName = "TenMatHang";
-            this.TenMatHang.HeaderText = "Tên mặt hàng";
-            this.TenMatHang.MinimumWidth = 6;
-            this.TenMatHang.Name = "TenMatHang";
-            // 
-            // SoLuongTon
-            // 
-            this.SoLuongTon.DataPropertyName = "SoLuongTon";
-            this.SoLuongTon.HeaderText = "Số lượng tồn";
-            this.SoLuongTon.MinimumWidth = 6;
-            this.SoLuongTon.Name = "SoLuongTon";
-            // 
-            // TenDVT
-            // 
-            this.TenDVT.DataPropertyName = "TenDVT";
-            this.TenDVT.HeaderText = "Đơn vị tính";
-            this.TenDVT.MinimumWidth = 6;
-            this.TenDVT.Name = "TenDVT";
-            this.TenDVT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // MatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -145,6 +145,7 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MatHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MatHang";
             this.Load += new System.EventHandler(this.MatHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
