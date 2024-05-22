@@ -115,5 +115,21 @@ namespace QuanLyDaiLy
             LoginForm login = new LoginForm();
             login.ShowDialog();
         }
+
+        private void loạiĐạiLýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(LoaiDaiLy loaiDaiLy = new LoaiDaiLy())
+            {
+                loaiDaiLy.ShowDialog();
+            }
+        }
+
+        private void danhSáchQuậnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using( SuaQuan  quan = new SuaQuan())
+            {
+                quan.ShowDialog();
+            }
+        }
     }
 }
