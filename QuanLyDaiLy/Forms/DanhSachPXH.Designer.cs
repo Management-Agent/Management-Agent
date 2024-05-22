@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPXH));
             this.tbxXPXH = new System.Windows.Forms.TextBox();
             this.tbxTTPXH = new System.Windows.Forms.TextBox();
             this.btnTCPXH = new System.Windows.Forms.Button();
@@ -104,7 +105,7 @@
             // 
             // dgvPXH
             // 
-            this.dgvPXH.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvPXH.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvPXH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPXH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSPN,
@@ -116,7 +117,7 @@
             this.dgvPXH.ReadOnly = true;
             this.dgvPXH.RowHeadersWidth = 51;
             this.dgvPXH.RowTemplate.Height = 24;
-            this.dgvPXH.Size = new System.Drawing.Size(875, 249);
+            this.dgvPXH.Size = new System.Drawing.Size(817, 249);
             this.dgvPXH.TabIndex = 30;
             // 
             // colSPN
@@ -159,7 +160,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 494);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(922, 457);
             this.Controls.Add(this.tbxXPXH);
             this.Controls.Add(this.tbxTTPXH);
             this.Controls.Add(this.btnTCPXH);
@@ -167,7 +169,12 @@
             this.Controls.Add(this.btnXPXH);
             this.Controls.Add(this.btnTPXH);
             this.Controls.Add(this.dgvPXH);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(940, 504);
+            this.MinimumSize = new System.Drawing.Size(940, 504);
             this.Name = "DanhSachPXH";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DanhSachPXH";
             this.Load += new System.EventHandler(this.DanhSachPXH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPXH)).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPTT));
             this.dgvDSPTT = new System.Windows.Forms.DataGridView();
             this.colSPN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +44,7 @@
             // 
             // dgvDSPTT
             // 
-            this.dgvDSPTT.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvDSPTT.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvDSPTT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSPTT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSPN,
@@ -144,14 +145,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 471);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(726, 434);
             this.Controls.Add(this.tbxXPTT);
             this.Controls.Add(this.tbxTCPTT);
             this.Controls.Add(this.btnTPTT);
             this.Controls.Add(this.btnXPTT);
             this.Controls.Add(this.btnTCPTT);
             this.Controls.Add(this.dgvDSPTT);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(744, 481);
+            this.MinimumSize = new System.Drawing.Size(744, 481);
             this.Name = "DanhSachPTT";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DanhSachPTT";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPTT)).EndInit();
             this.ResumeLayout(false);

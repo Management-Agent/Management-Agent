@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPNH));
             this.dataGridViewPNH = new System.Windows.Forms.DataGridView();
             this.colSPN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +47,7 @@
             // 
             // dataGridViewPNH
             // 
-            this.dataGridViewPNH.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridViewPNH.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dataGridViewPNH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPNH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSPN,
@@ -142,6 +143,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.label5.Location = new System.Drawing.Point(85, 281);
             this.label5.Name = "label5";
@@ -153,6 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(889, 450);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.SearchPNH);
@@ -161,6 +164,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ThemPNH);
             this.Controls.Add(this.dataGridViewPNH);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(907, 497);
+            this.MinimumSize = new System.Drawing.Size(907, 497);
             this.Name = "DanhSachPNH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DanhSachPNH";
