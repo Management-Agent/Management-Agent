@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using QuanLyDaiLy.Forms;
 
 
 namespace QuanLyDaiLy
@@ -27,11 +28,6 @@ namespace QuanLyDaiLy
 
         }
 
-        private void newDaiLyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DataAccess.Instance.hamTest();
-        }
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -44,6 +40,72 @@ namespace QuanLyDaiLy
 
         private void đạiLýToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void mặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(MatHang matHangForm = new MatHang())
+            {
+                matHangForm.ShowDialog();
+            }
+        }
+
+        private void quảnLýĐạiLýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(DanhSachDaiLy danhSachDaiLy = new DanhSachDaiLy())
+            {
+                danhSachDaiLy.ShowDialog();
+            }
+        }
+
+        private void phiếuNhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(PhieuNhapHang phieuNhapHang = new PhieuNhapHang())
+            {
+                phieuNhapHang.ShowDialog();
+            }
+        }
+
+        private void phiếuXuấtHanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(PhieuXuatHang phieuXuatHang = new PhieuXuatHang())
+            {
+                phieuXuatHang.ShowDialog();
+            }
+        }
+
+        private void phiếuThuTiềnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(PhieuThuTien phieuThuTien = new PhieuThuTien())
+            {
+                phieuThuTien.ShowDialog();
+            }
+        }
+
+        private void doanhSốToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(BaoCaoDoanhSo baoCaoDoanhSo = new BaoCaoDoanhSo())
+            {
+                baoCaoDoanhSo.ShowDialog();
+            }
+        }
+
+        private void côngNợToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(BaoCaoCongNo baoCaoCongNo = new BaoCaoCongNo())
+            {
+                baoCaoCongNo.ShowDialog();
+            }
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Xác nhận thoát phần mềm?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
 
         }
     }
