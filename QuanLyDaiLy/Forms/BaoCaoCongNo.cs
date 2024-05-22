@@ -25,12 +25,8 @@ namespace QuanLyDaiLy.Forms
             int year = dateTimePicker1.Value.Year;
             //load data
             DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetCongNoInfo @Thang , @Nam ",new object[] {month,year});
-            DataColumn columnSTT = new DataColumn();
             dataGridView1.DataSource = data;
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-            {
-                dataGridView1.Rows[i].Cells["STT"].Value = i;
-            }
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -84,6 +80,18 @@ namespace QuanLyDaiLy.Forms
 
             // Cập nhật giá trị của DateTimePicker
             dateTimePicker1.Value = newDate;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DataTable dt = dataGridView1.DataSource as DataTable;
+            dt.DefaultView.RowFilter =
+            string.Format("MaDaiLy LIKE '{0}%' OR MaDaiLy LIKE '% {0}%' OR TenDaiLy LIKE '{0}%' OR TenDaiLy LIKE '% {0}%'", textBox1.Text);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
