@@ -150,6 +150,7 @@
             this.Controls.Add(this.label2);
             this.Name = "PhieuThuTien";
             this.Text = "PhieuThuTien";
+            this.Load += new System.EventHandler(this.PhieuThuTien_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

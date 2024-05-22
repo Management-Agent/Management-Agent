@@ -53,5 +53,10 @@ namespace QuanLyDaiLy.Forms
             decimal SoTienThu = decimal.Parse(tbxSTT.Text);
             insertData(SoPhieuThu, MaDaiLy, NgayThuTien, SoTienThu);
         }
+
+        private void PhieuThuTien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

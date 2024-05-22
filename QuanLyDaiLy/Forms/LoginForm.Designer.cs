@@ -28,17 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.UsernameBox = new System.Windows.Forms.TextBox();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.title = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // UsernameBox
             // 
             this.UsernameBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameBox.Location = new System.Drawing.Point(253, 132);
+            this.UsernameBox.Location = new System.Drawing.Point(290, 194);
             this.UsernameBox.Name = "UsernameBox";
             this.UsernameBox.Size = new System.Drawing.Size(334, 33);
             this.UsernameBox.TabIndex = 2;
@@ -46,7 +50,7 @@
             // PasswordBox
             // 
             this.PasswordBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordBox.Location = new System.Drawing.Point(253, 194);
+            this.PasswordBox.Location = new System.Drawing.Point(290, 256);
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(334, 33);
             this.PasswordBox.TabIndex = 3;
@@ -57,7 +61,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(111, 135);
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(148, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 25);
             this.label1.TabIndex = 10;
@@ -69,7 +74,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(111, 197);
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(148, 259);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 25);
             this.label2.TabIndex = 11;
@@ -79,7 +85,7 @@
             // LoginButton
             // 
             this.LoginButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(318, 312);
+            this.LoginButton.Location = new System.Drawing.Point(309, 368);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(183, 46);
             this.LoginButton.TabIndex = 17;
@@ -87,21 +93,54 @@
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.title);
+            this.panel1.Controls.Add(this.UsernameBox);
+            this.panel1.Controls.Add(this.LoginButton);
+            this.panel1.Controls.Add(this.PasswordBox);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(822, 512);
+            this.panel1.TabIndex = 18;
+            // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Times New Roman", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Location = new System.Drawing.Point(266, 94);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(271, 51);
+            this.title.TabIndex = 18;
+            this.title.Text = "Quản lý đại lý";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.LoginButton);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.PasswordBox);
-            this.Controls.Add(this.UsernameBox);
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(822, 512);
+            this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(840, 559);
+            this.MinimumSize = new System.Drawing.Size(840, 559);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -112,5 +151,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label title;
     }
 }

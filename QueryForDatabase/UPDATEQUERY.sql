@@ -455,7 +455,7 @@ BEGIN
 	WHERE SoPhieuXuat = @SoPhieuXuat and MaMatHangXuat = @MaMatHangXuat
 END
 -------------------------------------------------
-CREATE PROCEDURE Update_CT_PXH_SLX
+CREATE PROCEDURE Update_CT_PXH_DGX
 	@SoPhieuXuat VARCHAR(10),
 	@MaMatHangXuat VARCHAR(50),
 	@DonGiaXuat Money
@@ -800,6 +800,7 @@ begin
 		MaLoaiDaiLy  = @MaLoaiDaiLy
 end
 ---------------------------------
+drop trigger TR_GenerateMaMatHang
 create trigger TR_GenerateMaMatHang
 on MATHANG
 instead of insert
@@ -820,29 +821,3 @@ begin
 
 end;
 GO
-
--------------------------------------
-create procedure USP_DeleteMatHang
-@MaMatHang varchar(10)
-as
-begin
-	delete MATHANG
-	where MaMatHang = @MaMatHang
-end
-
------------------------
-create procedure USP_UpdateMatHang
-@MaMatHang varchar(10),
-@TenMatHang varchar(100),
-@MaDVT varchar(10),
-@SoLuongTon int
-as
-begin
-	Update MATHANG
-	Set
-		TenMatHang = @TenMatHang,
-		MaDVT = @MaDVT,
-		SoLuongTon = @SoLuongTon
-	Where
-		MaMatHang  = @MaMatHang
-end

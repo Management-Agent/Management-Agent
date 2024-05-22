@@ -28,14 +28,20 @@ namespace QuanLyDaiLy.Forms
             string password = PasswordBox.Text;
             if(login(username, password))
             {
+
                 this.Hide();
-                DanhSachDaiLy danhSachDaiLy = new DanhSachDaiLy();
-                danhSachDaiLy.ShowDialog();
+                Dashboard dashboard = new Dashboard();
+                dashboard.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không hợp lệ!");
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
