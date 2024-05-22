@@ -62,9 +62,6 @@ namespace QuanLyDaiLy.Forms
             TraCuuPhieuThu("all");
         }
 
-        private void btnSPTT_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
