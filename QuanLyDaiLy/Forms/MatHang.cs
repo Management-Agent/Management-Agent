@@ -158,12 +158,21 @@ namespace QuanLyDaiLy.Forms
                 //string i3 = dataGridView1.Columns[2].Name;
                 //string i4 = dataGridView1.Columns[3].Name;
 
-                //MessageBox.Show(i1+i2+i3+i4);
-               
+                //MessageBox.Show(i1 + i2 + i3 + i4);
+
 
                 string maMatHang = row.Cells[1].Value.ToString();
                 string tenMatHang = row.Cells[2].Value.ToString();
-                string maDVT = "MDVT0001";// row.Cells[0].Value.ToString();
+                object maDVTvalue = row.Cells[0].Value;
+                string maDVT;
+                if(maDVTvalue != null)
+                {
+                    maDVT = maDVTvalue.ToString();
+                }
+                else
+                {
+                    maDVT = "null";
+                }
                 int soLuongTon = int.Parse(row.Cells[4].Value.ToString());
 
 
