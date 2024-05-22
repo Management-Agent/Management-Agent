@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewDaiLy));
             this.NgayTiepNhanBox = new System.Windows.Forms.DateTimePicker();
             this.TenDaiLyBox = new System.Windows.Forms.TextBox();
             this.DienThoaiBox = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ThemDaiLyButton = new System.Windows.Forms.Button();
-            this.HoanTacThongTinButton = new System.Windows.Forms.Button();
             this.LoaiDaiLyBox = new System.Windows.Forms.ComboBox();
             this.QuanBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -51,7 +51,7 @@
             this.NgayTiepNhanBox.AllowDrop = true;
             this.NgayTiepNhanBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NgayTiepNhanBox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.NgayTiepNhanBox.Location = new System.Drawing.Point(223, 257);
+            this.NgayTiepNhanBox.Location = new System.Drawing.Point(212, 271);
             this.NgayTiepNhanBox.MaxDate = new System.DateTime(2025, 12, 31, 0, 0, 0, 0);
             this.NgayTiepNhanBox.Name = "NgayTiepNhanBox";
             this.NgayTiepNhanBox.Size = new System.Drawing.Size(204, 33);
@@ -61,7 +61,7 @@
             // TenDaiLyBox
             // 
             this.TenDaiLyBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TenDaiLyBox.Location = new System.Drawing.Point(223, 105);
+            this.TenDaiLyBox.Location = new System.Drawing.Point(212, 119);
             this.TenDaiLyBox.Name = "TenDaiLyBox";
             this.TenDaiLyBox.Size = new System.Drawing.Size(611, 33);
             this.TenDaiLyBox.TabIndex = 1;
@@ -70,7 +70,7 @@
             // DienThoaiBox
             // 
             this.DienThoaiBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DienThoaiBox.Location = new System.Drawing.Point(223, 156);
+            this.DienThoaiBox.Location = new System.Drawing.Point(212, 170);
             this.DienThoaiBox.Name = "DienThoaiBox";
             this.DienThoaiBox.Size = new System.Drawing.Size(204, 33);
             this.DienThoaiBox.TabIndex = 2;
@@ -79,7 +79,7 @@
             // DiaChiBox
             // 
             this.DiaChiBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiaChiBox.Location = new System.Drawing.Point(223, 204);
+            this.DiaChiBox.Location = new System.Drawing.Point(212, 218);
             this.DiaChiBox.Name = "DiaChiBox";
             this.DiaChiBox.Size = new System.Drawing.Size(204, 33);
             this.DiaChiBox.TabIndex = 3;
@@ -87,7 +87,7 @@
             // EmailBox
             // 
             this.EmailBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailBox.Location = new System.Drawing.Point(630, 209);
+            this.EmailBox.Location = new System.Drawing.Point(619, 223);
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(204, 33);
             this.EmailBox.TabIndex = 5;
@@ -95,8 +95,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 108);
+            this.label1.Location = new System.Drawing.Point(55, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 25);
             this.label1.TabIndex = 9;
@@ -107,8 +108,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(65, 156);
+            this.label2.Location = new System.Drawing.Point(54, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 25);
             this.label2.TabIndex = 10;
@@ -118,8 +120,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(65, 204);
+            this.label3.Location = new System.Drawing.Point(54, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 25);
             this.label3.TabIndex = 11;
@@ -129,8 +132,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(484, 156);
+            this.label4.Location = new System.Drawing.Point(473, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 25);
             this.label4.TabIndex = 12;
@@ -140,8 +144,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(484, 207);
+            this.label5.Location = new System.Drawing.Point(473, 221);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 25);
             this.label5.TabIndex = 13;
@@ -151,8 +156,9 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(484, 255);
+            this.label6.Location = new System.Drawing.Point(473, 269);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 25);
             this.label6.TabIndex = 14;
@@ -162,8 +168,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(65, 257);
+            this.label7.Location = new System.Drawing.Point(54, 271);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(144, 25);
             this.label7.TabIndex = 15;
@@ -173,7 +180,7 @@
             // ThemDaiLyButton
             // 
             this.ThemDaiLyButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThemDaiLyButton.Location = new System.Drawing.Point(568, 360);
+            this.ThemDaiLyButton.Location = new System.Drawing.Point(693, 348);
             this.ThemDaiLyButton.Name = "ThemDaiLyButton";
             this.ThemDaiLyButton.Size = new System.Drawing.Size(130, 50);
             this.ThemDaiLyButton.TabIndex = 16;
@@ -181,21 +188,11 @@
             this.ThemDaiLyButton.UseVisualStyleBackColor = true;
             this.ThemDaiLyButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // HoanTacThongTinButton
-            // 
-            this.HoanTacThongTinButton.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HoanTacThongTinButton.Location = new System.Drawing.Point(704, 360);
-            this.HoanTacThongTinButton.Name = "HoanTacThongTinButton";
-            this.HoanTacThongTinButton.Size = new System.Drawing.Size(130, 50);
-            this.HoanTacThongTinButton.TabIndex = 17;
-            this.HoanTacThongTinButton.Text = "Hoàn tác";
-            this.HoanTacThongTinButton.UseVisualStyleBackColor = true;
-            // 
             // LoaiDaiLyBox
             // 
             this.LoaiDaiLyBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoaiDaiLyBox.FormattingEnabled = true;
-            this.LoaiDaiLyBox.Location = new System.Drawing.Point(630, 156);
+            this.LoaiDaiLyBox.Location = new System.Drawing.Point(619, 170);
             this.LoaiDaiLyBox.Name = "LoaiDaiLyBox";
             this.LoaiDaiLyBox.Size = new System.Drawing.Size(204, 33);
             this.LoaiDaiLyBox.TabIndex = 18;
@@ -205,7 +202,7 @@
             // 
             this.QuanBox.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuanBox.FormattingEnabled = true;
-            this.QuanBox.Location = new System.Drawing.Point(630, 257);
+            this.QuanBox.Location = new System.Drawing.Point(619, 271);
             this.QuanBox.Name = "QuanBox";
             this.QuanBox.Size = new System.Drawing.Size(204, 33);
             this.QuanBox.TabIndex = 19;
@@ -214,10 +211,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(892, 474);
             this.Controls.Add(this.QuanBox);
             this.Controls.Add(this.LoaiDaiLyBox);
-            this.Controls.Add(this.HoanTacThongTinButton);
             this.Controls.Add(this.ThemDaiLyButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -231,6 +228,10 @@
             this.Controls.Add(this.DienThoaiBox);
             this.Controls.Add(this.TenDaiLyBox);
             this.Controls.Add(this.NgayTiepNhanBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(910, 521);
+            this.MinimumSize = new System.Drawing.Size(910, 521);
             this.Name = "NewDaiLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NewDaiLy";
@@ -255,7 +256,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button ThemDaiLyButton;
-        private System.Windows.Forms.Button HoanTacThongTinButton;
         private System.Windows.Forms.ComboBox LoaiDaiLyBox;
         private System.Windows.Forms.ComboBox QuanBox;
     }

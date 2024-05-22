@@ -18,120 +18,90 @@ namespace QuanLyDaiLy.Forms
         public PhieuXuatHang()
         {
             InitializeComponent();
-            fill_data();
-        }
-        void insertDataPXH(string SoPhieuXuat, string MaDaiLy, DateTime NgayXuatHang, Decimal SoTienTra, Decimal TongTien, Decimal ConLai)
-        {
-            
-            SqlConnection conn = new SqlConnection(DataProvider.Instance.connectionSTR);
-            string query1 = "INSERT INTO PHIEUXUATHANG (SoPhieuXuat, MaDaiLy, NgayXuatHang, SoTienTra, TongTien, ConLai) VALUES (@SoPhieuXuat, @MaDaiLy, @NgayXuatHang, @SoTienTra, @TongTien, @ConLai)";
-            SqlCommand cmd = new SqlCommand(query1, conn);
-
-            cmd.Parameters.AddWithValue("@TongTien", TongTien);
-            cmd.Parameters.AddWithValue("@ConLai", ConLai);
-            cmd.Parameters.AddWithValue("@SoPhieuXuat", SoPhieuXuat);
-            cmd.Parameters.AddWithValue("@MaDaiLy", MaDaiLy);
-            cmd.Parameters.AddWithValue("@NgayXuatHang", NgayXuatHang);
-            cmd.Parameters.AddWithValue("@SoTienTra", SoTienTra);
-            conn.Open();
-
-            int i = cmd.ExecuteNonQuery();
-
-            if (i > 0)
-            {
-                Console.WriteLine("Data inserted successfully.");
-            }
-            else
-            {
-                Console.WriteLine("No rows inserted.");
-            }
-
-            conn.Close();
-
-
 
         }
-        void insertDataCT_PXH(string SoPhieuXuat, String MaMatHangXuat, int SoLuongXuat, decimal DonGiaXuat, decimal ThanhTien)
-        {
-            SqlConnection conn2 = new SqlConnection(DataProvider.Instance.connectionSTR);
-            string query2 = "INSERT INTO CT_PXH (ThanhTien, DonGiaXuat, SoPhieuXuat, MaMatHangXuat, SoLuongXuat) VAlUES (@ThanhTien, @DonGiaXuat, @SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat)";
-            SqlCommand command2 = new SqlCommand(query2, conn2);
 
 
-
-            command2.Parameters.AddWithValue("@SoPhieuXuat", SoPhieuXuat);
-            command2.Parameters.AddWithValue("@MaMatHangXuat", MaMatHangXuat);
-            command2.Parameters.AddWithValue("@SoLuongXuat", SoLuongXuat);
-            command2.Parameters.AddWithValue("@DonGiaXuat", DonGiaXuat);
-            command2.Parameters.AddWithValue("@ThanhTien", ThanhTien);
-            conn2.Open();
-            command2.ExecuteNonQuery();
-
-
-            conn2.Close();
-        }
 
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            string SoPhieuXuat = tbxSPX.Text;
-            string MaDaiLy = tbxMDL.Text;
-            DateTime NgayXuatHang = dtpNXH.Value;
-            string MaMatHangXuat = tbxMMHX.Text;
-            int SoLuongXuat = int.Parse(tbxSLX.Text);
-            Decimal SoTienTra = decimal.Parse(tbxSTT.Text);
-            Decimal DonGiaXuat = decimal.Parse(tbxDGX.Text);
-            Decimal ThanhTien = decimal.Parse(tbxThanhTien.Text);
-            Decimal TongTien = decimal.Parse(tbxTongTien.Text);
-            decimal ConLai = decimal.Parse(tbxConLai.Text);
-
-            insertDataPXH(SoPhieuXuat, MaDaiLy, NgayXuatHang, SoTienTra, TongTien, ConLai);
-            insertDataCT_PXH(SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat, ThanhTien);
+            string theDate = dtpNXH.Value.ToString("yyyy-MM-dd");
+            string queryString = "exec Insert_PXH @SoPhieuXuat , @MaDaiLy , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @NgayXuatHang , @MaDVT , @TenDVT , @TenMatHang , @ThanhTien";
+            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMDL.Text, cbMMHX.SelectedItem.ToString(), tbxSLX.Text, tbxDGX.Text, theDate, cbMDVT.Text, tbxTDVT.Text, tbxTMH.Text, tbxTT.Text });
+            if (test > 0)
+                MessageBox.Show("Thêm thành công.");
+            else
+                MessageBox.Show("Thêm không thành công.");
+        }
+        private void PhieuXuatHang_Load(object sender, EventArgs e)
+        {
+            cbMMHX.Items.AddRange(new object[] { "MH1", "MH2", "MH3", "MH4", "MH5" });
+            cbMDVT.Items.AddRange(new object[] { "1", "2" });
         }
 
-        private void tbxSLX_TextChanged(object sender, EventArgs e)
+        private void cbMDVT_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbxThanhTien.Text = (int.Parse(tbxSLX.Text) * int.Parse(tbxDGX.Text)).ToString();
+
+            if (cbMDVT.SelectedItem.ToString() == "1")
+            {
+                tbxTDVT.Text = "Dollar";
+            }
+            else if (cbMDVT.SelectedItem.ToString() == "2")
+            {
+                tbxTDVT.Text = "VND";
+            }
+
+        }
+
+        private void cbMMHX_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMMHX.SelectedItem.ToString() == "MH1")
+            {
+                tbxTMH.Text = "MH1";
+            }
+            else if (cbMMHX.SelectedItem.ToString() == "MH2")
+            {
+                tbxTMH.Text = "MH2";
+            }
+            else if (cbMMHX.SelectedItem.ToString() == "MH3")
+            {
+                tbxTMH.Text = "MH3";
+            }
+            else if (cbMMHX.SelectedItem.ToString() == "MH4")
+            {
+                tbxTMH.Text = "MH4";
+            }
+            else if (cbMMHX.SelectedItem.ToString() == "MH5")
+            {
+                tbxTMH.Text = "MH5";
+            }
+        }
+
+        private void tbcSLX_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxDGX.Text != "" && tbxSLX.Text != "")
+            {
+                decimal cost = decimal.Parse(tbxDGX.Text) * int.Parse(tbxSLX.Text);
+                tbxTT.Text = cost.ToString("F2");
+            }
+            if (tbxDGX.Text == "" || tbxSLX.Text == "")
+            {
+                tbxTT.Text = "";
+            }
         }
 
         private void tbxDGX_TextChanged(object sender, EventArgs e)
         {
-            tbxThanhTien.Text = (int.Parse(tbxSLX.Text) * int.Parse(tbxDGX.Text)).ToString();
-        }
-        void fill_data()
-        {
-            SqlConnection conn = new SqlConnection(DataProvider.Instance.connectionSTR);
-            SqlCommand command = new SqlCommand("select * form CT_PNH", conn);
-            string selectquery = "select * from CT_PNH";
-            SqlDataAdapter adapter = new SqlDataAdapter(selectquery, conn);
-            //can lay dt.Rows[i][1]: MaMatHang va dt.Rows[i][3] DonGiaNhap
-            adapter.Fill(dt);
-        }
-
-        private void tbxMMHX_TextChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < dt.Rows.Count; i++)
+            if (tbxDGX.Text != "" && tbxSLX.Text != "")
             {
-                if (dt.Rows[i][1].ToString() == tbxMMHX.Text)
-                {
-                    tbxDGX.Text = (decimal.Parse(dt.Rows[i][3].ToString()).ToString("F2"));
-                }
+                decimal cost = decimal.Parse(tbxDGX.Text) * int.Parse(tbxSLX.Text);
+                tbxTT.Text = cost.ToString("F2");
             }
-        }
-
-        private void tbxSTT_TextChanged(object sender, EventArgs e)
-        {
-            decimal conlai = decimal.Parse(tbxTongTien.Text) - decimal.Parse(tbxSTT.Text);
-            conlai = Math.Abs(conlai);
-            if (conlai < 0)
+            if (tbxDGX.Text == "" || tbxSLX.Text == "")
             {
-                tbxConLai.Text = "Nợ: " + conlai.ToString();
+                tbxTT.Text = "";
             }
-            else
-            {
-                tbxConLai.Text = "Thừa: " + conlai.ToString();
-            }
-
         }
     }
 }

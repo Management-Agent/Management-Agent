@@ -70,5 +70,10 @@ namespace QuanLyDaiLy
         {
 
         }
+
+        private void HoanTacThongTinButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

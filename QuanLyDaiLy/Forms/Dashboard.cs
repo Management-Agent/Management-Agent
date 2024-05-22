@@ -108,5 +108,12 @@ namespace QuanLyDaiLy
             }
 
         }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm login = new LoginForm();
+            login.ShowDialog();
+        }
     }
 }

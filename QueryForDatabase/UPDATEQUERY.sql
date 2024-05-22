@@ -26,6 +26,12 @@ begin
 	select TenLoaiDaiLy
 	from LOAIDAILY
 end;
+create proc USP_GetMaQuan
+as
+begin
+	select MaQuan
+	from QUAN
+end;
 --Lay thong tin danh sach ten quan
 create proc USP_GetAllTenQuan
 as
@@ -856,56 +862,40 @@ begin
 	Where
 		MaMatHang  = @MaMatHang
 end
-
------------------------------------------
-create trigger TR_GenerateMaDVT
-on DVT
-instead of insert
-as
-begin
-	declare @Prefix varchar(4) = 'MDVT'
-	declare @Length int = 4
-
-	declare @MaxMaDVT int
-	select @MaxMaDVT = ISNULL(max(cast(substring(MaDVT, len(@Prefix) + 1, @Length)
-	as int)), 0)
-	from DVT
-
-	insert into DVT(MaDVT, TenDVT)
-	select @Prefix + right('0000' + cast(@MaxMaDVT + row_number() over (order by(select null)) as varchar), @Length),
-	i.TenDVT
-	from inserted i
-
-end;
-GO
-
----------------------
-create procedure USP_DeleteDVT
-@MaDVT varchar(10)
-as
-begin
-	delete DVT
-	where MaDVT = @MaDVT
-end
-
 --------------------------------
-create procedure USP_UpdateDVT
-@MaDVT varchar(10),
-@TenDVT varchar(100)
-as
-begin
-	Update DVT
-	set TenDVT =@TenDVT
-	where MaDVT = @MaDVT
-end
-
-------------------------------------
-Alter PROCEDURE USP_GetCongNoInfo
-@Thang int,
-@Nam int
+drop proc Insert_PXH;
+CREATE PROCEDURE Insert_PXH
+    @SoPhieuXuat VARCHAR(10),
+	@MaDaiLy VARCHAR(10),
+    @MaMatHangXuat VARCHAR(50),
+    @SoLuongXuat BIGINT,
+    @DonGiaXuat MONEY,
+	@NgayXuatHang DATE,
+    @MaDVT VARCHAR(10),
+    @TenDVT VARCHAR(10),
+	@TenMatHang VARCHAR(10), 
+		@ThanhTien money
 AS
 BEGIN
-    SELECT DaiLy.MaDaiLy as MaDaiLy ,TenDaiLy, NoDau, PhatSinh, NoCuoi
-    FROM DAILY inner join BAOCAOCONGNO ON DAILY.MaDaiLy = BAOCAOCONGNO.MaDaiLy
-	where Thang = @Thang and Nam =@Nam
-END;
+    IF NOT EXISTS (SELECT * FROM PHIEUXUATHANG WHERE SoPhieuXuat = @SoPhieuXuat)
+    BEGIN
+        INSERT INTO PHIEUXUATHANG (SoPhieuXuat,MaDaiLy ,NgayXuatHang)
+        VALUES (@SoPhieuXuat, @MaDaiLy, @NgayXuatHang)
+    END
+
+	IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
+    BEGIN	
+	RAISERROR ('DVT not found', 16, 1);
+    END
+
+	IF NOT EXISTS (SELECT * FROM MATHANG WHERE MaMatHang = @MaMatHangXuat)
+    BEGIN
+        RAISERROR ('MaMatHang not found.', 16, 1);
+    END
+
+    IF NOT EXISTS (SELECT * FROM CT_PXH WHERE SoPhieuXuat = @SoPhieuXuat AND MaMatHangXuat = @MaMatHangXuat)
+    BEGIN
+        INSERT INTO CT_PXH (SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat, ThanhTien)
+        VALUES (@SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat, @DonGiaXuat, @ThanhTien)
+    END
+END

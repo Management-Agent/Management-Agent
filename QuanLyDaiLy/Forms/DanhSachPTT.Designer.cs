@@ -36,7 +36,6 @@
             this.btnTCPTT = new System.Windows.Forms.Button();
             this.btnXPTT = new System.Windows.Forms.Button();
             this.btnTPTT = new System.Windows.Forms.Button();
-            this.btnSPTT = new System.Windows.Forms.Button();
             this.tbxTCPTT = new System.Windows.Forms.TextBox();
             this.tbxXPTT = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPTT)).BeginInit();
@@ -117,24 +116,13 @@
             // btnTPTT
             // 
             this.btnTPTT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTPTT.Location = new System.Drawing.Point(393, 360);
+            this.btnTPTT.Location = new System.Drawing.Point(23, 368);
             this.btnTPTT.Name = "btnTPTT";
             this.btnTPTT.Size = new System.Drawing.Size(260, 50);
             this.btnTPTT.TabIndex = 64;
             this.btnTPTT.Text = "Thêm phiếu thu tiền";
             this.btnTPTT.UseVisualStyleBackColor = true;
             this.btnTPTT.Click += new System.EventHandler(this.btnTPTT_Click);
-            // 
-            // btnSPTT
-            // 
-            this.btnSPTT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSPTT.Location = new System.Drawing.Point(23, 360);
-            this.btnSPTT.Name = "btnSPTT";
-            this.btnSPTT.Size = new System.Drawing.Size(260, 50);
-            this.btnSPTT.TabIndex = 64;
-            this.btnSPTT.Text = "Sửa phiếu thu tiền";
-            this.btnSPTT.UseVisualStyleBackColor = true;
-            this.btnSPTT.Click += new System.EventHandler(this.btnSPTT_Click);
             // 
             // tbxTCPTT
             // 
@@ -159,7 +147,6 @@
             this.ClientSize = new System.Drawing.Size(731, 471);
             this.Controls.Add(this.tbxXPTT);
             this.Controls.Add(this.tbxTCPTT);
-            this.Controls.Add(this.btnSPTT);
             this.Controls.Add(this.btnTPTT);
             this.Controls.Add(this.btnXPTT);
             this.Controls.Add(this.btnTCPTT);
@@ -182,7 +169,6 @@
         private System.Windows.Forms.Button btnTCPTT;
         private System.Windows.Forms.Button btnXPTT;
         private System.Windows.Forms.Button btnTPTT;
-        private System.Windows.Forms.Button btnSPTT;
         private System.Windows.Forms.TextBox tbxTCPTT;
         private System.Windows.Forms.TextBox tbxXPTT;
     }
