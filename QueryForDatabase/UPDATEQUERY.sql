@@ -871,13 +871,14 @@ CREATE PROCEDURE Insert_PXH
 	@NgayXuatHang DATE,
     @MaDVT VARCHAR(10),
     @TenDVT VARCHAR(10),
-	@TenMatHang VARCHAR(10)
+	@TenMatHang VARCHAR(10), 
+		@ThanhTien money
 AS
 BEGIN
     IF NOT EXISTS (SELECT * FROM PHIEUXUATHANG WHERE SoPhieuXuat = @SoPhieuXuat)
     BEGIN
-        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, NgayXuatHang)
-        VALUES (@SoPhieuXuat, @NgayXuatHang)
+        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, NgayXuatHang, ThanhTien)
+        VALUES (@SoPhieuXuat, @NgayXuatHang, @ThanhTien)
     END
 
 	IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
