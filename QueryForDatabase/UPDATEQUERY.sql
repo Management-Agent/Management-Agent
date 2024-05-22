@@ -863,8 +863,10 @@ begin
 		MaMatHang  = @MaMatHang
 end
 --------------------------------
+drop proc Insert_PXH;
 CREATE PROCEDURE Insert_PXH
     @SoPhieuXuat VARCHAR(10),
+	@MaDaiLy VARCHAR(10),
     @MaMatHangXuat VARCHAR(50),
     @SoLuongXuat BIGINT,
     @DonGiaXuat MONEY,
@@ -877,8 +879,8 @@ AS
 BEGIN
     IF NOT EXISTS (SELECT * FROM PHIEUXUATHANG WHERE SoPhieuXuat = @SoPhieuXuat)
     BEGIN
-        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, NgayXuatHang)
-        VALUES (@SoPhieuXuat, @NgayXuatHang)
+        INSERT INTO PHIEUXUATHANG (SoPhieuXuat,MaDaiLy ,NgayXuatHang)
+        VALUES (@SoPhieuXuat, @MaDaiLy, @NgayXuatHang)
     END
 
 	IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
