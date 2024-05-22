@@ -233,6 +233,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SuaThamSo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SuaThamSo";
             this.Load += new System.EventHandler(this.SuaThamSo_Load);
             this.ResumeLayout(false);

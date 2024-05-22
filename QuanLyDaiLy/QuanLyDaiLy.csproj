@@ -216,6 +216,9 @@
     <EmbeddedResource Include="Forms\BaoCaoDoanhSo.resx">
       <DependentUpon>BaoCaoDoanhSo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DonViTinh.resx">
+      <DependentUpon>DonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoaiDaiLy.resx">
       <DependentUpon>LoaiDaiLy.cs</DependentUpon>
     </EmbeddedResource>

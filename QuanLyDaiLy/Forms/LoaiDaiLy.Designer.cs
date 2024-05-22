@@ -137,6 +137,7 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataGridView1);
             this.Name = "LoaiDaiLy";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LoaiDaiLy";
             this.Load += new System.EventHandler(this.LoaiDaiLy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -857,3 +857,44 @@ begin
 		MaMatHang  = @MaMatHang
 end
 
+-----------------------------------------
+create trigger TR_GenerateMaDVT
+on DVT
+instead of insert
+as
+begin
+	declare @Prefix varchar(4) = 'MDVT'
+	declare @Length int = 4
+
+	declare @MaxMaDVT int
+	select @MaxMaDVT = ISNULL(max(cast(substring(MaDVT, len(@Prefix) + 1, @Length)
+	as int)), 0)
+	from DVT
+
+	insert into DVT(MaDVT, TenDVT)
+	select @Prefix + right('0000' + cast(@MaxMaDVT + row_number() over (order by(select null)) as varchar), @Length),
+	i.TenDVT
+	from inserted i
+
+end;
+GO
+
+---------------------
+create procedure USP_DeleteDVT
+@MaDVT varchar(10)
+as
+begin
+	delete DVT
+	where MaDVT = @MaDVT
+end
+
+--------------------------------
+create procedure USP_UpdateDVT
+@MaDVT varchar(10),
+@TenDVT varchar(100)
+as
+begin
+	Update DVT
+	set TenDVT =@TenDVT
+	where MaDVT = @MaDVT
+end
