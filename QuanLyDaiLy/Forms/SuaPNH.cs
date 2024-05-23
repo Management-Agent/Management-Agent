@@ -17,6 +17,7 @@ namespace QuanLyDaiLy.Forms
         public SuaPNH()
         {
             InitializeComponent();
+            showElementInDVT();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,22 +35,29 @@ namespace QuanLyDaiLy.Forms
         }
         private void ThemPNH_Click(object sender, EventArgs e)
         {
+            int test = 0;
             if (!string.IsNullOrWhiteSpace(SLN.Text))
             {
                 string queryString = "exec Update_CT_PNH_SLN @SoPhieuNhap , @MaMatHang , @SoLuongNhap ";
-                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SearchSPN.Text, SearchMMH.Text, SLN.Text });
+                test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SearchSPN.Text, SearchMMH.Text, SLN.Text });
             }
             if (!string.IsNullOrWhiteSpace(DGN.Text))
             {
                 string queryString = "exec Update_CT_PNH_DGN @SoPhieuNhap , @MaMatHang , @DonGiaNhap ";
-                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SearchSPN.Text, SearchMMH.Text, DGN.Text });
+                test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SearchSPN.Text, SearchMMH.Text, DGN.Text });
             }
             if (!string.IsNullOrWhiteSpace(DVT.Text))
             {
                 string queryString = "exec Update_CT_PNH_DVT @SoPhieuNhap , @MaMatHang , @MaDonViTinh ";
-                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SearchSPN.Text, SearchMMH.Text, DVT.Text });
+                test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SearchSPN.Text, SearchMMH.Text, DVT.Text });
             }
-            TraCuuCTPNH(SearchSPN.Text, SearchMMH.Text);
+            if (test > 0)
+            {
+                MessageBox.Show("Sửa thành công.");
+                TraCuuCTPNH(SearchSPN.Text, SearchMMH.Text);
+            }
+            else
+                MessageBox.Show("Sửa không thành công.");
         }
 
         private void SuaPNH_Load(object sender, EventArgs e)
@@ -61,6 +69,12 @@ namespace QuanLyDaiLy.Forms
                 DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] { SearchSPN.Text, SearchMMH.Text });
                 dataGridViewCTPNH.DataSource = data;
             }
+        }
+        private void showElementInDVT()
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDVT");
+            DVT.DataSource = data;
+            DVT.DisplayMember = "MaDVT";
         }
     }
 }

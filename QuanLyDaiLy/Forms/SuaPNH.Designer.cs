@@ -45,8 +45,8 @@
             this.SLN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.DVT = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.DVT = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCTPNH)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,15 +213,6 @@
             this.label4.TabIndex = 56;
             this.label4.Text = "Mã mặt hàng";
             // 
-            // DVT
-            // 
-            this.DVT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DVT.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.DVT.Location = new System.Drawing.Point(697, 275);
-            this.DVT.Name = "DVT";
-            this.DVT.Size = new System.Drawing.Size(204, 33);
-            this.DVT.TabIndex = 57;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -233,14 +224,22 @@
             this.label5.TabIndex = 58;
             this.label5.Text = "Đơn vị tính";
             // 
+            // DVT
+            // 
+            this.DVT.FormattingEnabled = true;
+            this.DVT.Location = new System.Drawing.Point(697, 275);
+            this.DVT.Name = "DVT";
+            this.DVT.Size = new System.Drawing.Size(204, 24);
+            this.DVT.TabIndex = 59;
+            // 
             // SuaPNH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(927, 485);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.DVT);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SLN);
@@ -278,12 +277,12 @@
         private System.Windows.Forms.TextBox SLN;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox DVT;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSPN;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMMH;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSLN;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDGN;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTT;
+        private System.Windows.Forms.ComboBox DVT;
     }
 }

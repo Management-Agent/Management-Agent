@@ -24,7 +24,7 @@ namespace QuanLyDaiLy
         {
             string theDate = NNH.Value.ToString("yyyy-MM-dd");
             string queryString = "exec Insert_PNH @SoPhieuNhap , @MaMatHang , @SoLuongNhap , @DonGiaNhap , @NgayNhapHang , @MaDVT ";
-            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SPN.Text, MMH.SelectedItem.ToString(), SLN.Text, DGN.Text, theDate, MDVT.Text });
+            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SPN.Text, MMH.Text, SLN.Text, DGN.Text, theDate, MDVT.Text });
             if (test > 0)
                 MessageBox.Show("Thêm thành công.");
             else
