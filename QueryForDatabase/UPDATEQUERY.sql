@@ -53,6 +53,13 @@ begin
 	where MaDaiLy = @MaDaiLy
 end;
 
+ALTER proc [dbo].[Delete_DAILY]
+	@MaDaiLy varchar(10)
+as
+begin
+	delete from DAILY where @MaDaiLy = MaDaiLy
+end;
+
 --Lay thong tin danh sach ten loai dai ly
 create proc USP_GetAllTenLoaiDaiLy
 as
