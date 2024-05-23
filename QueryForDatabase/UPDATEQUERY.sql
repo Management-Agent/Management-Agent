@@ -3,20 +3,36 @@
 GO
 
 -----Lay thong tin danh sach dai ly
-CREATE PROCEDURE USP_GetDaiLyInfo
-AS
-BEGIN
-    SELECT TenDaiLy, TenLoaiDaiLy, TenQuan, TongNo
-    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
-	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
-END;
-----ALTER proc ben tren
-alter proc USP_GetDaiLyInfo
+ALTER proc [dbo].[USP_FindDaiLy]
+	@DienThoai varchar(10)
 as
 begin
-	SELECT TenDaiLy,TenLoaiDaiLy, DienThoai, DiaChi,Email,TenQuan,NgayTiepNhan, TongNo
-    FROM DAILY inner join QUAN ON DAILY.MaQuan = QUAN.MaQuan
-	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
+	SELECT MaDaiLy,TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
+    FROM DAILY
+	where @DienThoai = DienThoai
+end;
+
+ALTER proc [dbo].[USP_GetDaiLyInfo]
+as
+begin
+	SELECT MaDaiLy, TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
+    FROM DAILY
+end;
+
+ALTER procedure [dbo].[Insert_DaiLy]
+	@TenDaiLy varchar(10),
+	@MaLoaiDaiLy varchar(10),
+	@DienThoai varchar(10),
+	@DiaChi varchar(200),
+	@Email varchar(40),
+	@MaQuan varchar(10),
+	@NgayTiepNhan date,
+	@TongNo money
+as
+begin
+	insert into DAILY(TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi, Email, MaQuan, NgayTiepNhan, TongNo)
+	values
+	(@TenDaiLy, @MaLoaiDaiLy, @DienThoai, @DiaChi, @Email, @MaQuan, @NgayTiepNhan, @TongNo);
 end;
 
 ALTER proc [dbo].[Update_DAILY]
@@ -176,14 +192,6 @@ create proc Useraccount_Login
 as
 begin
 	select * from USERACCOUNT where Username = @Username and Password = @Password
-end;
--------------------------
-create proc Delete_DAILY
-	@TenDaiLy varchar(10),
-	@DiaChi varchar(200)
-as
-begin
-	delete from DAILY where TenDaiLy = @TenDaiLy and DiaChi = @DiaChi
 end;
 -------------------------
 alter table DAILY
