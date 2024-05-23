@@ -19,6 +19,24 @@ begin
 	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
 end;
 
+ALTER proc [dbo].[Update_DAILY]
+@MaDaiLy varchar(10),
+@TenDaiLy varchar(200),
+@MaLoaiDaiLy varchar(10),
+@DienThoai varchar(10),
+@Email varchar(255),
+@MaQuan varchar(10)
+as
+begin
+	update DAILY
+	set		TenDaiLy = @TenDaiLy,
+			MaLoaiDaiLy = @MaLoaiDaiLy,
+			DienThoai = @DienThoai,
+			Email = @Email,
+			MaQuan = @MaQuan
+	where MaDaiLy = @MaDaiLy
+end;
+
 --Lay thong tin danh sach ten loai dai ly
 create proc USP_GetAllTenLoaiDaiLy
 as
