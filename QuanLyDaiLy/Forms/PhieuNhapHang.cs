@@ -17,34 +17,18 @@ namespace QuanLyDaiLy
         public PhieuNhapHang()
         {
             InitializeComponent();
+            showElementInMatHang();
+            showElementInDVT();
         }
         private void ThemPNH_Click(object sender, EventArgs e)
         {
             string theDate = NNH.Value.ToString("yyyy-MM-dd");
-            string queryString = "exec Insert_PNH @SoPhieuNhap , @MaMatHang , @SoLuongNhap , @DonGiaNhap , @NgayNhapHang , @MaDVT , @TenDVT , @TenMatHang ";
-            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SPN.Text, MMH.SelectedItem.ToString(), SLN.Text, DGN.Text, theDate, MDVT.Text, TDVT.Text, TMH.Text });
+            string queryString = "exec Insert_PNH @SoPhieuNhap , @MaMatHang , @SoLuongNhap , @DonGiaNhap , @NgayNhapHang , @MaDVT ";
+            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { SPN.Text, MMH.SelectedItem.ToString(), SLN.Text, DGN.Text, theDate, MDVT.Text });
             if (test > 0)
                 MessageBox.Show("Thêm thành công.");
             else
                 MessageBox.Show("Thêm không thành công.");
-        }
-
-        private void PhieuNhapHang_Load(object sender, EventArgs e)
-        {
-            MMH.Items.AddRange(new object[] { "MH1", "MH2", "MH3", "MH4", "MH5" });
-            MDVT.Items.AddRange(new object[] { "1", "2" });
-        }
-
-        private void MDVT_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (MDVT.SelectedItem.ToString() == "1")
-            {
-                TDVT.Text = "Dollar";
-            }
-            else if (MDVT.SelectedItem.ToString() == "2")
-            {
-                TDVT.Text = "VND";
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,28 +36,17 @@ namespace QuanLyDaiLy
             this.Close();
         }
 
-        private void MMH_SelectedIndexChanged(object sender, EventArgs e)
+        private void showElementInMatHang()
         {
-            if (MMH.SelectedItem.ToString() == "MH1") 
-            { 
-                TMH.Text = "MH1";
-            }
-            else if (MMH.SelectedItem.ToString() == "MH2")
-            {
-                TMH.Text = "MH2";
-            }
-            else if (MMH.SelectedItem.ToString() == "MH3")
-            {
-                TMH.Text = "MH3";
-            }
-            else if (MMH.SelectedItem.ToString() == "MH4")
-            {
-                TMH.Text = "MH4";
-            }
-            else if (MMH.SelectedItem.ToString() == "MH5")
-            {
-                TMH.Text = "MH5";
-            }
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaMatHang");
+            MMH.DataSource = data;
+            MMH.DisplayMember = "MaMatHang";
+        }
+        private void showElementInDVT()
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDVT");
+            MDVT.DataSource = data;
+            MDVT.DisplayMember = "MaDVT";
         }
     }
 }

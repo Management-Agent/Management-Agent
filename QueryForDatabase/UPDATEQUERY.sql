@@ -268,6 +268,18 @@ BEGIN
 	JOIN MATHANG on MATHANG.MaMatHang = CT_PNH.MaMatHang
 	JOIN DVT on DVT.MaDVT = MATHANG.MaDVT
 END
+
+CREATE PROCEDURE Search_CT_PNH
+	@SoPhieuNhap VARCHAR(10),
+	@MaMatHang VARCHAR(50)
+AS
+BEGIN
+	SELECT CT_PNH.SoPhieuNhap, CT_PNH.MaMatHang, SoLuongNhap, DonGiaNhap, ThanhTien, MATHANG.MaDVT as 'Mã đơn vị tính', TenDVT 'Tên đơn vị tính'
+    FROM CT_PNH
+	JOIN MATHANG on MATHANG.MaMatHang = CT_PNH.MaMatHang
+	JOIN DVT on DVT.MaDVT = MATHANG.MaDVT
+	WHERE SoPhieuNhap = @SoPhieuNhap and CT_PNH.MaMatHang = @MaMatHang
+END
 ----------------------------
 CREATE TRIGGER TR_AFTERINSERT_DAILY
 ON DAILY 
@@ -932,3 +944,98 @@ BEGIN
         VALUES (@SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat, @DonGiaXuat, @ThanhTien)
     END
 END
+
+create proc [dbo].[USP_GetMaDVT]
+as
+begin
+	select MaDVT
+	from DVT
+end;
+
+create proc [dbo].[USP_GetMaMatHang]
+as
+begin
+	select MaMatHang
+	from MATHANG
+end;
+
+alter PROCEDURE Insert_PNH
+    @SoPhieuNhap VARCHAR(10),
+    @MaMatHang VARCHAR(50),
+    @SoLuongNhap BIGINT,
+    @DonGiaNhap MONEY,
+	@NgayNhapHang DATE,
+    @MaDVT VARCHAR(10)
+AS
+BEGIN
+    IF NOT EXISTS (SELECT * FROM PHIEUNHAPHANG WHERE SoPhieuNhap = @SoPhieuNhap)
+    BEGIN
+        INSERT INTO PHIEUNHAPHANG (SoPhieuNhap, NgayNhapHang)
+        VALUES (@SoPhieuNhap, @NgayNhapHang)
+    END
+
+	IF NOT EXISTS (SELECT * FROM MATHANG WHERE MaMatHang = @MaMatHang)
+    BEGIN
+        INSERT INTO MATHANG (MaMatHang, MaDVT)
+        VALUES (@MaMatHang, @MaDVT)
+    END
+
+    IF NOT EXISTS (SELECT * FROM CT_PNH WHERE SoPhieuNhap = @SoPhieuNhap AND MaMatHang = @MaMatHang)
+    BEGIN
+        INSERT INTO CT_PNH (SoPhieuNhap, MaMatHang, SoLuongNhap, DonGiaNhap)
+        VALUES (@SoPhieuNhap, @MaMatHang, @SoLuongNhap, @DonGiaNhap)
+    END
+END
+
+alter table DAILY 
+add constraint CHK_DLSDT check(len(DienThoai) = 10) 
+
+ALTER proc [dbo].[Update_DAILY]
+@MaDaiLy varchar(10),
+@TenDaiLy varchar(200),
+@MaLoaiDaiLy varchar(10),
+@DienThoai varchar(10),
+@Email varchar(255),
+@MaQuan varchar(10)
+as
+begin
+	update DAILY
+	set		TenDaiLy = @TenDaiLy,
+			MaLoaiDaiLy = @MaLoaiDaiLy,
+			DienThoai = @DienThoai,
+			Email = @Email,
+			MaQuan = @MaQuan
+	where MaDaiLy = @MaDaiLy
+end;
+
+ALTER proc [dbo].[USP_FindDaiLy]
+	@DienThoai varchar(10)
+as
+begin
+	SELECT MaDaiLy,TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
+    FROM DAILY
+	where @DienThoai = DienThoai
+end;
+
+ALTER proc [dbo].[USP_GetDaiLyInfo]
+as
+begin
+	SELECT MaDaiLy, TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
+    FROM DAILY
+end;
+
+ALTER procedure [dbo].[Insert_DaiLy]
+	@TenDaiLy varchar(10),
+	@MaLoaiDaiLy varchar(10),
+	@DienThoai varchar(10),
+	@DiaChi varchar(200),
+	@Email varchar(40),
+	@MaQuan varchar(10),
+	@NgayTiepNhan date,
+	@TongNo money
+as
+begin
+	insert into DAILY(TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi, Email, MaQuan, NgayTiepNhan, TongNo)
+	values
+	(@TenDaiLy, @MaLoaiDaiLy, @DienThoai, @DiaChi, @Email, @MaQuan, @NgayTiepNhan, @TongNo);
+end;
