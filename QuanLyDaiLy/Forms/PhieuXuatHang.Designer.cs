@@ -44,6 +44,8 @@
             this.tbxDGX = new System.Windows.Forms.TextBox();
             this.tbxSLX = new System.Windows.Forms.TextBox();
             this.tbxSPX = new System.Windows.Forms.TextBox();
+            this.tbxMDL = new System.Windows.Forms.TextBox();
+            this.lblmdl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -200,6 +202,25 @@
             this.tbxSPX.Size = new System.Drawing.Size(204, 33);
             this.tbxSPX.TabIndex = 125;
             // 
+            // tbxMDL
+            // 
+            this.tbxMDL.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxMDL.Location = new System.Drawing.Point(202, 367);
+            this.tbxMDL.Name = "tbxMDL";
+            this.tbxMDL.Size = new System.Drawing.Size(204, 33);
+            this.tbxMDL.TabIndex = 126;
+            // 
+            // lblmdl
+            // 
+            this.lblmdl.AutoSize = true;
+            this.lblmdl.BackColor = System.Drawing.Color.Transparent;
+            this.lblmdl.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.lblmdl.Location = new System.Drawing.Point(47, 372);
+            this.lblmdl.Name = "lblmdl";
+            this.lblmdl.Size = new System.Drawing.Size(134, 25);
+            this.lblmdl.TabIndex = 129;
+            this.lblmdl.Text = "Số lượng xuất";
+            // 
             // PhieuXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -213,11 +234,13 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblmdl);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnThemPXH);
             this.Controls.Add(this.tbxDGX);
+            this.Controls.Add(this.tbxMDL);
             this.Controls.Add(this.tbxSLX);
             this.Controls.Add(this.tbxSPX);
             this.Controls.Add(this.label2);
@@ -249,5 +272,7 @@
         private System.Windows.Forms.TextBox tbxDGX;
         private System.Windows.Forms.TextBox tbxSLX;
         private System.Windows.Forms.TextBox tbxSPX;
+        private System.Windows.Forms.TextBox tbxMDL;
+        private System.Windows.Forms.Label lblmdl;
     }
 }

@@ -35,8 +35,8 @@ namespace QuanLyDaiLy.Forms
             Console.WriteLine(donGiaXuat);
 
             string theDate = dtpNXH.Value.ToString("yyyy-MM-dd");
-            string queryString = "exec Insert_PXH @SoPhieuXuat , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @NgayXuatHang , @MaDVT ";
-            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, cbMMH.Text, BigInteger.Parse( tbxSLX.Text), decimal.Parse(tbxDGX.Text), theDate, cbMDVT.Text });
+            string queryString = "exec Insert_PXH @SoPhieuXuat , @MaDaiLy , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @NgayXuatHang , @MaDVT ";
+            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMDL.Text, cbMMH.Text, BigInteger.Parse( tbxSLX.Text), decimal.Parse(tbxDGX.Text), theDate, cbMDVT.Text });
             if (test > 0)
                 MessageBox.Show("Thêm thành công.");
             else
