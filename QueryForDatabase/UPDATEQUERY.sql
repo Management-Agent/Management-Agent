@@ -450,11 +450,14 @@ BEGIN
 	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = SoTienTra - TongTien
 	FROM deleted
 
+	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy1))
+	Begin
 	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
+	end
 
 END
 -----
-Drop TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
+create TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 for UPDATE
 AS
@@ -915,7 +918,7 @@ begin
 end
 --------------------------------
 drop proc Insert_PXH;
-CREATE PROCEDURE Insert_PXH
+Alter PROCEDURE Insert_PXH
     @SoPhieuXuat VARCHAR(10),
 	@MaDaiLy VARCHAR(10),
     @MaMatHangXuat VARCHAR(50),
@@ -928,8 +931,8 @@ AS
 BEGIN
     IF NOT EXISTS (SELECT * FROM PHIEUXUATHANG WHERE SoPhieuXuat = @SoPhieuXuat)
     BEGIN
-        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, MaDaiLy, SoTienTra ,NgayXuatHang)
-        VALUES (@SoPhieuXuat, @MaDaiLy, @SoTienTra, @NgayXuatHang)
+        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, MaDaiLy, SoTienTra ,NgayXuatHang,TongTien)
+        VALUES (@SoPhieuXuat, @MaDaiLy, @SoTienTra, @NgayXuatHang,0)
     END
 
 	IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
@@ -1020,4 +1023,24 @@ BEGIN
 		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
 		values (@MaDaiLy,@Thang,@Nam,@ThayDoiConLai);
 	end
+END
+
+-----------------------------------
+Alter TRIGGER TRG_DELETE_PXH_ThayDoiBaoCaoCongNo
+ON PHIEUXUATHANG
+AFTER DELETE
+AS
+BEGIN
+	DECLARE @MaDaiLy1 varchar(10);
+	DECLARE @NgayXuatHang DATETIME;
+	Declare @ConLai money;
+
+	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang,@ConLai = SoTienTra - TongTien
+	FROM deleted
+
+	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy1))
+	Begin
+	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang  , @ThayDoiConLai = @ConLai
+	end
+
 END
