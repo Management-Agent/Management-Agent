@@ -14,94 +14,42 @@ namespace QuanLyDaiLy.Forms
 {
     public partial class PhieuXuatHang : Form
     {
-        DataTable dt = new DataTable();
         public PhieuXuatHang()
         {
             InitializeComponent();
-
+            showElementInMatHang();
+            showElementInDVT();
         }
 
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
 
+        }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void btnThemPXH_Click(object sender, EventArgs e)
         {
             string theDate = dtpNXH.Value.ToString("yyyy-MM-dd");
-            string queryString = "exec Insert_PXH @SoPhieuXuat , @MaDaiLy , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @NgayXuatHang , @MaDVT , @TenDVT , @TenMatHang , @ThanhTien";
-            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMDL.Text, cbMMHX.SelectedItem.ToString(), tbxSLX.Text, tbxDGX.Text, theDate, cbMDVT.Text, tbxTDVT.Text, tbxTMH.Text, tbxTT.Text });
+            string queryString = "exec Insert_PXH @SoPhieuXuat , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @NgayXuatHang , @MaDVT ";
+            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, cbMMH.Text, tbxSLX.Text, tbxDGX.Text, theDate, cbMDVT.Text });
             if (test > 0)
                 MessageBox.Show("Thêm thành công.");
             else
                 MessageBox.Show("Thêm không thành công.");
         }
-        private void PhieuXuatHang_Load(object sender, EventArgs e)
+
+        private void showElementInMatHang()
         {
-            cbMMHX.Items.AddRange(new object[] { "MH1", "MH2", "MH3", "MH4", "MH5" });
-            cbMDVT.Items.AddRange(new object[] { "1", "2" });
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaMatHang");
+            cbMMH.DataSource = data;
+            cbMMH.DisplayMember = "MaMatHang";
         }
-
-        private void cbMDVT_SelectedIndexChanged(object sender, EventArgs e)
+        private void showElementInDVT()
         {
-
-            if (cbMDVT.SelectedItem.ToString() == "1")
-            {
-                tbxTDVT.Text = "Dollar";
-            }
-            else if (cbMDVT.SelectedItem.ToString() == "2")
-            {
-                tbxTDVT.Text = "VND";
-            }
-
-        }
-
-        private void cbMMHX_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbMMHX.SelectedItem.ToString() == "MH1")
-            {
-                tbxTMH.Text = "MH1";
-            }
-            else if (cbMMHX.SelectedItem.ToString() == "MH2")
-            {
-                tbxTMH.Text = "MH2";
-            }
-            else if (cbMMHX.SelectedItem.ToString() == "MH3")
-            {
-                tbxTMH.Text = "MH3";
-            }
-            else if (cbMMHX.SelectedItem.ToString() == "MH4")
-            {
-                tbxTMH.Text = "MH4";
-            }
-            else if (cbMMHX.SelectedItem.ToString() == "MH5")
-            {
-                tbxTMH.Text = "MH5";
-            }
-        }
-
-        private void tbcSLX_TextChanged(object sender, EventArgs e)
-        {
-            if (tbxDGX.Text != "" && tbxSLX.Text != "")
-            {
-                decimal cost = decimal.Parse(tbxDGX.Text) * int.Parse(tbxSLX.Text);
-                tbxTT.Text = cost.ToString("F2");
-            }
-            if (tbxDGX.Text == "" || tbxSLX.Text == "")
-            {
-                tbxTT.Text = "";
-            }
-        }
-
-        private void tbxDGX_TextChanged(object sender, EventArgs e)
-        {
-            if (tbxDGX.Text != "" && tbxSLX.Text != "")
-            {
-                decimal cost = decimal.Parse(tbxDGX.Text) * int.Parse(tbxSLX.Text);
-                tbxTT.Text = cost.ToString("F2");
-            }
-            if (tbxDGX.Text == "" || tbxSLX.Text == "")
-            {
-                tbxTT.Text = "";
-            }
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDVT");
+            cbMDVT.DataSource = data;
+            cbMDVT.DisplayMember = "MaDVT";
         }
     }
 }
