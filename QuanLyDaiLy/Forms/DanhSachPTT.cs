@@ -22,9 +22,9 @@ namespace QuanLyDaiLy.Forms
         private void btnTPTT_Click(object sender, EventArgs e)
         {
             PhieuThuTien p = new PhieuThuTien();
-            this.Hide();
+            //this.Hide();
             p.ShowDialog();
-            this.Show();   
+            //this.Show();   
         }
 
         private void btnTCPTT_Click(object sender, EventArgs e)

@@ -22,9 +22,9 @@ namespace QuanLyDaiLy.Forms
         private void ThemPNH_Click(object sender, EventArgs e)
         {
             PhieuNhapHang p = new PhieuNhapHang();
-            this.Hide();
+            //this.Hide();
             p.ShowDialog();
-            this.Show();
+            //this.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -67,9 +67,9 @@ namespace QuanLyDaiLy.Forms
         private void button2_Click(object sender, EventArgs e)
         {
             SuaPNH p = new SuaPNH();
-            this.Hide();
+            //this.Hide();
             p.ShowDialog();
-            this.Show();
+            //this.Show();
         }
 
         private void DanhSachPNH_Load(object sender, EventArgs e)

@@ -61,7 +61,7 @@ namespace QuanLyDaiLy
 
         private void phiếuNhậpHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using(PhieuNhapHang phieuNhapHang = new PhieuNhapHang())
+            using(DanhSachPNH phieuNhapHang = new DanhSachPNH())
             {
                 phieuNhapHang.ShowDialog();
             }
@@ -69,7 +69,7 @@ namespace QuanLyDaiLy
 
         private void phiếuXuấtHanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using(PhieuXuatHang phieuXuatHang = new PhieuXuatHang())
+            using(DanhSachPXH phieuXuatHang = new DanhSachPXH())
             {
                 phieuXuatHang.ShowDialog();
             }
@@ -77,7 +77,7 @@ namespace QuanLyDaiLy
 
         private void phiếuThuTiềnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using(PhieuThuTien phieuThuTien = new PhieuThuTien())
+            using(DanhSachPTT phieuThuTien = new DanhSachPTT())
             {
                 phieuThuTien.ShowDialog();
             }
