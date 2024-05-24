@@ -31,12 +31,10 @@ namespace QuanLyDaiLy.Forms
 
         private void btnThemPXH_Click(object sender, EventArgs e)
         {
-            decimal donGiaXuat = decimal.Parse(tbxDGX.Text);
-            Console.WriteLine(donGiaXuat);
 
             string theDate = dtpNXH.Value.ToString("yyyy-MM-dd");
-            string queryString = "exec Insert_PXH @SoPhieuXuat , @MaDaiLy , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @NgayXuatHang , @MaDVT ";
-            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMDL.Text, cbMMH.Text, BigInteger.Parse( tbxSLX.Text), decimal.Parse(tbxDGX.Text), theDate, cbMDVT.Text });
+            string queryString = "exec Insert_PXH @SoPhieuXuat , @MaDaiLy , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @SoTienTra , @NgayXuatHang , @MaDVT ";
+            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMDL.Text, cbMMH.Text, long.Parse( tbxSLX.Text), decimal.Parse(tbxDGX.Text),decimal.Parse(tbxSTT.Text) ,theDate, cbMDVT.Text });
             if (test > 0)
                 MessageBox.Show("Thêm thành công.");
             else

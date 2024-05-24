@@ -46,6 +46,8 @@
             this.tbxSPX = new System.Windows.Forms.TextBox();
             this.tbxMDL = new System.Windows.Forms.TextBox();
             this.lblmdl = new System.Windows.Forms.Label();
+            this.tbxSTT = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -62,7 +64,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(695, 380);
+            this.button1.Location = new System.Drawing.Point(699, 429);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 50);
             this.button1.TabIndex = 138;
@@ -170,7 +172,7 @@
             // btnThemPXH
             // 
             this.btnThemPXH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemPXH.Location = new System.Drawing.Point(526, 380);
+            this.btnThemPXH.Location = new System.Drawing.Point(530, 429);
             this.btnThemPXH.Name = "btnThemPXH";
             this.btnThemPXH.Size = new System.Drawing.Size(130, 50);
             this.btnThemPXH.TabIndex = 128;
@@ -221,6 +223,25 @@
             this.lblmdl.TabIndex = 129;
             this.lblmdl.Text = "Mã Đại Lý";
             // 
+            // tbxSTT
+            // 
+            this.tbxSTT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxSTT.Location = new System.Drawing.Point(598, 364);
+            this.tbxSTT.Name = "tbxSTT";
+            this.tbxSTT.Size = new System.Drawing.Size(204, 33);
+            this.tbxSTT.TabIndex = 126;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 13.2F);
+            this.label4.Location = new System.Drawing.Point(473, 370);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 25);
+            this.label4.TabIndex = 129;
+            this.label4.Text = "Số tiên trả";
+            // 
             // PhieuXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -234,12 +255,14 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblmdl);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnThemPXH);
             this.Controls.Add(this.tbxDGX);
+            this.Controls.Add(this.tbxSTT);
             this.Controls.Add(this.tbxMDL);
             this.Controls.Add(this.tbxSLX);
             this.Controls.Add(this.tbxSPX);
@@ -274,5 +297,7 @@
         private System.Windows.Forms.TextBox tbxSPX;
         private System.Windows.Forms.TextBox tbxMDL;
         private System.Windows.Forms.Label lblmdl;
+        private System.Windows.Forms.TextBox tbxSTT;
+        private System.Windows.Forms.Label label4;
     }
 }
