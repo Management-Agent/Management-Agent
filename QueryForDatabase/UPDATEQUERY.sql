@@ -393,7 +393,7 @@ END;
 GO
 
 -------
-create procedure USP_PHIEUXUATHANG_BAOCAOCONGNO
+Create procedure USP_PHIEUXUATHANG_BAOCAOCONGNO
 @MaDaiLy varchar(10),
 @ThoiGian datetime,
 @ThayDoiConLai money
@@ -401,6 +401,9 @@ AS
 BEGIN
 	Declare @Thang Int ;Set @Thang = month(@ThoiGian);
 	Declare @Nam Int; Set @Nam = year(@ThoiGian);
+
+	IF(@MaDaiLy is null)
+		return;
 
 	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
 	Begin
@@ -416,7 +419,7 @@ BEGIN
 END
 
 -------
-CREATE TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
+create TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 AFTER INSERT
 AS
@@ -428,6 +431,7 @@ BEGIN
 	SELECT @MaDaiLy1 = MaDaiLy ,@NgayXuatHang = NgayXuatHang, @ConLai = TongTien - SoTienTra
 	FROM inserted
 
+	
 
 	EXEC USP_PHIEUXUATHANG_BAOCAOCONGNO @MaDaiLy = @MaDaiLy1 , @ThoiGian = @NgayXuatHang , @ThayDoiConLai = @ConLai;
 
@@ -450,7 +454,7 @@ BEGIN
 
 END
 -----
-CREATE TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
+Drop TRIGGER TRG_UDATE_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 for UPDATE
 AS
@@ -985,4 +989,30 @@ BEGIN
         INSERT INTO CT_PNH (SoPhieuNhap, MaMatHang, SoLuongNhap, DonGiaNhap)
         VALUES (@SoPhieuNhap, @MaMatHang, @SoLuongNhap, @DonGiaNhap)
     END
+END
+
+-------------------------------------
+Alter procedure USP_PHIEUXUATHANG_BAOCAOCONGNO
+@MaDaiLy varchar(10),
+@ThoiGian datetime,
+@ThayDoiConLai money
+AS
+BEGIN
+	Declare @Thang Int ;Set @Thang = month(@ThoiGian);
+	Declare @Nam Int; Set @Nam = year(@ThoiGian);
+
+	IF(@MaDaiLy is null)
+		return;
+
+	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
+	Begin
+		Update BAOCAOCONGNO
+		set PhatSinh += @ThayDoiConLai
+		Where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang;
+	end
+	Else
+	Begin
+		Insert Into BAOCAOCONGNO(MaDaiLy,Thang,Nam,PhatSinh)
+		values (@MaDaiLy,@Thang,@Nam,@ThayDoiConLai);
+	end
 END
