@@ -917,14 +917,15 @@ CREATE PROCEDURE Insert_PXH
     @MaMatHangXuat VARCHAR(50),
     @SoLuongXuat BIGINT,
     @DonGiaXuat MONEY,
+	@SoTienTra money,
 	@NgayXuatHang DATE,
-    @MaDVT VARCHAR(10),  
+    @MaDVT VARCHAR(10)  
 AS
 BEGIN
     IF NOT EXISTS (SELECT * FROM PHIEUXUATHANG WHERE SoPhieuXuat = @SoPhieuXuat)
     BEGIN
-        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, MaDaiLy ,NgayXuatHang)
-        VALUES (@SoPhieuXuat, @MaDaiLy, @NgayXuatHang)
+        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, MaDaiLy, SoTienTra ,NgayXuatHang)
+        VALUES (@SoPhieuXuat, @MaDaiLy, @SoTienTra, @NgayXuatHang)
     END
 
 	IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
