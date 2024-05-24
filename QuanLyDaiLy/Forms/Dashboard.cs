@@ -131,5 +131,26 @@ namespace QuanLyDaiLy
                 quan.ShowDialog();
             }
         }
+
+        private void quảnLýNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tính năng đang được xây dựng!","",MessageBoxButtons.OK);
+        }
+
+        private void quảnLýĐơnVịTínhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(DonViTinh dvtForm = new DonViTinh())
+            {
+                dvtForm.ShowDialog();
+            }
+        }
+
+        private void quảnLýThamSốToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(SuaThamSo suaThamSo = new SuaThamSo())
+            {
+                suaThamSo.ShowDialog();
+            }    
+        }
     }
 }
