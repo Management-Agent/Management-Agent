@@ -173,7 +173,7 @@ namespace QuanLyDaiLy.Forms
                 {
                     maDVT = "null";
                 }
-                int soLuongTon = int.Parse(row.Cells[4].Value.ToString());
+                int soLuongTon = int.Parse(row.Cells[3].Value.ToString());
 
 
 
