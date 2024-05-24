@@ -1004,6 +1004,11 @@ BEGIN
 	IF(@MaDaiLy is null)
 		return;
 
+	If(@ThayDoiConLai is null)
+	begin
+		set @ThayDoiConLai = 0
+	end
+
 	IF(Exists (select * from BAOCAOCONGNO where MaDaiLy = @MaDaiLy and Nam =  @Nam and Thang = @Thang))
 	Begin
 		Update BAOCAOCONGNO
