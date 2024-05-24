@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,7 +29,7 @@ namespace QuanLyDaiLy.Forms
             if (!string.IsNullOrWhiteSpace(tbxDGX.Text))
             {
                 string queryString = "exec Update_CT_PXH_DGX @SoPhieuXuat , @MaMatHangXuat , @DonGiaXuat ";
-                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMMHX.Text, tbxDGX.Text });
+                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMMHX.Text, decimal.Parse(tbxDGX.Text) });
             }
             TraCuuCTPNH(tbxSPX.Text, tbxMMHX.Text);
         }
@@ -50,6 +51,13 @@ namespace QuanLyDaiLy.Forms
         {
             string queryString = "exec Search_CT_PXH_All @SoPhieuXuat";
             DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new Object[] { tbxSPX.Text, tbxMMHX.Text});
+            dataGridViewCTPXH.DataSource = data;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string queryString = "exec Search_CT_PXH_All @SoPhieuXuat";
+            DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new Object[] { tbxSPX.Text, tbxMMHX.Text });
             dataGridViewCTPXH.DataSource = data;
         }
     }

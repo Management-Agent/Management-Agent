@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPXH));
             this.tbxXPXH = new System.Windows.Forms.TextBox();
-            this.tbxTTPXH = new System.Windows.Forms.TextBox();
+            this.tbxTCPXH = new System.Windows.Forms.TextBox();
             this.btnTCPXH = new System.Windows.Forms.Button();
             this.btnSPXH = new System.Windows.Forms.Button();
             this.btnXPXH = new System.Windows.Forms.Button();
@@ -51,13 +51,13 @@
             this.tbxXPXH.Size = new System.Drawing.Size(368, 33);
             this.tbxXPXH.TabIndex = 36;
             // 
-            // tbxTTPXH
+            // tbxTCPXH
             // 
-            this.tbxTTPXH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTTPXH.Location = new System.Drawing.Point(462, 278);
-            this.tbxTTPXH.Name = "tbxTTPXH";
-            this.tbxTTPXH.Size = new System.Drawing.Size(368, 33);
-            this.tbxTTPXH.TabIndex = 35;
+            this.tbxTCPXH.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTCPXH.Location = new System.Drawing.Point(462, 278);
+            this.tbxTCPXH.Name = "tbxTCPXH";
+            this.tbxTCPXH.Size = new System.Drawing.Size(368, 33);
+            this.tbxTCPXH.TabIndex = 35;
             // 
             // btnTCPXH
             // 
@@ -163,7 +163,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(922, 457);
             this.Controls.Add(this.tbxXPXH);
-            this.Controls.Add(this.tbxTTPXH);
+            this.Controls.Add(this.tbxTCPXH);
             this.Controls.Add(this.btnTCPXH);
             this.Controls.Add(this.btnSPXH);
             this.Controls.Add(this.btnXPXH);
@@ -186,7 +186,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbxXPXH;
-        private System.Windows.Forms.TextBox tbxTTPXH;
+        private System.Windows.Forms.TextBox tbxTCPXH;
         private System.Windows.Forms.Button btnTCPXH;
         private System.Windows.Forms.Button btnSPXH;
         private System.Windows.Forms.Button btnXPXH;

@@ -37,17 +37,17 @@ namespace QuanLyDaiLy.Forms
 
         private void DanhSachPXH_Load(object sender, EventArgs e)
         {
-            if(tbxTTPXH.Text == "")
+            if(tbxTCPXH.Text == "")
             {
                 string queryString = "EXEC Search_All_PXH @SoPhieuXuat";
-                DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] {tbxTTPXH.Text});
+                DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] {tbxTCPXH.Text});
                 dgvPXH.DataSource = data;
             }
         }
 
         private void btnTCPXH_Click(object sender, EventArgs e)
         {
-            string maPhieuXuat = tbxTTPXH.Text;
+            string maPhieuXuat = tbxTCPXH.Text;
             TraCuuPhieuXuat(maPhieuXuat);
         }
 
@@ -59,7 +59,7 @@ namespace QuanLyDaiLy.Forms
         }
         private void XoaPhieuXuat(string maPhieuXuat)
         {
-            string queryString = "exec Delete_Info_PXH @SoPhieuNhap";
+            string queryString = "exec Delete_Info_PXH @SoPhieuXuat";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] { maPhieuXuat });
             TraCuuPhieuXuat("all");
@@ -77,7 +77,7 @@ namespace QuanLyDaiLy.Forms
         {
             SuaPXH p = new SuaPXH();
             //this.Hide(); 
-            p.ShowDialog();
+            p.Show();
             //this.Show();
         }
     }
