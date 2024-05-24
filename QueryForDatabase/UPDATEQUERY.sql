@@ -529,6 +529,7 @@ CREATE PROCEDURE Search_CT_PXH
 AS 
 BEGIN
 	SELECT SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat, ThanhTien
+	FROM CT_PXH
 	WHERE SoPhieuXuat = @SoPhieuXuat And @MaMatHangXuat = MaMatHangXuat
 END
 ------------------------------------------------
@@ -537,6 +538,7 @@ CREATE PROCEDURE Search_CT_PXH_All
 AS 
 BEGIN
 	SELECT SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat, ThanhTien
+	FROM CT_PXH
 	WHERE SoPhieuXuat = @SoPhieuXuat 
 END
 --------------------------------------
