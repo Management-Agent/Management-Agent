@@ -217,9 +217,9 @@
             this.lblmdl.Font = new System.Drawing.Font("Times New Roman", 13.2F);
             this.lblmdl.Location = new System.Drawing.Point(47, 372);
             this.lblmdl.Name = "lblmdl";
-            this.lblmdl.Size = new System.Drawing.Size(134, 25);
+            this.lblmdl.Size = new System.Drawing.Size(108, 25);
             this.lblmdl.TabIndex = 129;
-            this.lblmdl.Text = "Số lượng xuất";
+            this.lblmdl.Text = "Mã Đại Lý";
             // 
             // PhieuXuatHang
             // 
