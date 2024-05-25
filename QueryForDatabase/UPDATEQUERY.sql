@@ -1,4 +1,4 @@
-﻿USE QUANLYDAILY
+USE QUANLYDAILY
 
 GO
 
@@ -11,14 +11,14 @@ begin
     FROM DAILY
 	where @DienThoai = DienThoai
 end;
-
+--------------------------------
 ALTER proc [dbo].[USP_GetDaiLyInfo]
 as
 begin
 	SELECT MaDaiLy, TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
     FROM DAILY
 end;
-
+-------------------------------
 ALTER procedure [dbo].[Insert_DaiLy]
 	@TenDaiLy varchar(10),
 	@MaLoaiDaiLy varchar(10),
@@ -34,8 +34,8 @@ begin
 	values
 	(@TenDaiLy, @MaLoaiDaiLy, @DienThoai, @DiaChi, @Email, @MaQuan, @NgayTiepNhan, @TongNo);
 end;
-
-ALTER proc [dbo].[Update_DAILY]
+--------------------------------------
+CREATE proc [dbo].[Update_DAILY]
 @MaDaiLy varchar(10),
 @TenDaiLy varchar(200),
 @MaLoaiDaiLy varchar(10),
@@ -52,21 +52,22 @@ begin
 			MaQuan = @MaQuan
 	where MaDaiLy = @MaDaiLy
 end;
-
-ALTER proc [dbo].[Delete_DAILY]
+--------------------------------------------
+CREATE proc [dbo].[Delete_DAILY]
 	@MaDaiLy varchar(10)
 as
 begin
 	delete from DAILY where @MaDaiLy = MaDaiLy
 end;
 
---Lay thong tin danh sach ten loai dai ly
+--------------------------------Lay thong tin danh sach ten loai dai ly
 create proc USP_GetAllTenLoaiDaiLy
 as
 begin
 	select TenLoaiDaiLy
 	from LOAIDAILY
 end;
+--------------------------
 create proc USP_GetMaQuan
 as
 begin
@@ -80,7 +81,7 @@ begin
 	select TenQuan
 	from QUAN
 end;
---Tim thong tin dai ly thong qua tim so dien thoai
+--------------------------Tim thong tin dai ly thong qua tim so dien thoai
 alter proc USP_FindDaiLy
 	@DienThoai varchar(10)
 as
@@ -101,7 +102,7 @@ BEGIN
     FROM DAILY inner join BAOCAOCONGNO ON DAILY.MaDaiLy = BAOCAOCONGNO.MaDaiLy
 END;
 ----------------
-ALTER proc [dbo].[USP_GetLoaiDaiLy]
+CREATE proc [dbo].[USP_GetLoaiDaiLy]
 as
 begin
 	select MaLoaiDaiLy
@@ -268,7 +269,7 @@ BEGIN
 	JOIN MATHANG on MATHANG.MaMatHang = CT_PNH.MaMatHang
 	JOIN DVT on DVT.MaDVT = MATHANG.MaDVT
 END
-
+---------------------
 CREATE PROCEDURE Search_CT_PNH
 	@SoPhieuNhap VARCHAR(10),
 	@MaMatHang VARCHAR(50)
@@ -312,6 +313,7 @@ ALTER TABLE BAOCAOCONGNO
 ADD CONSTRAINT PK_BAOCAOCONGNO PRIMARY KEY(MaDaiLy,Thang,Nam);
  GO
 -----------------------------
+
 CREATE TRIGGER trgAfterInsertOnBAOCAOCONGNO
 ON BAOCAOCONGNO
 AFTER INSERT
@@ -352,9 +354,9 @@ BEGIN
         VALUES (@MaDaiLy, ((@CurrentN +1 - 1) %12 +1),((@CurrentN + 1 - 1)/12), @NoCuoiThangTruoc, 0);
 
         SET @CurrentN = @CurrentN + 1;
-    END;
+    END
 
-    -- Cập nhật NoDau cho bản ghi mới chèn
+--- Cập nhật NoDau cho bản ghi mới chèn
 	set @N = @N -1;
     SELECT @NoCuoiThangTruoc = NoCuoi 
     FROM BAOCAOCONGNO 
@@ -366,7 +368,7 @@ BEGIN
 END
 GO
 
-------------
+--------------------------------
 CREATE TRIGGER trgAfterUpdateOnBAOCAOCONGNO
 ON BAOCAOCONGNO
 For Update
@@ -531,7 +533,7 @@ BEGIN
 END
 -------------------------------------------------
 CREATE PROCEDURE Search_CT_PXH
-	@SoPhieuXuat VARCHAR(10)
+	@SoPhieuXuat VARCHAR(10),
 	@MaMatHangXuat VARCHAR(50)
 AS 
 BEGIN
@@ -573,8 +575,8 @@ BEGIN
 END
 ----------------------------------------
 CREATE PROCEDURE Update_PTT_STT
-	@SoPhieuThu VARCHAR(10)
-	@MaDaiLy VARCHAR(10)
+	@SoPhieuThu VARCHAR(10),
+	@MaDaiLy VARCHAR(10),
 	@SoTienThu Money
 AS 
 BEGIN 
@@ -683,7 +685,7 @@ BEGIN
 	select MaLoaiDaiLy,TenLoaiDaiLy,SoNoToiDa
 	from LOAIDAILY
 END
-
+-----------------------------------
 create procedure datagridview_Quan
 as
 begin
@@ -691,7 +693,7 @@ begin
 	from QUAN
 end
 
-
+------------------------------------------
 CREATE PROCEDURE Update_TenQuan
 	@MaQuan varchar(10),
 	@TenQuan varchar(100)
@@ -701,7 +703,7 @@ BEGIN
 	SET TenQuan = @TenQuan
 	where MaQuan = @MaQuan
 END
-
+-------------------------------
 
 CREATE PROCEDURE Insert_LoaiDaiLy
 @MaLoaiDaiLy varchar(10),
@@ -711,7 +713,7 @@ AS
 BEGIN
 	INSERT INTO LOAIDAILY(MaLoaiDaiLy,TenLoaiDaiLy,SoNoToiDa) values (@MaLoaiDaiLy, @TenLoaiDaiLy, @SoNoToiDa)
 END
-
+-----------------------------------------
 
 
 CREATE PROCEDURE Delete_LoaiDaiLy
@@ -721,6 +723,8 @@ BEGIN
 	DELETE FROM LOAIDAILY
 	WHERE MaLoaiDaiLy = @MaLoaiDaiLy 
 END
+----------------------------------------
+
 
 CREATE PROCEDURE Search_LoaiDaiLy
 @MaLoaiDaiLy varchar(10)
@@ -730,6 +734,7 @@ BEGIN
 	from LOAIDAILY
 END
 
+------------------------------
 
 CREATE PROCEDURE load_Quan
 AS
@@ -738,6 +743,7 @@ BEGIN
 	from QUAN	
 END
 
+-------------------------------
 
 CREATE PROCEDURE Insert_TenQuan
 @MaQuan varchar(10),
@@ -747,6 +753,7 @@ BEGIN
 	INSERT INTO QUAN(MaQuan,TenQuan) values (@MaQuan, @TenQuan)
 END
 
+--------------------------------
 
 CREATE PROCEDURE Delete_Quan
 @MaQuan varchar(10)
@@ -916,7 +923,7 @@ begin
 end
 --------------------------------
 drop proc Insert_PXH;
-ALTER PROCEDURE Insert_PXH
+create PROCEDURE Insert_PXH
     @SoPhieuXuat VARCHAR(10),
 	@MaDaiLy VARCHAR(10),
     @MaMatHangXuat VARCHAR(50),
@@ -956,6 +963,8 @@ BEGIN
     --END
 END
 
+-------------------------------------
+
 create proc [dbo].[USP_GetMaDVT]
 as
 begin
@@ -963,13 +972,16 @@ begin
 	from DVT
 end;
 
+
+-----------------------------------------
+
 create proc [dbo].[USP_GetMaMatHang]
 as
 begin
 	select MaMatHang
 	from MATHANG
 end;
-
+-----------------------------------------------------
 alter PROCEDURE Insert_PNH
     @SoPhieuNhap VARCHAR(10),
     @MaMatHang VARCHAR(50),
