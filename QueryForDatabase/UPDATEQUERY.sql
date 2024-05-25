@@ -541,12 +541,10 @@ BEGIN
 END
 ------------------------------------------------
 CREATE PROCEDURE Search_CT_PXH_All 
-	@SophieuXuat VARCHAR(10)
 AS 
 BEGIN
 	SELECT SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat, ThanhTien
 	FROM CT_PXH
-	WHERE SoPhieuXuat = @SoPhieuXuat 
 END
 --------------------------------------
 CREATE PROCEDURE Search_All_PTT
