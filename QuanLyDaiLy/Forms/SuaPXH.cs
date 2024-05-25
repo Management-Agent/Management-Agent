@@ -49,8 +49,8 @@ namespace QuanLyDaiLy.Forms
 
         private void SuaPXH_Load(object sender, EventArgs e)
         {
-            string queryString = "exec Search_CT_PXH_All @SoPhieuXuat";
-            DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new Object[] { tbxSPX.Text, tbxMMHX.Text});
+            string queryString = "exec Search_CT_PXH_All";
+            DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new Object[] {});
             dataGridViewCTPXH.DataSource = data;
         }
 
