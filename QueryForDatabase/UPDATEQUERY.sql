@@ -918,7 +918,7 @@ begin
 end
 --------------------------------
 drop proc Insert_PXH;
-Alter PROCEDURE Insert_PXH
+ALTER PROCEDURE Insert_PXH
     @SoPhieuXuat VARCHAR(10),
 	@MaDaiLy VARCHAR(10),
     @MaMatHangXuat VARCHAR(50),
@@ -931,25 +931,31 @@ AS
 BEGIN
     IF NOT EXISTS (SELECT * FROM PHIEUXUATHANG WHERE SoPhieuXuat = @SoPhieuXuat)
     BEGIN
-        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, MaDaiLy, SoTienTra ,NgayXuatHang,TongTien)
-        VALUES (@SoPhieuXuat, @MaDaiLy, @SoTienTra, @NgayXuatHang,0)
+        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, MaDaiLy, SoTienTra ,NgayXuatHang)
+        VALUES (@SoPhieuXuat, @MaDaiLy, @SoTienTra, @NgayXuatHang)
     END
 
-	IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
-    BEGIN	
-	RAISERROR ('DVT not found', 16, 1);
-    END
+	--IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
+ --   BEGIN	
+	--RAISERROR ('DVT not found', 16, 1);
+ --   END
 
-	IF NOT EXISTS (SELECT * FROM MATHANG WHERE MaMatHang = @MaMatHangXuat)
-    BEGIN
-        RAISERROR ('MaMatHang not found.', 16, 1);
-    END
+	--IF NOT EXISTS (SELECT * FROM MATHANG WHERE MaMatHang = @MaMatHangXuat)
+ --   BEGIN
+ --       RAISERROR ('MaMatHang not found.', 16, 1);
+ --   END
 
-    IF NOT EXISTS (SELECT * FROM CT_PXH WHERE SoPhieuXuat = @SoPhieuXuat AND MaMatHangXuat = @MaMatHangXuat)
-    BEGIN
-        INSERT INTO CT_PXH (SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat)
+	IF NOT EXISTS (SELECT * FROM CT_PNH WHERE MaMatHang = @MaMatHangXuat )
+	BEGIN 
+		INSERT INTO CT_PXH (SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat)
         VALUES (@SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat, @DonGiaXuat)
-    END
+	END
+	
+    --IF NOT EXISTS (SELECT * FROM CT_PXH WHERE SoPhieuXuat = @SoPhieuXuat AND MaMatHangXuat = @MaMatHangXuat)
+    --BEGIN
+    --    INSERT INTO CT_PXH (SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat)
+    --    VALUES (@SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat, @DonGiaXuat)
+    --END
 END
 
 create proc [dbo].[USP_GetMaDVT]
