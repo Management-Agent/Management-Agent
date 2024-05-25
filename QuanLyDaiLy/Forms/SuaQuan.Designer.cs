@@ -49,9 +49,9 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(330, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 29);
+            this.label1.Size = new System.Drawing.Size(195, 29);
             this.label1.TabIndex = 81;
-            this.label1.Text = "Sửa Quận";
+            this.label1.Text = "Danh Sách Quận";
             // 
             // dataGridViewQuan
             // 
@@ -172,7 +172,7 @@
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "SuaQuan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SuaQuan";
+            this.Text = "DanhSachQuan";
             this.Load += new System.EventHandler(this.SuaQuan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewQuan)).EndInit();
             this.ResumeLayout(false);
