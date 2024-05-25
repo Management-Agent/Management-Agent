@@ -36,10 +36,12 @@
             this.btnXPXH = new System.Windows.Forms.Button();
             this.btnTPXH = new System.Windows.Forms.Button();
             this.dgvPXH = new System.Windows.Forms.DataGridView();
-            this.colSPN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNNH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoPhieuXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaDaiLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayXuatHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoTienTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConLai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPXH)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,56 +107,73 @@
             // 
             // dgvPXH
             // 
+            this.dgvPXH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPXH.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvPXH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPXH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSPN,
-            this.colNNH,
-            this.colTT,
-            this.MaDaiLy});
+            this.SoPhieuXuat,
+            this.MaDaiLy,
+            this.NgayXuatHang,
+            this.TongTien,
+            this.SoTienTra,
+            this.ConLai});
             this.dgvPXH.Location = new System.Drawing.Point(13, 13);
+            this.dgvPXH.MultiSelect = false;
             this.dgvPXH.Name = "dgvPXH";
             this.dgvPXH.ReadOnly = true;
             this.dgvPXH.RowHeadersWidth = 51;
             this.dgvPXH.RowTemplate.Height = 24;
+            this.dgvPXH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPXH.Size = new System.Drawing.Size(817, 249);
             this.dgvPXH.TabIndex = 30;
             // 
-            // colSPN
+            // SoPhieuXuat
             // 
-            this.colSPN.DataPropertyName = "SoPhieuXuat";
-            this.colSPN.HeaderText = "Số phiếu Xuất hàng";
-            this.colSPN.MinimumWidth = 6;
-            this.colSPN.Name = "colSPN";
-            this.colSPN.ReadOnly = true;
-            this.colSPN.Width = 200;
-            // 
-            // colNNH
-            // 
-            this.colNNH.DataPropertyName = "NgayXuatHang";
-            this.colNNH.HeaderText = "Ngày xuất hàng";
-            this.colNNH.MinimumWidth = 6;
-            this.colNNH.Name = "colNNH";
-            this.colNNH.ReadOnly = true;
-            this.colNNH.Width = 200;
-            // 
-            // colTT
-            // 
-            this.colTT.DataPropertyName = "TongTien";
-            this.colTT.HeaderText = "Tổng tiền";
-            this.colTT.MinimumWidth = 6;
-            this.colTT.Name = "colTT";
-            this.colTT.ReadOnly = true;
-            this.colTT.Width = 200;
+            this.SoPhieuXuat.DataPropertyName = "SoPhieuXuat";
+            this.SoPhieuXuat.HeaderText = "Số phiếu Xuất hàng";
+            this.SoPhieuXuat.MinimumWidth = 6;
+            this.SoPhieuXuat.Name = "SoPhieuXuat";
+            this.SoPhieuXuat.ReadOnly = true;
             // 
             // MaDaiLy
             // 
             this.MaDaiLy.DataPropertyName = "MaDaiLy";
-            this.MaDaiLy.HeaderText = "Mã Đại Lý";
+            this.MaDaiLy.HeaderText = "MaDaiLy";
             this.MaDaiLy.MinimumWidth = 6;
             this.MaDaiLy.Name = "MaDaiLy";
             this.MaDaiLy.ReadOnly = true;
-            this.MaDaiLy.Width = 170;
+            // 
+            // NgayXuatHang
+            // 
+            this.NgayXuatHang.DataPropertyName = "NgayXuatHang";
+            this.NgayXuatHang.HeaderText = "NgayXuathang";
+            this.NgayXuatHang.MinimumWidth = 6;
+            this.NgayXuatHang.Name = "NgayXuatHang";
+            this.NgayXuatHang.ReadOnly = true;
+            // 
+            // TongTien
+            // 
+            this.TongTien.DataPropertyName = "TongTien";
+            this.TongTien.HeaderText = "TongTien";
+            this.TongTien.MinimumWidth = 6;
+            this.TongTien.Name = "TongTien";
+            this.TongTien.ReadOnly = true;
+            // 
+            // SoTienTra
+            // 
+            this.SoTienTra.DataPropertyName = "SoTienTra";
+            this.SoTienTra.HeaderText = "SoTienTra";
+            this.SoTienTra.MinimumWidth = 6;
+            this.SoTienTra.Name = "SoTienTra";
+            this.SoTienTra.ReadOnly = true;
+            // 
+            // ConLai
+            // 
+            this.ConLai.DataPropertyName = "ConLai";
+            this.ConLai.HeaderText = "ConLai";
+            this.ConLai.MinimumWidth = 6;
+            this.ConLai.Name = "ConLai";
+            this.ConLai.ReadOnly = true;
             // 
             // DanhSachPXH
             // 
@@ -192,9 +211,11 @@
         private System.Windows.Forms.Button btnXPXH;
         private System.Windows.Forms.Button btnTPXH;
         private System.Windows.Forms.DataGridView dgvPXH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSPN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNNH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoPhieuXuat;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaDaiLy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayXuatHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoTienTra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConLai;
     }
 }

@@ -18,8 +18,7 @@ namespace QuanLyDaiLy.Forms
         public PhieuXuatHang()
         {
             InitializeComponent();
-            showElementInMatHang();
-            showElementInDVT();
+           
         }
 
 
@@ -33,25 +32,16 @@ namespace QuanLyDaiLy.Forms
         {
 
             string theDate = dtpNXH.Value.ToString("yyyy-MM-dd");
-            string queryString = "exec Insert_PXH @SoPhieuXuat , @MaDaiLy , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @SoTienTra , @NgayXuatHang , @MaDVT ";
-            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMDL.Text, cbMMH.Text, long.Parse( tbxSLX.Text), decimal.Parse(tbxDGX.Text),decimal.Parse(tbxSTT.Text) ,theDate, cbMDVT.Text });
+            string query = "exec INSERT_PXH @SoPhieuXuat , @MaDaiLy , @NgayXuatHang , @TongTien , @SoTienTra ";
+            decimal tongTien = 0;
+           // string queryString = "exec Insert_PXH @SoPhieuXuat , @MaDaiLy , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @SoTienTra , @NgayXuatHang , @MaDVT ";
+            int test = DataProvider.Instance.ExecuteNonQuery(query, new object[] { textBox1.Text, tbxMDL.Text,theDate,tongTien,decimal.Parse(tbxSTT.Text) });
             if (test > 0)
                 MessageBox.Show("Thêm thành công.");
             else
                 MessageBox.Show("Thêm không thành công.");
         }
 
-        private void showElementInMatHang()
-        {
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaMatHang");
-            cbMMH.DataSource = data;
-            cbMMH.DisplayMember = "MaMatHang";
-        }
-        private void showElementInDVT()
-        {
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDVT");
-            cbMDVT.DataSource = data;
-            cbMDVT.DisplayMember = "MaDVT";
-        }
+        
     }
 }

@@ -421,7 +421,7 @@ BEGIN
 END
 
 -------
-alter TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
+Create TRIGGER TRG_INSERT_PXH_ThayDoiBaoCaoCongNo
 ON PHIEUXUATHANG
 AFTER INSERT
 AS
@@ -922,45 +922,17 @@ begin
 		MaMatHang  = @MaMatHang
 end
 --------------------------------
-drop proc Insert_PXH;
-create PROCEDURE Insert_PXH
+alter proc Insert_PXH;
+alter PROCEDURE Insert_PXH
     @SoPhieuXuat VARCHAR(10),
 	@MaDaiLy VARCHAR(10),
-    @MaMatHangXuat VARCHAR(50),
-    @SoLuongXuat BIGINT,
-    @DonGiaXuat MONEY,
-	@SoTienTra money,
 	@NgayXuatHang DATE,
-    @MaDVT VARCHAR(10)  
+	@TongTien money,
+	@SoTienTra money
 AS
 BEGIN
-    IF NOT EXISTS (SELECT * FROM PHIEUXUATHANG WHERE SoPhieuXuat = @SoPhieuXuat)
-    BEGIN
-        INSERT INTO PHIEUXUATHANG (SoPhieuXuat, MaDaiLy, SoTienTra ,NgayXuatHang)
-        VALUES (@SoPhieuXuat, @MaDaiLy, @SoTienTra, @NgayXuatHang)
-    END
-
-	--IF NOT EXISTS (SELECT * FROM DVT WHERE MaDVT = @MaDVT)
- --   BEGIN	
-	--RAISERROR ('DVT not found', 16, 1);
- --   END
-
-	--IF NOT EXISTS (SELECT * FROM MATHANG WHERE MaMatHang = @MaMatHangXuat)
- --   BEGIN
- --       RAISERROR ('MaMatHang not found.', 16, 1);
- --   END
-
-	IF NOT EXISTS (SELECT * FROM CT_PNH WHERE MaMatHang = @MaMatHangXuat )
-	BEGIN 
-		INSERT INTO CT_PXH (SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat)
-        VALUES (@SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat, @DonGiaXuat)
-	END
-	
-    --IF NOT EXISTS (SELECT * FROM CT_PXH WHERE SoPhieuXuat = @SoPhieuXuat AND MaMatHangXuat = @MaMatHangXuat)
-    --BEGIN
-    --    INSERT INTO CT_PXH (SoPhieuXuat, MaMatHangXuat, SoLuongXuat, DonGiaXuat)
-    --    VALUES (@SoPhieuXuat, @MaMatHangXuat, @SoLuongXuat, @DonGiaXuat)
-    --END
+    Insert into PHIEUXUATHANG(SoPhieuXuat,MaDaiLy,NgayXuatHang,TongTien,SoTienTra)
+	values (@SoPhieuXuat,@MaDaiLy,@NgayXuatHang,@TongTien,@SoTienTra);
 END
 
 -------------------------------------
@@ -1145,4 +1117,132 @@ begin
 	Update DVT
 	set TenDVT =@TenDVT
 	where MaDVT = @MaDVT
+end
+
+
+create procedure USP_insert_CT_PXH
+@SoPhieuXuat varchar(10),
+@MaMatHangXuat varchar(10),
+@SoLuongXuat int,
+@DonGiaXuat money,
+@ThanhTien money
+as
+begin
+	insert into CT_PXH(SoPhieuXuat,MaMatHangXuat,SoLuongXuat,DonGiaXuat,ThanhTien)
+	values(@SoPhieuXuat,@MaMatHangXuat,@SoLuongXuat,@DonGiaXuat,@ThanhTien)
+end
+
+create procedure USP_update_CT_PXH
+@SoPhieuXuat varchar(10),
+@MaMatHangXuat varchar(10),
+@SoLuongXuat int,
+@DonGiaXuat money,
+@ThanhTien money
+as
+begin
+	update  CT_PXH
+	set
+	soluongxuat = @SoLuongXuat,
+	dongiaxuat = @DonGiaXuat,
+	thanhtien = @ThanhTien
+	where
+	SoPhieuXuat = @SoLuongXuat
+	and MaMatHangXuat =@MaMatHangXuat;
+end
+
+------------------------------
+alter TRIGGER trigger_insert_ct_pxh
+ON CT_PXH
+AFTER insert
+AS
+BEGIN
+	declare @SoPhieuXuat varchar(10);
+	declare @TongTien money;
+
+	select @SoPhieuXuat = SoPhieuxuat ,@TongTien =thanhtien from inserted
+
+	UPDATE PHIEUXUATHANG
+	SET TongTien = TongTien + @TongTien
+	where sophieuxuat =@SoPhieuXuat 	
+END;
+GO
+
+alter TRIGGER trigger_delete_ct_pxh
+ON CT_PXH
+AFTER delete
+AS
+BEGIN
+	declare @SoPhieuXuat varchar(10);
+	declare @TongTien money;
+
+	select @SoPhieuXuat = SoPhieuXuat ,@TongTien =thanhtien from deleted
+
+	UPDATE PHIEUXUATHANG
+	SET TongTien = TongTien - @TongTien
+	where sophieuxuat =@SoPhieuXuat 	
+END;
+GO
+
+
+alter TRIGGER trigger_update_ct_pxh
+ON CT_PXH
+AFTER UPDATE
+AS
+BEGIN
+	declare @SoPhieuXuat varchar(10);
+	declare @TongTienCu money;
+	declare @TongTienMoi money;
+
+	select @SoPhieuXuat = SoPhieuxuat ,@TongTienMoi =thanhtien from inserted
+
+	select @TongTienCu = thanhtien from deleted
+
+	UPDATE PHIEUXUATHANG
+	SET TongTien = TongTien + @TongTienMoi -@TongTienCu
+	where sophieuxuat =@SoPhieuXuat 	
+END;
+GO
+
+create procedure delete_ct_pxh
+@SoPhieuXuat varchar(10),
+@MaMatHangXuat varchar(10)
+as
+begin
+	delete CT_PXH
+	where
+	SoPhieuXuat =@SoPhieuXuat and MaMatHangXuat =@MaMatHangXuat
+end
+
+
+alter procedure tongthanhtien
+@SoPhieuXuat varchar(10)
+as
+begin
+	select SUM( ThanhTien) as ketqua
+	from CT_PXH
+	where
+	SoPhieuXuat =@SoPhieuXuat
+end
+
+create procedure updatePXH
+@SoPhieuXuat varchar(10),
+@SoTienTra money
+as
+begin
+	update PHIEUXUATHANG
+	set SoTienTra = @SoTienTra
+	where SoPhieuXuat =@SoPhieuXuat
+end
+
+create procedure deletePXH
+@SoPhieuXuat varchar(10)
+as
+begin
+	delete CT_PXH
+	where SoPhieuXuat = @SoPhieuXuat
+
+	delete PHIEUXUATHANG
+	where SoPhieuXuat = @SoPhieuXuat
+
+
 end

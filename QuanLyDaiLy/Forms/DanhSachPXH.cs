@@ -37,12 +37,9 @@ namespace QuanLyDaiLy.Forms
 
         private void DanhSachPXH_Load(object sender, EventArgs e)
         {
-            if(tbxTCPXH.Text == "")
-            {
-                string queryString = "EXEC Search_All_PXH @SoPhieuXuat";
-                DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new object[] {tbxTCPXH.Text});
-                dgvPXH.DataSource = data;
-            }
+            string query = "Select * from PHIEUXUATHANG";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            dgvPXH.DataSource = data;
         }
 
         private void btnTCPXH_Click(object sender, EventArgs e)
@@ -53,8 +50,13 @@ namespace QuanLyDaiLy.Forms
 
         private void btnXPXH_Click(object sender, EventArgs e)
         {
-            string maPhieuXuat = tbxXPXH.Text;
-            XoaPhieuXuat(maPhieuXuat);
+            DataGridViewRow row = dgvPXH.SelectedRows[0];
+            string soPhieuXuat = row.Cells[0].Value.ToString();
+
+
+            string query = "exec deletePXH @SoPhieuXuat ";
+            DataProvider.Instance.ExecuteQuery(query, new object[] { soPhieuXuat });
+            DanhSachPXH_Load(sender, e);
 
         }
         private void XoaPhieuXuat(string maPhieuXuat)
@@ -75,10 +77,17 @@ namespace QuanLyDaiLy.Forms
 
         private void btnSPXH_Click(object sender, EventArgs e)
         {
-            SuaPXH p = new SuaPXH();
-            //this.Hide(); 
-            p.Show();
-            //this.Show();
+            DataGridViewRow row = dgvPXH.SelectedRows[0];
+            string soPhieuXuat = row.Cells[0].Value.ToString();
+            string maDaiLy = row.Cells[1].Value.ToString();
+            string soTienTra = row.Cells[4].Value.ToString();
+            string tongTien = row.Cells[3].Value.ToString();
+            SuaPXH p = new SuaPXH(soPhieuXuat, maDaiLy, soTienTra, tongTien);
+           
+            p.ShowDialog();
+
+            DanhSachPXH_Load(sender,e);
+            
         }
     }
 }
