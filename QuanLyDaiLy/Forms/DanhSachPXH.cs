@@ -73,6 +73,8 @@ namespace QuanLyDaiLy.Forms
             //this.Hide();
             p.ShowDialog();
             //this.Show();
+            DanhSachPXH_Load(sender, e);
+
         }
 
         private void btnSPXH_Click(object sender, EventArgs e)

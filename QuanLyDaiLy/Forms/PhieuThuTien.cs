@@ -52,6 +52,8 @@ namespace QuanLyDaiLy.Forms
             string MaDaiLy = tbxMDL.Text;
             decimal SoTienThu = decimal.Parse(tbxSTT.Text);
             insertData(SoPhieuThu, MaDaiLy, NgayThuTien, SoTienThu);
+
+            MessageBox.Show("them du lieu thanh cong","thong bao",MessageBoxButtons.OK);
         }
 
         private void PhieuThuTien_Load(object sender, EventArgs e)
