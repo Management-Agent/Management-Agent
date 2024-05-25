@@ -24,7 +24,7 @@ namespace QuanLyDaiLy.Forms
             if (!string.IsNullOrWhiteSpace(tbxSLX.Text))
             {
                 string queryString = "exec Update_CT_PXH_SLX @SoPhieuXuat , @MaMatHangXuat , @SoLuongXuat ";
-                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMMHX.Text, tbxSPX.Text });
+                DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPX.Text, tbxMMHX.Text, tbxSLX.Text });
             }
             if (!string.IsNullOrWhiteSpace(tbxDGX.Text))
             {
