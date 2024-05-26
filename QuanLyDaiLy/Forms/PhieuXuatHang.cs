@@ -18,7 +18,7 @@ namespace QuanLyDaiLy.Forms
         public PhieuXuatHang()
         {
             InitializeComponent();
-           
+            mdl();
         }
 
 
@@ -35,13 +35,18 @@ namespace QuanLyDaiLy.Forms
             string query = "exec INSERT_PXH @SoPhieuXuat , @MaDaiLy , @NgayXuatHang , @TongTien , @SoTienTra ";
             decimal tongTien = 0;
            // string queryString = "exec Insert_PXH @SoPhieuXuat , @MaDaiLy , @MaMatHangXuat , @SoLuongXuat , @DonGiaXuat , @SoTienTra , @NgayXuatHang , @MaDVT ";
-            int test = DataProvider.Instance.ExecuteNonQuery(query, new object[] { textBox1.Text, tbxMDL.Text,theDate,tongTien,decimal.Parse(tbxSTT.Text) });
+            int test = DataProvider.Instance.ExecuteNonQuery(query, new object[] { textBox1.Text, cbMDL.Text,theDate,tongTien,decimal.Parse(tbxSTT.Text) });
             if (test > 0)
                 MessageBox.Show("Thêm thành công.");
             else
                 MessageBox.Show("Thêm không thành công.");
         }
+        void mdl()
+        {
 
-        
+        DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDaiLy");
+        cbMDL.DataSource = data;
+          cbMDL.DisplayMember = "MaDaiLy";
+        }
     }
 }

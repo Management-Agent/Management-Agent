@@ -35,10 +35,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSoPhieuThu = new System.Windows.Forms.Label();
-            this.tbxMDL = new System.Windows.Forms.TextBox();
             this.tbxSTT = new System.Windows.Forms.TextBox();
             this.tbxSPT = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbMDL = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // dtbNTT
@@ -105,14 +105,6 @@
             this.lblSoPhieuThu.TabIndex = 95;
             this.lblSoPhieuThu.Text = "Số Phiếu Thu";
             // 
-            // tbxMDL
-            // 
-            this.tbxMDL.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxMDL.Location = new System.Drawing.Point(585, 93);
-            this.tbxMDL.Name = "tbxMDL";
-            this.tbxMDL.Size = new System.Drawing.Size(204, 33);
-            this.tbxMDL.TabIndex = 89;
-            // 
             // tbxSTT
             // 
             this.tbxSTT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -140,19 +132,28 @@
             this.label2.TabIndex = 88;
             this.label2.Text = "Phiếu thu tiền";
             // 
+            // cbMDL
+            // 
+            this.cbMDL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMDL.FormattingEnabled = true;
+            this.cbMDL.Location = new System.Drawing.Point(585, 97);
+            this.cbMDL.Name = "cbMDL";
+            this.cbMDL.Size = new System.Drawing.Size(204, 34);
+            this.cbMDL.TabIndex = 142;
+            // 
             // PhieuThuTien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(824, 382);
+            this.Controls.Add(this.cbMDL);
             this.Controls.Add(this.dtbNTT);
             this.Controls.Add(this.btnInsertPTT);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblSoPhieuThu);
-            this.Controls.Add(this.tbxMDL);
             this.Controls.Add(this.tbxSTT);
             this.Controls.Add(this.tbxSPT);
             this.Controls.Add(this.label2);
@@ -177,9 +178,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblSoPhieuThu;
-        private System.Windows.Forms.TextBox tbxMDL;
         private System.Windows.Forms.TextBox tbxSTT;
         private System.Windows.Forms.TextBox tbxSPT;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbMDL;
     }
 }

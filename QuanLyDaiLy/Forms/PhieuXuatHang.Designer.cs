@@ -34,12 +34,12 @@
             this.dtpNXH = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.btnThemPXH = new System.Windows.Forms.Button();
-            this.tbxMDL = new System.Windows.Forms.TextBox();
             this.lblmdl = new System.Windows.Forms.Label();
             this.tbxSTT = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbMDL = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label2
@@ -97,14 +97,6 @@
             this.btnThemPXH.UseVisualStyleBackColor = true;
             this.btnThemPXH.Click += new System.EventHandler(this.btnThemPXH_Click);
             // 
-            // tbxMDL
-            // 
-            this.tbxMDL.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxMDL.Location = new System.Drawing.Point(263, 192);
-            this.tbxMDL.Name = "tbxMDL";
-            this.tbxMDL.Size = new System.Drawing.Size(494, 33);
-            this.tbxMDL.TabIndex = 126;
-            // 
             // lblmdl
             // 
             this.lblmdl.AutoSize = true;
@@ -154,12 +146,22 @@
             this.textBox1.Size = new System.Drawing.Size(494, 33);
             this.textBox1.TabIndex = 140;
             // 
+            // cbMDL
+            // 
+            this.cbMDL.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMDL.FormattingEnabled = true;
+            this.cbMDL.Location = new System.Drawing.Point(263, 191);
+            this.cbMDL.Name = "cbMDL";
+            this.cbMDL.Size = new System.Drawing.Size(494, 34);
+            this.cbMDL.TabIndex = 141;
+            // 
             // PhieuXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(864, 507);
+            this.Controls.Add(this.cbMDL);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -169,7 +171,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnThemPXH);
             this.Controls.Add(this.tbxSTT);
-            this.Controls.Add(this.tbxMDL);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -189,11 +190,11 @@
         private System.Windows.Forms.DateTimePicker dtpNXH;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnThemPXH;
-        private System.Windows.Forms.TextBox tbxMDL;
         private System.Windows.Forms.Label lblmdl;
         private System.Windows.Forms.TextBox tbxSTT;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbMDL;
     }
 }

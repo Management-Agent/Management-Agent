@@ -17,6 +17,7 @@ namespace QuanLyDaiLy.Forms
         public PhieuThuTien()
         {
             InitializeComponent();
+            mdl();
         }
         void insertData(string SoPhieuThu, string MaDaiLy, DateTime NgayThuTien, decimal SoTienThu)
         {
@@ -49,7 +50,7 @@ namespace QuanLyDaiLy.Forms
         {
             string SoPhieuThu = tbxSPT.Text;
             DateTime NgayThuTien = dtbNTT.Value;
-            string MaDaiLy = tbxMDL.Text;
+            string MaDaiLy = cbMDL.Text;
             decimal SoTienThu = decimal.Parse(tbxSTT.Text);
             insertData(SoPhieuThu, MaDaiLy, NgayThuTien, SoTienThu);
 
@@ -59,6 +60,13 @@ namespace QuanLyDaiLy.Forms
         private void PhieuThuTien_Load(object sender, EventArgs e)
         {
 
+        }
+        void mdl()
+        {
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDaiLy");
+            cbMDL.DataSource = data;
+            cbMDL.DisplayMember = "MaDaiLy";
         }
     }
 }
