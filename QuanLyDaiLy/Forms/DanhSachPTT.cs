@@ -62,6 +62,15 @@ namespace QuanLyDaiLy.Forms
             TraCuuPhieuThu("all");
         }
 
+        private void DanhSachPTT_Load(object sender, EventArgs e)
+        {
 
+            TraCuuPhieuThu("all");
+        }
+
+        private void dgvDSPTT_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TraCuuPhieuThu("all");
+        }
     }
 }

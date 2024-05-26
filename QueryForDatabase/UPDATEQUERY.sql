@@ -3,7 +3,7 @@ USE QUANLYDAILY
 GO
 
 -----Lay thong tin danh sach dai ly
-ALTER proc [dbo].[USP_FindDaiLy]
+create proc [dbo].[USP_FindDaiLy]
 	@DienThoai varchar(10)
 as
 begin
@@ -12,7 +12,7 @@ begin
 	where @DienThoai = DienThoai
 end;
 --------------------------------
-ALTER proc [dbo].[USP_GetDaiLyInfo]
+create proc [dbo].[USP_GetDaiLyInfo]
 as
 begin
 	SELECT MaDaiLy, TenDaiLy,MaLoaiDaiLy, DienThoai, DiaChi,Email,MaQuan,NgayTiepNhan, TongNo
@@ -91,7 +91,7 @@ begin
 	INNER JOIN LOAIDAILY ON DAILY.MaLoaiDaiLy = LOAIDAILY.MaLoaiDaiLy
 	where @DienThoai = DienThoai
 end;
-
+GO
 --Lay thong tin danh sach cong no
 CREATE PROCEDURE USP_GetCongNoInfo
 @Thang int,
@@ -101,6 +101,7 @@ BEGIN
     SELECT TenDaiLy, NoDau, PhatSinh, NoCuoi
     FROM DAILY inner join BAOCAOCONGNO ON DAILY.MaDaiLy = BAOCAOCONGNO.MaDaiLy
 END;
+GO
 ----------------
 CREATE proc [dbo].[USP_GetLoaiDaiLy]
 as
@@ -108,7 +109,7 @@ begin
 	select MaLoaiDaiLy
 	from LOAIDAILY
 end;
-
+GO
 ---------------
 CREATE PROCEDURE Insert_PNH
     @SoPhieuNhap VARCHAR(10),
@@ -483,7 +484,7 @@ END
 
 ----------------------------------------------
 <<<<<<< Updated upstream
-alter PROCEDURE Search_All_PXH
+create PROCEDURE Search_All_PXH
 	@SoPhieuXuat VARCHAR(10)
 AS
 BEGIN
@@ -491,7 +492,7 @@ BEGIN
     FROM PHIEUXUATHANG
 END
 ----------------------------------------------
-alter PROCEDURE Search_Info_PXH
+create PROCEDURE Search_Info_PXH
 	@SoPhieuXuat VARCHAR(10)
 AS
 BEGIN
@@ -500,7 +501,7 @@ BEGIN
 	WHERE @SoPhieuXuat = SoPhieuXuat		
 END
 --------------------------------------------------
-alter PROCEDURE Delete_Info_PXH
+create PROCEDURE Delete_Info_PXH
 	@SoPhieuXuat VARCHAR(10)
 AS
 BEGIN
@@ -510,7 +511,7 @@ BEGIN
 	WHERE SoPhieuXuat = @SoPhieuXuat
 END
 ---------------------------------------------
-alter PROCEDURE Update_CT_PXH_SLX
+create PROCEDURE Update_CT_PXH_SLX
 	@SoPhieuXuat VARCHAR(10),
 	@MaMatHangXuat VARCHAR(50),
 	@SoLuongXuat BIGINT
@@ -923,7 +924,7 @@ begin
 end
 --------------------------------
 alter proc Insert_PXH;
-alter PROCEDURE Insert_PXH
+create PROCEDURE Insert_PXH
     @SoPhieuXuat VARCHAR(10),
 	@MaDaiLy VARCHAR(10),
 	@NgayXuatHang DATE,
@@ -1131,7 +1132,7 @@ begin
 	insert into CT_PXH(SoPhieuXuat,MaMatHangXuat,SoLuongXuat,DonGiaXuat,ThanhTien)
 	values(@SoPhieuXuat,@MaMatHangXuat,@SoLuongXuat,@DonGiaXuat,@ThanhTien)
 end
-
+-------------------------------
 create procedure USP_update_CT_PXH
 @SoPhieuXuat varchar(10),
 @MaMatHangXuat varchar(10),
@@ -1151,7 +1152,7 @@ begin
 end
 
 ------------------------------
-alter TRIGGER trigger_insert_ct_pxh
+create TRIGGER trigger_insert_ct_pxh
 ON CT_PXH
 AFTER insert
 AS
@@ -1166,8 +1167,8 @@ BEGIN
 	where sophieuxuat =@SoPhieuXuat 	
 END;
 GO
-
-alter TRIGGER trigger_delete_ct_pxh
+-----------------------------------
+create TRIGGER trigger_delete_ct_pxh
 ON CT_PXH
 AFTER delete
 AS
@@ -1182,9 +1183,9 @@ BEGIN
 	where sophieuxuat =@SoPhieuXuat 	
 END;
 GO
+------------------------------------
 
-
-alter TRIGGER trigger_update_ct_pxh
+create TRIGGER trigger_update_ct_pxh
 ON CT_PXH
 AFTER UPDATE
 AS
@@ -1202,7 +1203,7 @@ BEGIN
 	where sophieuxuat =@SoPhieuXuat 	
 END;
 GO
-
+------------------------------
 create procedure delete_ct_pxh
 @SoPhieuXuat varchar(10),
 @MaMatHangXuat varchar(10)
@@ -1212,9 +1213,9 @@ begin
 	where
 	SoPhieuXuat =@SoPhieuXuat and MaMatHangXuat =@MaMatHangXuat
 end
+---------------------------------
 
-
-alter procedure tongthanhtien
+create procedure tongthanhtien
 @SoPhieuXuat varchar(10)
 as
 begin
@@ -1223,7 +1224,7 @@ begin
 	where
 	SoPhieuXuat =@SoPhieuXuat
 end
-
+----------------------
 create procedure updatePXH
 @SoPhieuXuat varchar(10),
 @SoTienTra money
@@ -1233,7 +1234,7 @@ begin
 	set SoTienTra = @SoTienTra
 	where SoPhieuXuat =@SoPhieuXuat
 end
-
+---------------------------
 create procedure deletePXH
 @SoPhieuXuat varchar(10)
 as

@@ -46,35 +46,6 @@ END
 GO
 ------------------------------------------------
 drop trigger tr_PHIEUXUATHANG_TongTien
-CREATE TRIGGER tr_PHIEUXUATHANG_TongTien
-ON CT_PXH
-FOR INSERT, UPDATE, DELETE
-AS
-BEGIN 
-IF EXISTS (SELECT 1 FROM inserted)
-	BEGIN 
-	UPDATE PHIEUXUATHANG
-	SET TongTien =(
-	Select sum(ThanhTien)
-	FROM CT_PXH
-	WHERE CT_PXH.SoPhieuXuat = PHIEUXUATHANG.SoPhieuXuat
-	)
-	WHERE PHIEUXUATHANG.SoPhieuXuat IN
-	(SELECT SoPhieuXuat FROM inserted)
-END
-ELSE
-BEGIN 
-	UPDATE PHIEUXUATHANG
-	SET TongTien =(
-	select sum(ThanhTien)
-	FROM CT_PXH
-	WHERE CT_PXH.SoPhieuXuat = PHIEUXUATHANG.SoPhieuXuat
-	)
-	WHERE PHIEUXUATHANG.SoPhieuXuat IN
-	(SELECT SoPhieuXuat FROM deleted)
-END
-END;
-GO
 
 --------------------------------------
 DROP TRIGGER tr_ThanhTien

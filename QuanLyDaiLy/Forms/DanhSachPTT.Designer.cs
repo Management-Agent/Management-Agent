@@ -57,6 +57,7 @@
             this.dgvDSPTT.RowTemplate.Height = 24;
             this.dgvDSPTT.Size = new System.Drawing.Size(659, 124);
             this.dgvDSPTT.TabIndex = 63;
+            this.dgvDSPTT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSPTT_CellContentClick);
             // 
             // colSPN
             // 
@@ -160,6 +161,7 @@
             this.Name = "DanhSachPTT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DanhSachPTT";
+            this.Load += new System.EventHandler(this.DanhSachPTT_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPTT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
