@@ -25,6 +25,7 @@ namespace QuanLyDaiLy.Forms
             //this.Hide();
             p.ShowDialog();
             //this.Show();   
+            TraCuuPhieuThu("all");
         }
 
         private void btnTCPTT_Click(object sender, EventArgs e)
