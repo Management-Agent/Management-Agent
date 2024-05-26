@@ -44,6 +44,7 @@
             // 
             // dgvDSPTT
             // 
+            this.dgvDSPTT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSPTT.BackgroundColor = System.Drawing.Color.LightBlue;
             this.dgvDSPTT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSPTT.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -66,7 +67,6 @@
             this.colSPN.MinimumWidth = 6;
             this.colSPN.Name = "colSPN";
             this.colSPN.ReadOnly = true;
-            this.colSPN.Width = 150;
             // 
             // colMMH
             // 
@@ -75,7 +75,6 @@
             this.colMMH.MinimumWidth = 6;
             this.colMMH.Name = "colMMH";
             this.colMMH.ReadOnly = true;
-            this.colMMH.Width = 150;
             // 
             // colSLN
             // 
@@ -83,7 +82,6 @@
             this.colSLN.HeaderText = "Ngày thu tiền";
             this.colSLN.MinimumWidth = 6;
             this.colSLN.Name = "colSLN";
-            this.colSLN.Width = 150;
             // 
             // colDGN
             // 
@@ -91,7 +89,6 @@
             this.colDGN.HeaderText = "Số tiền thu";
             this.colDGN.MinimumWidth = 6;
             this.colDGN.Name = "colDGN";
-            this.colDGN.Width = 150;
             // 
             // btnTCPTT
             // 
