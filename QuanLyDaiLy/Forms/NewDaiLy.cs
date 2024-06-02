@@ -42,11 +42,29 @@ namespace QuanLyDaiLy
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string theDate = NgayTiepNhanBox.Value.ToString("yyyy-MM-dd");
-            string queryString = "exec Insert_DaiLy @TenDaiLy , @MaLoaiDaiLy , @DienThoai , @DiaChi , @Email , @MaQuan , @NgayTiepNhan , @TongNo ";
-            int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { TenDaiLyBox.Text, LoaiDaiLyBox.Text, DienThoaiBox.Text, DiaChiBox.Text, EmailBox.Text, QuanBox.Text, theDate, 0 });
-            if (test != 0) MessageBox.Show("Them thanh cong.");
-            else MessageBox.Show("Them khong thanh cong.");
+            if(DienThoaiBox.Text == "")
+            {
+                MessageBox.Show("Thiếu thông tin số điện thoại để liên hệ.");
+                return;
+            }
+            try
+            {
+                string undefine = "Undefine";
+                string tenDaiLy = TenDaiLyBox.Text; if (tenDaiLy == "") tenDaiLy = undefine;
+                string diachi = DiaChiBox.Text; if (diachi == "") diachi = undefine;
+                string email = EmailBox.Text; if (email == "") email = undefine;
+
+                string theDate = NgayTiepNhanBox.Value.ToString("yyyy-MM-dd");
+                string queryString = "exec Insert_DaiLy @TenDaiLy , @MaLoaiDaiLy , @DienThoai , @DiaChi , @Email , @MaQuan , @NgayTiepNhan , @TongNo ";
+                int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tenDaiLy, LoaiDaiLyBox.Text, DienThoaiBox.Text, diachi, email, QuanBox.Text, theDate, 0 });
+                if (test != 0) MessageBox.Show("Thêm thành công.");
+                else MessageBox.Show("Thêm không thành công.");
+            }
+            catch
+            {
+                MessageBox.Show("Thêm không thành công! Vui lòng nhập số điện thoại hợp lệ.");
+            }
+            
         }
 
         private void LoaiDaiLyBox_SelectedIndexChanged(object sender, EventArgs e)
