@@ -1,4 +1,4 @@
-﻿using Dapper;
+﻿
 using QuanLyDaiLy.Scripts;
 using System;
 using System.Collections.Generic;
@@ -121,10 +121,11 @@ namespace QuanLyDaiLy
             return list;
         }
 
-        private List<DaiLy> getListDaiLyBySDT(string DienThoai)
+        private List<DaiLy> getListDaiLyBySDT(string TenDaiLy)
         {
             List<DaiLy> list = new List<DaiLy>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("exec USP_FindDaiLy @DienThoai", new object[] { DienThoai});
+            string query = string.Format("SELECT * FROM DAILY where dbo.fuConvertToUnsign1(TenDaiLy) like N'%' + dbo.fuConvertToUnsign1(N'{0}') + '%'", TenDaiLy);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
                 DaiLy daiLy = new DaiLy(item);

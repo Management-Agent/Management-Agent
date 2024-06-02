@@ -159,9 +159,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F);
             this.label2.Location = new System.Drawing.Point(12, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(311, 31);
+            this.label2.Size = new System.Drawing.Size(206, 31);
             this.label2.TabIndex = 44;
-            this.label2.Text = "Tìm kiếm mã đại lý, tên đại lý";
+            this.label2.Text = "Tìm kiếm mã đại lý";
             // 
             // button3
             // 

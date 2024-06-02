@@ -16,7 +16,6 @@ namespace QuanLyDaiLy
     public partial class Dashboard : Form
     {
         List<ThamSo> thamso = new List<ThamSo>();
-        DataAccess db = new DataAccess();
         public Dashboard()
         {
             InitializeComponent();
