@@ -338,6 +338,8 @@ GO
 ALTER TABLE BAOCAOCONGNO
 ADD CONSTRAINT PK_BAOCAOCONGNO PRIMARY KEY(MaDaiLy,Thang,Nam);
  GO
+ ----------------------------
+
 -----------------------------
 
 CREATE TRIGGER trgAfterInsertOnBAOCAOCONGNO

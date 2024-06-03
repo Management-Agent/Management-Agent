@@ -98,10 +98,8 @@ namespace QuanLyDaiLy.Forms
                 
                   
             }
-
-
-
-
+            needDelete.Clear();
+            needUpdate.Clear();
         }
 
         private void LoadMaDVTColumn()
@@ -111,7 +109,7 @@ namespace QuanLyDaiLy.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            string query = @"INSERT INTO MATHANG(TenMatHang,MaDVT,SoLuongTon) values (null,null,0)";
+            string query = @"INSERT INTO MATHANG(TenMatHang,MaDVT,SoLuongTon) values ('Undefine',null,0)";
             DataProvider.Instance.ExecuteNonQuery(query);
             MatHang_Load(sender, e);
         }
@@ -135,11 +133,17 @@ namespace QuanLyDaiLy.Forms
                 DataGridViewRow clone = CloneDataGridViewRow(selectedRow);
                 needDelete.Add(clone);
                 // Xóa hàng khỏi DataGridView
-                dataGridView1.Rows.Remove(selectedRow);
+                DialogResult dialogResult = MessageBox.Show("Xác nhận xóa mặt hàng này?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    dataGridView1.Rows.Remove(selectedRow);
+                    buttonSave_Click(sender, e);
+                }
+                
             }
             else
             {
-                MessageBox.Show("Hãy chọn một hàng để xóa.");
+                MessageBox.Show("Hãy chọn một mặt hàng để xóa.");
             }
         }
 
@@ -174,12 +178,8 @@ namespace QuanLyDaiLy.Forms
                     maDVT = "null";
                 }
                 int soLuongTon = int.Parse(row.Cells[4].Value.ToString());
-
-
-
-
                 string query = @"USP_UpdateMatHang @MaMatHang , @TenMatHang , @MaDVT , @SoLuongTon ";
-                DataProvider.Instance.ExecuteNonQuery(query, new object[] { maMatHang, tenMatHang, maDVT , soLuongTon });
+                DataProvider.Instance.ExecuteNonQuery(query, new object[] { maMatHang, tenMatHang, maDVT, soLuongTon });
             }
 
             foreach (DataGridViewRow row in needDelete)
@@ -189,10 +189,19 @@ namespace QuanLyDaiLy.Forms
                 string maMatHang = row.Cells[1].Value.ToString();
                 string query = @"USP_DeleteMatHang @MaMatHang ";
                 DataProvider.Instance.ExecuteNonQuery(query, new object[] { maMatHang });
+                MessageBox.Show("Xóa thành công!");
 
             }
-            needDelete.Clear();
-            needUpdate.Clear();
+
+            if(needDelete.Count == 0 && needUpdate.Count == 0)
+            {
+                MessageBox.Show("Không có sự thay đổi nào!");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thành công!");
+            }
+            MatHang_Load(sender, e);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
