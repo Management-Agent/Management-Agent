@@ -44,7 +44,7 @@ namespace QuanLyDaiLy
         {
             if(DienThoaiBox.Text == "")
             {
-                MessageBox.Show("Thiếu thông tin số điện thoại để liên hệ.");
+                MessageBox.Show("Thiếu thông tin (số điện thoại) liên hệ.");
                 return;
             }
             try
@@ -53,8 +53,33 @@ namespace QuanLyDaiLy
                 string tenDaiLy = TenDaiLyBox.Text; if (tenDaiLy == "") tenDaiLy = undefine;
                 string diachi = DiaChiBox.Text; if (diachi == "") diachi = undefine;
                 string email = EmailBox.Text; if (email == "") email = undefine;
-
                 string theDate = NgayTiepNhanBox.Value.ToString("yyyy-MM-dd");
+
+                DataTable subData = DataProvider.Instance.ExecuteQuery("exec USP_GetDaiLyInfoThroughMaQuan @MaQuan", new object[] { QuanBox.Text });
+
+                string[] arrayTenDaiLy = subData.AsEnumerable()
+                    .Select(row => row.Field<string>("TenDaiLy"))
+                    .ToArray();
+
+                string query = @"Select GiaTri from THAMSO where TenThamSo = 'SoDaiLyToiDa'";
+                int SoDaiLyToiDa = (int)DataProvider.Instance.ExecuteScalar(query);
+
+                if (arrayTenDaiLy.Length >= SoDaiLyToiDa)
+                {
+                    MessageBox.Show("Số đại lý trong quận này đã đạt tối đa!");
+                    return;
+                }
+
+                foreach (string name in arrayTenDaiLy)
+                {
+                    if(name == undefine) { continue; }
+                    if(name == tenDaiLy)
+                    {
+                        MessageBox.Show("Tên đại lý đã tồn tại trong quận này, vui lòng chọn tên khác!");
+                        return;
+                    }
+                }
+
                 string queryString = "exec Insert_DaiLy @TenDaiLy , @MaLoaiDaiLy , @DienThoai , @DiaChi , @Email , @MaQuan , @NgayTiepNhan , @TongNo ";
                 int test = DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tenDaiLy, LoaiDaiLyBox.Text, DienThoaiBox.Text, diachi, email, QuanBox.Text, theDate, 0 });
                 if (test != 0) MessageBox.Show("Thêm thành công.");

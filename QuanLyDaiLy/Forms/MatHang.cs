@@ -109,7 +109,7 @@ namespace QuanLyDaiLy.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            string query = @"INSERT INTO MATHANG(TenMatHang,MaDVT,SoLuongTon) values ('Undefine',null,0)";
+            string query = @"INSERT INTO MATHANG(TenMatHang,MaDVT,SoLuongTon) values (null,null,0)";
             DataProvider.Instance.ExecuteNonQuery(query);
             MatHang_Load(sender, e);
         }
@@ -178,6 +178,9 @@ namespace QuanLyDaiLy.Forms
                     maDVT = "null";
                 }
                 int soLuongTon = int.Parse(row.Cells[4].Value.ToString());
+
+                if (tenMatHang == "") tenMatHang = "Undefine";
+
                 string query = @"USP_UpdateMatHang @MaMatHang , @TenMatHang , @MaDVT , @SoLuongTon ";
                 DataProvider.Instance.ExecuteNonQuery(query, new object[] { maMatHang, tenMatHang, maDVT, soLuongTon });
             }

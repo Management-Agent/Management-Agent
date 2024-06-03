@@ -118,6 +118,7 @@
             this.textBoxSoDaiLyToiDa.Name = "textBoxSoDaiLyToiDa";
             this.textBoxSoDaiLyToiDa.Size = new System.Drawing.Size(134, 33);
             this.textBoxSoDaiLyToiDa.TabIndex = 13;
+            this.textBoxSoDaiLyToiDa.TextChanged += new System.EventHandler(this.textBoxSoDaiLyToiDa_TextChanged);
             this.textBoxSoDaiLyToiDa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSoDaiLyToiDa_KeyPress);
             // 
             // textBoxTiLeDonGia

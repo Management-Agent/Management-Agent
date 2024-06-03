@@ -145,5 +145,10 @@ namespace QuanLyDaiLy.Forms
             SuaThamSo_Load(sender, e);
 
         }
+
+        private void textBoxSoDaiLyToiDa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

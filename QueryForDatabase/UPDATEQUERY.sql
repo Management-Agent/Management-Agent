@@ -117,6 +117,18 @@ begin
 	where @DienThoai = DienThoai
 end;
 GO
+
+--Lay tat ca ma dai ly, ten dai ly thuoc 1 quan nao do
+create proc USP_GetDaiLyInfoThroughMaQuan
+	@MaQuan varchar(10)
+as
+begin
+	SELECT MaDaiLy, TenDaiLy
+	from DAILY
+	where @MaQuan = MaQuan
+end;
+GO
+
 --Lay thong tin danh sach cong no
 CREATE PROCEDURE USP_GetCongNoInfo
 @Thang int,
