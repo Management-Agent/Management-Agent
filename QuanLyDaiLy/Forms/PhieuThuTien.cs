@@ -17,9 +17,9 @@ namespace QuanLyDaiLy.Forms
         public PhieuThuTien()
         {
             InitializeComponent();
-            mdl();
+            //mdl();
         }
-        void insertData(string SoPhieuThu, string MaDaiLy, DateTime NgayThuTien, decimal SoTienThu)
+        void insertData(string SoPhieuThu, string MaDaiLy, DateTime NgayThuTien, string SoTienThu)
         {
             SqlConnection conn = new SqlConnection(DataProvider.Instance.connectionSTR);
             string query = "INSERT INTO PHIEUTHUTIEN (SoPhieuThu, MaDaiLy, NgayThuTien, SoTienThu) VALUES (@SoPhieuThu, @MaDaiLy, @NgayThuTien, @SoTienThu)";
@@ -51,7 +51,7 @@ namespace QuanLyDaiLy.Forms
             string SoPhieuThu = tbxSPT.Text;
             DateTime NgayThuTien = dtbNTT.Value;
             string MaDaiLy = cbMDL.Text;
-            decimal SoTienThu = decimal.Parse(tbxSTT.Text);
+            string SoTienThu = tbxSTT.Text;
             insertData(SoPhieuThu, MaDaiLy, NgayThuTien, SoTienThu);
 
             MessageBox.Show("them du lieu thanh cong","thong bao",MessageBoxButtons.OK);
@@ -61,12 +61,12 @@ namespace QuanLyDaiLy.Forms
         {
 
         }
-        void mdl()
-        {
+        //void mdl()
+        //{
 
-            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDaiLy");
-            cbMDL.DataSource = data;
-            cbMDL.DisplayMember = "MaDaiLy";
-        }
+        //    DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDaiLy");
+        //    cbMDL.DataSource = data;
+        //    cbMDL.DisplayMember = "MaDaiLy";
+        //}
     }
 }
