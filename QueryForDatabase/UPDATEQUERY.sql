@@ -49,7 +49,7 @@ ALTER procedure [dbo].[Insert_DaiLy]
 	@MaLoaiDaiLy varchar(10),
 	@DienThoai varchar(10),
 	@DiaChi varchar(200),
-	@Email varchar(40),
+	@Email varchar(255),
 	@MaQuan varchar(10),
 	@NgayTiepNhan date,
 	@TongNo money
@@ -119,11 +119,11 @@ end;
 GO
 
 --Lay tat ca ma dai ly, ten dai ly thuoc 1 quan nao do
-create proc USP_GetDaiLyInfoThroughMaQuan
+alter proc USP_GetDaiLyInfoThroughMaQuan
 	@MaQuan varchar(10)
 as
 begin
-	SELECT MaDaiLy, TenDaiLy
+	SELECT TenDaiLy
 	from DAILY
 	where @MaQuan = MaQuan
 end;

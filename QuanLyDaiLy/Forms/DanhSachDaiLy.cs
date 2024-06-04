@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace QuanLyDaiLy
 {
     public partial class DanhSachDaiLy : Form
@@ -148,7 +147,33 @@ namespace QuanLyDaiLy
 
         private void modifyButton_Click(object sender, EventArgs e)
         {
-            
+            DataTable subData = DataProvider.Instance.ExecuteQuery("exec USP_GetDaiLyInfoThroughMaQuan @MaQuan", new object[] { TenQuanComboBox.Text });
+            string[] arrayTenDaiLy;
+            if(subData.Rows.Count != 0)
+            {
+                arrayTenDaiLy = subData.AsEnumerable()
+                .Select(row => row.Field<string>("TenDaiLy"))
+                .ToArray();
+                string query = @"Select GiaTri from THAMSO where TenThamSo = 'SoDaiLyToiDa'";
+                int SoDaiLyToiDa = (int)DataProvider.Instance.ExecuteScalar(query);
+
+                if (arrayTenDaiLy.Length >= SoDaiLyToiDa)
+                {
+                    MessageBox.Show("Số đại lý trong quận này đã đạt tối đa!");
+                    return;
+                }
+
+                foreach (string name in arrayTenDaiLy)
+                {
+                    if (name == "Undefine")
+                    { continue; }
+                    if (name == TenDaiLyBox.Text)
+                    {
+                        MessageBox.Show("Tên đại lý đã tồn tại trong quận này, vui lòng chọn tên khác!");
+                        return;
+                    }
+                }
+            }
             try
             {
                 DataProvider.Instance.ExecuteNonQuery("exec Update_DAILY @MaDaiLy , @TenDaiLy , @MaLoaiDaiLy , @DienThoai , @Email , @MaQuan", new object[] { MaDaiLyBox.Text, TenDaiLyBox.Text, LoaiDaiLyComboBox.Text, SDTBox.Text, EmailBox.Text, TenQuanComboBox.Text });
