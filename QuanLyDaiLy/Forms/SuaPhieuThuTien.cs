@@ -24,7 +24,10 @@ namespace QuanLyDaiLy.Forms
             {
                 string queryString = "exec Update_PTT_STT @SoPhieuThu , @MaDaiLy , @SoTienThu ";
                 DataProvider.Instance.ExecuteNonQuery(queryString, new object[] { tbxSPT.Text, tbxMDL.Text, tbxSTT.Text });
+                MessageBox.Show("Thêm thành công.");
             }
+            else
+                MessageBox.Show("Thêm không thành công.");
             TraCuuPTT_SPT(tbxSPT.Text);
         }
         private void TraCuuPTT_SPT(string SPT)

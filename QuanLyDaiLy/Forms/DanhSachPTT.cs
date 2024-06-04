@@ -67,11 +67,28 @@ namespace QuanLyDaiLy.Forms
         {
 
             TraCuuPhieuThu("all");
+            bindingPT();
+        }
+
+        private void bindingPT()
+        {
+            SPT.DataBindings.Add(new Binding("text", dgvDSPTT.DataSource, "SoPhieuThu", true, DataSourceUpdateMode.Never));
+            MDL.DataBindings.Add(new Binding("text", dgvDSPTT.DataSource, "MaDaiLy", true, DataSourceUpdateMode.Never));
+            NTT.DataBindings.Add(new Binding("text", dgvDSPTT.DataSource, "NgayThuTien", true, DataSourceUpdateMode.Never));
+            STT.DataBindings.Add(new Binding("text", dgvDSPTT.DataSource, "SoTienThu", true, DataSourceUpdateMode.Never));
         }
 
         private void dgvDSPTT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             TraCuuPhieuThu("all");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SuaPhieuThuTien p = new SuaPhieuThuTien();
+            //this.Hide();
+            p.ShowDialog();
+            //this.Show();
         }
     }
 }
