@@ -16,6 +16,7 @@ namespace QuanLyDaiLy.Forms
         public SuaPhieuThuTien()
         {
             InitializeComponent();
+            showElementIncbMDL();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -52,6 +53,13 @@ namespace QuanLyDaiLy.Forms
             string queryString = "exec Search_All_PTT @SoPhieuThu";
             DataTable data = DataProvider.Instance.ExecuteQuery(queryString, new Object[] { tbxSPT.Text });
             dgvSPTT.DataSource = data;
+        }
+        void showElementIncbMDL()
+        {
+
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDaiLy");
+            tbxMDL.DataSource = data;
+            tbxMDL.DisplayMember = "MaDaiLy";
         }
     }
 }

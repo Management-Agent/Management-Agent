@@ -2,6 +2,13 @@ USE QUANLYDAILY
 
 GO
 
+create proc [dbo].[USP_GetMaDaiLy]
+as
+begin
+	select MaDaiLy
+	from DAILY
+end;
+
 CREATE FUNCTION [dbo].[fuConvertToUnsign1]
 ( @strInput NVARCHAR(4000) )
 RETURNS NVARCHAR(4000) 

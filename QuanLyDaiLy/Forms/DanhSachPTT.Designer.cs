@@ -39,14 +39,6 @@
             this.btnTPTT = new System.Windows.Forms.Button();
             this.tbxTCPTT = new System.Windows.Forms.TextBox();
             this.tbxXPTT = new System.Windows.Forms.TextBox();
-            this.NTT = new System.Windows.Forms.TextBox();
-            this.SPT = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.MDL = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.STT = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSPTT)).BeginInit();
@@ -66,7 +58,7 @@
             this.dgvDSPTT.Name = "dgvDSPTT";
             this.dgvDSPTT.RowHeadersWidth = 51;
             this.dgvDSPTT.RowTemplate.Height = 24;
-            this.dgvDSPTT.Size = new System.Drawing.Size(407, 258);
+            this.dgvDSPTT.Size = new System.Drawing.Size(710, 258);
             this.dgvDSPTT.TabIndex = 63;
             this.dgvDSPTT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSPTT_CellContentClick);
             // 
@@ -149,79 +141,6 @@
             this.tbxXPTT.Size = new System.Drawing.Size(155, 33);
             this.tbxXPTT.TabIndex = 65;
             // 
-            // NTT
-            // 
-            this.NTT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NTT.Location = new System.Drawing.Point(559, 248);
-            this.NTT.Name = "NTT";
-            this.NTT.Size = new System.Drawing.Size(155, 33);
-            this.NTT.TabIndex = 69;
-            // 
-            // SPT
-            // 
-            this.SPT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SPT.Location = new System.Drawing.Point(559, 131);
-            this.SPT.Name = "SPT";
-            this.SPT.ReadOnly = true;
-            this.SPT.Size = new System.Drawing.Size(155, 33);
-            this.SPT.TabIndex = 71;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(417, 187);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 25);
-            this.label2.TabIndex = 66;
-            this.label2.Text = "Mã đại lý";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(417, 131);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 25);
-            this.label10.TabIndex = 70;
-            this.label10.Text = "Số phiếu thu";
-            // 
-            // MDL
-            // 
-            this.MDL.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MDL.Location = new System.Drawing.Point(559, 187);
-            this.MDL.Name = "MDL";
-            this.MDL.Size = new System.Drawing.Size(155, 33);
-            this.MDL.TabIndex = 67;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(417, 248);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 25);
-            this.label3.TabIndex = 68;
-            this.label3.Text = "Ngày thu tiền";
-            // 
-            // STT
-            // 
-            this.STT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STT.Location = new System.Drawing.Point(559, 302);
-            this.STT.Name = "STT";
-            this.STT.Size = new System.Drawing.Size(155, 33);
-            this.STT.TabIndex = 73;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(417, 302);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 25);
-            this.label1.TabIndex = 72;
-            this.label1.Text = "Số tiền thu";
-            // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -254,14 +173,6 @@
             this.ClientSize = new System.Drawing.Size(726, 434);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.STT);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.NTT);
-            this.Controls.Add(this.SPT);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.MDL);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxXPTT);
             this.Controls.Add(this.tbxTCPTT);
             this.Controls.Add(this.btnTPTT);
@@ -294,14 +205,6 @@
         private System.Windows.Forms.Button btnTPTT;
         private System.Windows.Forms.TextBox tbxTCPTT;
         private System.Windows.Forms.TextBox tbxXPTT;
-        private System.Windows.Forms.TextBox NTT;
-        private System.Windows.Forms.TextBox SPT;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox MDL;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox STT;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
     }

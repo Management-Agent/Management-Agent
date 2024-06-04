@@ -17,6 +17,7 @@ namespace QuanLyDaiLy.Forms
         public PhieuThuTien()
         {
             InitializeComponent();
+            showElementIncbMDL();
             //mdl();
         }
         void insertData(string SoPhieuThu, string MaDaiLy, DateTime NgayThuTien, string SoTienThu)
@@ -54,19 +55,19 @@ namespace QuanLyDaiLy.Forms
             string SoTienThu = tbxSTT.Text;
             insertData(SoPhieuThu, MaDaiLy, NgayThuTien, SoTienThu);
 
-            MessageBox.Show("them du lieu thanh cong","thong bao",MessageBoxButtons.OK);
+            MessageBox.Show("Thêm thành công","Thông báo",MessageBoxButtons.OK);
         }
 
         private void PhieuThuTien_Load(object sender, EventArgs e)
         {
 
         }
-        //void mdl()
-        //{
+        void showElementIncbMDL()
+        {
 
-        //    DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDaiLy");
-        //    cbMDL.DataSource = data;
-        //    cbMDL.DisplayMember = "MaDaiLy";
-        //}
+            DataTable data = DataProvider.Instance.ExecuteQuery("USP_GetMaDaiLy");
+            cbMDL.DataSource = data;
+            cbMDL.DisplayMember = "MaDaiLy";
+        }
     }
 }

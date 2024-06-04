@@ -38,11 +38,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxSTT = new System.Windows.Forms.TextBox();
-            this.tbxMDL = new System.Windows.Forms.TextBox();
             this.tbxSPT = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbxMDL = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSPTT)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,11 +55,11 @@
             this.colMMH,
             this.colSLN,
             this.colDGN});
-            this.dgvSPTT.Location = new System.Drawing.Point(68, 53);
+            this.dgvSPTT.Location = new System.Drawing.Point(12, 53);
             this.dgvSPTT.Name = "dgvSPTT";
             this.dgvSPTT.RowHeadersWidth = 51;
             this.dgvSPTT.RowTemplate.Height = 24;
-            this.dgvSPTT.Size = new System.Drawing.Size(654, 124);
+            this.dgvSPTT.Size = new System.Drawing.Size(782, 124);
             this.dgvSPTT.TabIndex = 64;
             // 
             // colSPN
@@ -137,16 +137,6 @@
             this.tbxSTT.Size = new System.Drawing.Size(204, 33);
             this.tbxSTT.TabIndex = 71;
             // 
-            // tbxMDL
-            // 
-            this.tbxMDL.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxMDL.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tbxMDL.Location = new System.Drawing.Point(252, 243);
-            this.tbxMDL.Name = "tbxMDL";
-            this.tbxMDL.ReadOnly = true;
-            this.tbxMDL.Size = new System.Drawing.Size(204, 33);
-            this.tbxMDL.TabIndex = 70;
-            // 
             // tbxSPT
             // 
             this.tbxSPT.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -189,12 +179,21 @@
             this.label1.TabIndex = 79;
             this.label1.Text = "Sửa phiếu thu tiền";
             // 
+            // tbxMDL
+            // 
+            this.tbxMDL.FormattingEnabled = true;
+            this.tbxMDL.Location = new System.Drawing.Point(252, 246);
+            this.tbxMDL.Name = "tbxMDL";
+            this.tbxMDL.Size = new System.Drawing.Size(204, 24);
+            this.tbxMDL.TabIndex = 80;
+            // 
             // SuaPhieuThuTien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(797, 411);
+            this.Controls.Add(this.tbxMDL);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSave);
@@ -202,7 +201,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxSTT);
-            this.Controls.Add(this.tbxMDL);
             this.Controls.Add(this.tbxSPT);
             this.Controls.Add(this.dgvSPTT);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -230,10 +228,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxSTT;
-        private System.Windows.Forms.TextBox tbxMDL;
         private System.Windows.Forms.TextBox tbxSPT;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox tbxMDL;
     }
 }
