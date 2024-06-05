@@ -675,25 +675,33 @@ BEGIN
 END
 */	
 
+	
 CREATE PROCEDURE BCDS_month
     @Thang INT,
     @Nam INT
 AS
-BEGIN
-    DECLARE @SoLuongPhieuXuat INT, @TongTriGia FLOAT;
+BEGIN   
+    DECLARE @TongTriGiaTatCa FLOAT;
+    SELECT 
+        @TongTriGiaTatCa = SUM(CTPX.ThanhTien)
+    FROM 
+        PHIEUXUATHANG PX
+        JOIN CT_PXH CTPX ON PX.SoPhieuXuat = CTPX.SoPhieuXuat
+    WHERE 
+        MONTH(PX.NgayXuatHang) = @Thang AND YEAR(PX.NgayXuatHang) = @Nam;
 
     SELECT 
         ROW_NUMBER() OVER (ORDER BY PX.MaDaiLy) AS 'STT',
         PX.MaDaiLy,
         COUNT(*) AS 'Số Phiếu Xuất',
         SUM(CTPX.ThanhTien) AS 'Tổng trị giá',
-        100.0 AS 'Tỉ Lệ'
+        (SUM(CTPX.ThanhTien) / @TongTriGiaTatCa) * 100 AS 'Tỉ Lệ'
     FROM 
         PHIEUXUATHANG PX
         JOIN CT_PXH CTPX ON PX.SoPhieuXuat = CTPX.SoPhieuXuat
     WHERE 
         MONTH(PX.NgayXuatHang) = @Thang AND YEAR(PX.NgayXuatHang) = @Nam  
-	GROUP BY 
+    GROUP BY 
         PX.MaDaiLy
 END
 
