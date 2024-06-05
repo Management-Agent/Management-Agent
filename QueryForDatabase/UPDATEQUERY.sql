@@ -1294,4 +1294,11 @@ begin
 
 end
 
-
+create proc delete_BAOCAOCONGNO
+@MaDaiLy varchar(10)
+as
+begin
+	delete BAOCAOCONGNO
+	where MaDaiLy = @MaDaiLy
+end
+GO

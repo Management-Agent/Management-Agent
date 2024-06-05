@@ -67,6 +67,7 @@ namespace QuanLyDaiLy
             try
             {
                 DataProvider.Instance.ExecuteNonQuery("exec Delete_DAILY @MaDaiLy", new object[] { MaDaiLyBox.Text });
+                DataProvider.Instance.ExecuteNonQuery("exec delete_BAOCAOCONGNO @MaDaiLy", new object[] { MaDaiLyBox.Text });
                 MessageBox.Show("Xóa thành công!");
                 refreshList();
             }
